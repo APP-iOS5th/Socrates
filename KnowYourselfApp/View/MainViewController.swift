@@ -47,7 +47,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             preCell.cellImageView.image = UIImage(named: "aaa")
         }
         cell.entryButton.isHidden = false
-        cell.cellImageView.image = UIImage(named: "bbb")
+        UIView.transition(with: cell.cellImageView,
+                          duration: 0.4,
+                          options: .transitionCrossDissolve,
+                          animations: ({cell.cellImageView.image = UIImage(named: "bbb") }))
         selectedCell = cell
     }
 

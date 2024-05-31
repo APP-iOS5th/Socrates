@@ -12,11 +12,11 @@ protocol CustomCellDelegate: AnyObject {
 }
 
 class CustomTableViewCell: UITableViewCell {
-
+    
     static let identifier = "CustomCell"
     
-     let cellImageView: UIImageView = {
-       let imageview = UIImageView()
+    let cellImageView: UIImageView = {
+        let imageview = UIImageView()
         imageview.image = UIImage(named: "aaa")
         imageview.contentMode = .scaleAspectFill
         imageview.layer.masksToBounds = true
@@ -24,12 +24,13 @@ class CustomTableViewCell: UITableViewCell {
         return imageview
     }()
     
-      let entryButton: UIButton = {
-       let button = UIButton()
+    let entryButton: UIButton = {
+        let button = UIButton()
         button.setTitle("입장", for: .normal)
         button.backgroundColor = .black
         button.layer.cornerRadius = 20
         button.isHidden = true
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -59,5 +60,8 @@ class CustomTableViewCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    @objc private func buttonTapped() {
+        
     }
 }

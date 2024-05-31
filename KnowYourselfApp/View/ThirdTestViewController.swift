@@ -11,7 +11,7 @@ class ThirdTestViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.title = "3"
         // Do any additional setup after loading the view.
     }
     

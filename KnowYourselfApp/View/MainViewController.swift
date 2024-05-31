@@ -51,9 +51,27 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                           duration: 0.4,
                           options: .transitionCrossDissolve,
                           animations: ({cell.cellImageView.image = UIImage(named: "bbb") }))
+        setEntryButtonTarget(for: cell, indexPath: indexPath)
         selectedCell = cell
     }
+    
+    func setEntryButtonTarget(for cell: CustomTableViewCell, indexPath: IndexPath) {
+        cell.entryButton.removeTarget(nil, action: nil, for: .allEvents)
+        cell.entryButton.addAction(UIAction{ _ in
+            self.buttonTapped(indexPath)
+        }, for: .touchUpInside)
+    }
+    
+    func buttonTapped(_ indexPath: IndexPath) {
+        
+        let first = FirstTestViewController()
+        let second = SecondTestViewController()
+        let third = ThirdTestViewController()
+        let fourth = FourthTestViewController()
+        let TestViewGroup = [first, second, third, fourth]
 
+        navigationController?.pushViewController(TestViewGroup[indexPath.row], animated: true)
+    }
     
 }
 

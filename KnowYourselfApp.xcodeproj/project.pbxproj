@@ -117,12 +117,12 @@
 		8FB618C72C09D1E3005E856B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8FB618C42C09D1E3005E856B /* MainViewController.swift */,
 				8FB618C12C09D1E3005E856B /* CustomTableViewCell.swift */,
 				8FB618C22C09D1E3005E856B /* FirstTestViewController.swift */,
-				8FB618C32C09D1E3005E856B /* FourthTestViewController.swift */,
-				8FB618C42C09D1E3005E856B /* MainViewController.swift */,
 				8FB618C52C09D1E3005E856B /* SecondTestViewController.swift */,
 				8FB618C62C09D1E3005E856B /* ThirdTestViewController.swift */,
+				8FB618C32C09D1E3005E856B /* FourthTestViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

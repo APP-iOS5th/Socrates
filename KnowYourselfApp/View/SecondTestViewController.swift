@@ -11,6 +11,7 @@ class SecondTestViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "2"
 
         // Do any additional setup after loading the view.
     }

@@ -42,12 +42,11 @@ class CustomTableViewCell: UITableViewCell {
         
         entryButton.translatesAutoresizingMaskIntoConstraints = false
         
-        cellImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
         
-        cellImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 1.0).isActive = true
         
         NSLayoutConstraint.activate([
-            cellImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            cellImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            cellImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
             cellImageView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.93),
             entryButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             entryButton.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.3),

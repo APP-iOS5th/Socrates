@@ -79,8 +79,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func buttonTapped(_ indexPath: IndexPath) {
         
-        let first = FirstTestViewController()
-        let second = SecondTestViewController()
+        let first = SecondTestViewController()
+        let second = TBalTestViewController()
         let third = ThirdTestViewController()
         let fourth = FourthTestViewController()
         let TestViewGroup = [first, second, third, fourth]

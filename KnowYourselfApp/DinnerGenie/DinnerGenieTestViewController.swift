@@ -24,6 +24,7 @@ class FourthTestViewController: UIViewController {
         button.layer.borderWidth = 2
         button.layer.cornerRadius = 8
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(yesButtonTapped), for: .touchUpInside)
         return button
     }()
     private let noButton: UIButton = {
@@ -33,6 +34,7 @@ class FourthTestViewController: UIViewController {
         button.layer.borderWidth = 2
         button.layer.cornerRadius = 8
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(noButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -69,5 +71,15 @@ class FourthTestViewController: UIViewController {
             noButton.heightAnchor.constraint(equalToConstant: 45)
         ])
         
+    }
+    @objc private func yesButtonTapped() {
+        let nextViewController = SecondGameViewController()
+        navigationController?.pushViewController(nextViewController, animated: true)
+    }
+    @objc private func noButtonTapped() {
+        let nextViewController = SecondGameViewController()
+        navigationController?.pushViewController(nextViewController, animated: true)
+    }
+    class SecondGameViewController: UIViewController {
     }
 }

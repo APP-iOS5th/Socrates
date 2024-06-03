@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8FB618A42C09D123005E856B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618A32C09D123005E856B /* AppDelegate.swift */; };
 		8FB618A62C09D123005E856B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618A52C09D123005E856B /* SceneDelegate.swift */; };
 		8FB618AD2C09D124005E856B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FB618AC2C09D124005E856B /* Assets.xcassets */; };
 		8FB618C82C09D1E3005E856B /* FirstTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618B72C09D1E2005E856B /* FirstTestModel.swift */; };
@@ -20,11 +19,11 @@
 		8FB618D32C09D1E3005E856B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618C42C09D1E3005E856B /* MainViewController.swift */; };
 		8FB618D42C09D1E3005E856B /* OverwatchTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618C52C09D1E3005E856B /* OverwatchTestViewController.swift */; };
 		8FB618D52C09D1E3005E856B /* GuessWhoTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618C62C09D1E3005E856B /* GuessWhoTestViewController.swift */; };
+		8FB618DE2C0D7C51005E856B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618DD2C0D7C51005E856B /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8FB618A02C09D123005E856B /* KnowYourselfApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnowYourselfApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8FB618A32C09D123005E856B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		8FB618A52C09D123005E856B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8FB618AC2C09D124005E856B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8FB618B12C09D124005E856B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -38,6 +37,7 @@
 		8FB618C42C09D1E3005E856B /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8FB618C52C09D1E3005E856B /* OverwatchTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverwatchTestViewController.swift; sourceTree = "<group>"; };
 		8FB618C62C09D1E3005E856B /* GuessWhoTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessWhoTestViewController.swift; sourceTree = "<group>"; };
+		8FB618DD2C0D7C51005E856B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +104,8 @@
 		8FB618D62C0D64B9005E856B /* App */ = {
 			isa = PBXGroup;
 			children = (
-				8FB618A32C09D123005E856B /* AppDelegate.swift */,
 				8FB618A52C09D123005E856B /* SceneDelegate.swift */,
+				8FB618DD2C0D7C51005E856B /* AppDelegate.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -229,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FB618DE2C0D7C51005E856B /* AppDelegate.swift in Sources */,
 				8FB618D12C09D1E3005E856B /* TBalTestViewController.swift in Sources */,
 				8FB618CB2C09D1E3005E856B /* ThirdTestModel.swift in Sources */,
 				8FB618D22C09D1E3005E856B /* DinnerGenieTestViewController.swift in Sources */,
@@ -237,7 +238,6 @@
 				8FB618D42C09D1E3005E856B /* OverwatchTestViewController.swift in Sources */,
 				8FB618C92C09D1E3005E856B /* FourthTestModel.swift in Sources */,
 				8FB618CA2C09D1E3005E856B /* secondTestModel.swift in Sources */,
-				8FB618A42C09D123005E856B /* AppDelegate.swift in Sources */,
 				8FB618D02C09D1E3005E856B /* MainTableViewCell.swift in Sources */,
 				8FB618D32C09D1E3005E856B /* MainViewController.swift in Sources */,
 				8FB618A62C09D123005E856B /* SceneDelegate.swift in Sources */,

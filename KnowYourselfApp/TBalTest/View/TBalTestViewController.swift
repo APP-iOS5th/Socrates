@@ -3,15 +3,53 @@ import UIKit
 import Combine
 
 class TBalTestViewController: UIViewController {
-
-    private var viewModel = QuizViewModel()
+    
+    private var tTestViewModel = QuizViewModel()
     private var cancellables = Set<AnyCancellable>()
     
-    private let questionLabel = UILabel()
-    private let stackView = UIStackView()
-
+    private let tTestProgressView: UIProgressView = {
+        let progressView = UIProgressView(progressViewStyle: .bar)
+        progressView.trackTintColor = .lightGray
+        progressView.progressTintColor = .black
+        progressView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return progressView
+    }()
+    
+    private let tTestProgressCount: UILabel = {
+        let tTestProgressCount = UILabel()
+        tTestProgressCount.textAlignment = .center
+        tTestProgressCount.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        tTestProgressCount.translatesAutoresizingMaskIntoConstraints = false
+        
+        return tTestProgressCount
+    }()
+    
+    private let tTestLabel: UILabel = {
+        let tTestLabel = UILabel()
+        tTestLabel.textAlignment = .center
+        tTestLabel.font = UIFont.systemFont(ofSize: 23, weight: .bold)
+        tTestLabel.numberOfLines = 0
+        tTestLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        return tTestLabel
+    }()
+    
+    private let questionsStackView: UIStackView = {
+        let questionsStackView = UIStackView()
+        questionsStackView.axis = .vertical
+        questionsStackView.spacing = 20
+        questionsStackView.alignment = .fill
+        questionsStackView.distribution = .fillEqually
+        questionsStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return questionsStackView
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.view.backgroundColor = .white
         
         setupUI()
@@ -19,37 +57,47 @@ class TBalTestViewController: UIViewController {
     }
     
     private func setupUI() {
-        view.addSubview(questionLabel)
-        view.addSubview(stackView)
+        self.view.addSubview(tTestProgressView)
+        self.view.addSubview(tTestProgressCount)
+        self.view.addSubview(tTestLabel)
+        self.view.addSubview(questionsStackView)
         
-        questionLabel.translatesAutoresizingMaskIntoConstraints = false
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         
-        stackView.axis = .vertical
-        stackView.spacing = 16
-        stackView.alignment = .fill
-        stackView.distribution = .fillEqually
+        let safeArea = self.view.safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
-            questionLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            questionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            questionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            tTestProgressView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 0),
+            tTestProgressView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            tTestProgressView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            tTestProgressView.heightAnchor.constraint(equalToConstant: 20),
             
-            stackView.topAnchor.constraint(equalTo: questionLabel.bottomAnchor, constant: 16),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            stackView.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor, constant: -16)
+            tTestProgressCount.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 106),
+            tTestProgressCount.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            tTestProgressCount.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            
+            
+            tTestLabel.topAnchor.constraint(equalTo: tTestProgressCount.bottomAnchor, constant: 20),
+            tTestLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16),
+            tTestLabel.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -16),
+            
+            //            questionsStackView.topAnchor.constraint(equalTo: tTestLabel.bottomAnchor, constant: 106),
+            questionsStackView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16),
+            questionsStackView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -16),
+            questionsStackView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -40)
+            
         ])
     }
     
+    var cancellable: Cancellable?
+    // Set<AnyCancellable>를 사용하여 여러 구독을 관리, @Published를 구독하여 상태변경 확인
     private func setupBindings() {
-        viewModel.$currentQuiz
+        tTestViewModel.$currentQuiz
             .sink { [weak self] quiz in
                 self?.updateUI(with: quiz)
             }
             .store(in: &cancellables)
         
-        viewModel.$isQuizCompleted
+        tTestViewModel.$isQuizCompleted
             .sink { [weak self] isCompleted in
                 if isCompleted {
                     self?.showResultViewController()
@@ -58,32 +106,42 @@ class TBalTestViewController: UIViewController {
             .store(in: &cancellables)
     }
     
-    private func updateUI(with quiz: Quiz?) {
+    private func updateUI(with quiz: Ttest?) {
         guard let quiz = quiz else { return }
-        questionLabel.text = quiz.questionAsk
-        stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         
+        tTestProgressView.progress = Float(tTestViewModel.currentQuestionIndex + 1) / 10.0
+        tTestProgressCount.text = "\(tTestViewModel.currentQuestionIndex + 1) / 10"
+        tTestLabel.text = quiz.questionAsk
+        
+        // 기존의 하위뷰를 삭제
+        questionsStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        
+        // questions버튼 생성
         for question in quiz.questions {
-            let button = UIButton(type: .system)
-            button.setTitle(question.content, for: .normal)
-            button.titleLabel?.font = .systemFont(ofSize: 16)
-            button.backgroundColor = .systemBlue
-            button.setTitleColor(.white, for: .normal)
-            button.layer.cornerRadius = 8
-            button.clipsToBounds = true
+            var config = UIButton.Configuration.plain()
+            config.title = question.content
+            config.baseForegroundColor = .white
+            config.background.backgroundColor = .black
+
+            config.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20)
+
+            
+            let button = UIButton(configuration: config)
             button.tag = question.score
-            button.addTarget(self, action: #selector(optionButtonTapped(_:)), for: .touchUpInside)
-            stackView.addArrangedSubview(button)
+            button.titleLabel?.font = .systemFont(ofSize: 18)
+            
+            button.addAction(UIAction { _ in
+                self.tTestViewModel.selectAnswer(button.tag)
+            }, for: .touchUpInside)
+            
+            questionsStackView.addArrangedSubview(button)
+            
         }
     }
     
-    @objc private func optionButtonTapped(_ sender: UIButton) {
-        viewModel.selectAnswer(sender.tag)
-    }
     
+    // 모든 질문 완료시 ResultView로 이동
     private func showResultViewController() {
-//        let resultVC = TtestResultViewController(viewModel: viewModel)
-        self.show(TtestResultViewController(viewModel: viewModel), sender: nil)
-//        present(resultVC, animated: true, completion: nil)
+        self.show(TtestResultViewController(viewModel: tTestViewModel), sender: nil)
     }
 }

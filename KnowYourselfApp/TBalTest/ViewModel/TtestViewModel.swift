@@ -1,12 +1,12 @@
 import Combine
 
 class QuizViewModel: ObservableObject {
-    @Published var currentQuiz: Quiz?
+    @Published var currentQuiz: Ttest?
     @Published var currentQuestionIndex: Int = 0
     @Published var totalScore: Int = 0
     @Published var isQuizCompleted: Bool = false
     
-    private var quizStore = QuizStore()
+    private var quizStore = TtestStore()
     private var count = 0
 
     init() {
@@ -19,12 +19,14 @@ class QuizViewModel: ObservableObject {
             isQuizCompleted = true
             return
         }
-        currentQuiz = quizStore.quizListStore[count] as? Quiz
+        currentQuiz = quizStore.quizListStore[count] as? Ttest
+  
     }
     
     func selectAnswer(_ score: Int) {
         totalScore += score
         count += 1
+        currentQuestionIndex += 1
         loadCurrentQuiz()
     }
 }

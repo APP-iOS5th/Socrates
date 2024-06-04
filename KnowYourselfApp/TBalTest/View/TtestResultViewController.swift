@@ -2,11 +2,11 @@ import UIKit
 
 class TtestResultViewController: UIViewController {
     
-    private let viewModel: QuizViewModel
+    private let viewModel: TtestViewModel
     
     private let resultLabel = UILabel()
     
-    init(viewModel: QuizViewModel) {
+    init(viewModel: TtestViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }

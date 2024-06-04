@@ -24,10 +24,6 @@ class Ttest: TtestProtocol {
     }
 }
 
-struct TtestCount {
-    var count: Int = 0
-}
-
 struct TtestList {
     let content: String
     let score: Int

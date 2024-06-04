@@ -4,8 +4,11 @@ import Combine
 
 class TBalTestViewController: UIViewController {
     
-    private var tTestViewModel = QuizViewModel()
+    // ViewModel
+    private var tTestViewModel = TtestViewModel()
+    // Combine
     private var cancellables = Set<AnyCancellable>()
+    
     
     private let tTestProgressView: UIProgressView = {
         let progressView = UIProgressView(progressViewStyle: .bar)
@@ -46,22 +49,46 @@ class TBalTestViewController: UIViewController {
         return questionsStackView
     }()
     
+    private let backButton: UIButton = {
+        let backButton = UIButton(type: .custom)
+        var config = UIButton.Configuration.filled()
+        config.title = "이전 질문"
+        config.baseBackgroundColor = .black
+        config.baseForegroundColor = .white
+        
+        backButton.configuration = config
+        backButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .semibold)
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        return backButton
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "T Test"
         self.view.backgroundColor = .white
         
         setupUI()
         setupBindings()
+        handlerPrevBtn()
     }
     
+    // BackButton
+    private func handlerPrevBtn() {
+        backButton.addAction(UIAction { [weak self] _ in
+            self?.tTestViewModel.prevQuestion()
+        }, for: .touchUpInside)
+    }
+    
+    // UI
     private func setupUI() {
         self.view.addSubview(tTestProgressView)
         self.view.addSubview(tTestProgressCount)
         self.view.addSubview(tTestLabel)
         self.view.addSubview(questionsStackView)
-        
+        self.view.addSubview(backButton)
         
         let safeArea = self.view.safeAreaLayoutGuide
         
@@ -71,24 +98,24 @@ class TBalTestViewController: UIViewController {
             tTestProgressView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
             tTestProgressView.heightAnchor.constraint(equalToConstant: 20),
             
-            tTestProgressCount.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 106),
+            backButton.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 20),
+            backButton.topAnchor.constraint(equalTo: tTestProgressView.bottomAnchor, constant: 50),
+            
+            tTestProgressCount.bottomAnchor.constraint(equalTo: tTestLabel.topAnchor, constant: -20),
             tTestProgressCount.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
             tTestProgressCount.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             
-            
-            tTestLabel.topAnchor.constraint(equalTo: tTestProgressCount.bottomAnchor, constant: 20),
+            tTestLabel.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor, constant: -50),
             tTestLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16),
             tTestLabel.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -16),
             
-            //            questionsStackView.topAnchor.constraint(equalTo: tTestLabel.bottomAnchor, constant: 106),
             questionsStackView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16),
             questionsStackView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -16),
             questionsStackView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -40)
-            
         ])
     }
     
-    var cancellable: Cancellable?
+    
     // Set<AnyCancellable>를 사용하여 여러 구독을 관리, @Published를 구독하여 상태변경 확인
     private func setupBindings() {
         tTestViewModel.$currentQuiz
@@ -106,6 +133,7 @@ class TBalTestViewController: UIViewController {
             .store(in: &cancellables)
     }
     
+    // Update
     private func updateUI(with quiz: Ttest?) {
         guard let quiz = quiz else { return }
         
@@ -122,20 +150,18 @@ class TBalTestViewController: UIViewController {
             config.title = question.content
             config.baseForegroundColor = .white
             config.background.backgroundColor = .black
-
             config.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20)
-
             
             let button = UIButton(configuration: config)
             button.tag = question.score
             button.titleLabel?.font = .systemFont(ofSize: 18)
+            button.titleLabel?.textAlignment = .center
             
             button.addAction(UIAction { _ in
                 self.tTestViewModel.selectAnswer(button.tag)
             }, for: .touchUpInside)
             
             questionsStackView.addArrangedSubview(button)
-            
         }
     }
     

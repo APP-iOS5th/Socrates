@@ -64,6 +64,8 @@ class TtestResultViewController: UIViewController {
         
         setupUI()
         handlerMoveMain()
+        handlerShareImage()
+        handlerSaveImage()
     }
     
     // UI SetUp
@@ -90,7 +92,6 @@ class TtestResultViewController: UIViewController {
             contentView.widthAnchor.constraint(equalTo: resultScrollView.widthAnchor),
         ])
         imageSetUp()
-        handlerSaveImage()
         stackSetUp()
     }
     
@@ -160,7 +161,14 @@ class TtestResultViewController: UIViewController {
         }, for: .touchUpInside)
     }
     
-    // 공유하기
+    // 이미지 공유하기
+    private func handlerShareImage() {
+        shareBtn.addAction(UIAction { [weak self] _ in
+            guard let image = self?.resultImageView.image else { return }
+            let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+            self?.present(activityViewController, animated: true, completion: nil)
+        }, for: .touchUpInside)
+    }
     
     // 다른 테스트 Main으로 뷰 이동
     private func handlerMoveMain() {

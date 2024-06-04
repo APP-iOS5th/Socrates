@@ -11,6 +11,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
    
     let tableView = UITableView()
     var selectedCell: CustomTableViewCell?
+    var selectedIndexPath: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +27,17 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         view.addSubview(tableView)
         
     }
+    
+    // 각 인덱스별 이미지 이름 배열
+    let prevImages: [String] = ["aaa", "Ttest", "aaa", "aaa"]
+    let nextImages: [String] = ["bbb", "bbb", "bbb", "bbb"]
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CustomTableViewCell else {
                 return UITableViewCell()
             }
         cell.entryButton.isHidden = true
+        cell.cellImageView.image = UIImage(named: prevImages[indexPath.row])
         return cell
     }
     
@@ -40,24 +46,33 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        guard let cell = tableView.cellForRow(at: indexPath) as? CustomTableViewCell else { return }
-        if let preCell = selectedCell {
-            preCell.entryButton.isHidden = true
-            preCell.cellImageView.image = UIImage(named: "aaa")
+            tableView.deselectRow(at: indexPath, animated: true)
+            guard let cell = tableView.cellForRow(at: indexPath) as? CustomTableViewCell else { return }
+            
+            // 이전에 선택된 셀의 이미지와 버튼 상태를 원래대로 되돌림
+            if let previousIndexPath = selectedIndexPath, let preCell = tableView.cellForRow(at: previousIndexPath) as? CustomTableViewCell {
+                preCell.entryButton.isHidden = true
+                preCell.cellImageView.image = UIImage(named: prevImages[previousIndexPath.row])
+            }
+            
+            // 현재 선택된 셀의 이미지와 버튼 상태를 업데이트
+            cell.entryButton.isHidden = false
+            UIView.transition(with: cell.cellImageView,
+                              duration: 0.4,
+                              options: .transitionCrossDissolve,
+                              animations: {
+                cell.cellImageView.image = UIImage(named: self.nextImages[indexPath.row])
+                              })
+            setEntryButtonTarget(for: cell, indexPath: indexPath)
+            
+            // 선택된 셀과 인덱스 경신
+            selectedCell = cell
+            selectedIndexPath = indexPath
         }
-        cell.entryButton.isHidden = false
-        UIView.transition(with: cell.cellImageView,
-                          duration: 0.4,
-                          options: .transitionCrossDissolve,
-                          animations: ({cell.cellImageView.image = UIImage(named: "bbb") }))
-        setEntryButtonTarget(for: cell, indexPath: indexPath)
-        selectedCell = cell
-    }
     
     func setEntryButtonTarget(for cell: CustomTableViewCell, indexPath: IndexPath) {
         cell.entryButton.removeTarget(nil, action: nil, for: .allEvents)
-        cell.entryButton.addAction(UIAction{ _ in
+        cell.entryButton.addAction(UIAction { _ in
             self.buttonTapped(indexPath)
         }, for: .touchUpInside)
     }

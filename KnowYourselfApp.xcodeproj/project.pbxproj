@@ -51,6 +51,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0402927C2C0D817B009F1102 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8FB618C22C09D1E3005E856B /* TBalTestViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0402927D2C0D8182009F1102 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0402927E2C0D8188009F1102 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		8FB618972C09D123005E856B = {
 			isa = PBXGroup;
 			children = (
@@ -131,7 +153,9 @@
 		8FB618D92C0D782B005E856B /* TBalTest */ = {
 			isa = PBXGroup;
 			children = (
-				8FB618C22C09D1E3005E856B /* TBalTestViewController.swift */,
+				0402927E2C0D8188009F1102 /* ViewModel */,
+				0402927D2C0D8182009F1102 /* Model */,
+				0402927C2C0D817B009F1102 /* View */,
 			);
 			path = TBalTest;
 			sourceTree = "<group>";

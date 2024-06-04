@@ -9,7 +9,7 @@ class TBalTestViewController: UIViewController {
     // Combine
     private var cancellables = Set<AnyCancellable>()
     
-    
+    // Progress Bar
     private let tTestProgressView: UIProgressView = {
         let progressView = UIProgressView(progressViewStyle: .bar)
         progressView.trackTintColor = .lightGray
@@ -19,6 +19,7 @@ class TBalTestViewController: UIViewController {
         return progressView
     }()
     
+    // Progress Count
     private let tTestProgressCount: UILabel = {
         let tTestProgressCount = UILabel()
         tTestProgressCount.textAlignment = .center
@@ -28,6 +29,7 @@ class TBalTestViewController: UIViewController {
         return tTestProgressCount
     }()
     
+    // Question Label
     private let tTestLabel: UILabel = {
         let tTestLabel = UILabel()
         tTestLabel.textAlignment = .center
@@ -38,6 +40,7 @@ class TBalTestViewController: UIViewController {
         return tTestLabel
     }()
     
+    // Answer Stack
     private let questionsStackView: UIStackView = {
         let questionsStackView = UIStackView()
         questionsStackView.axis = .vertical
@@ -49,18 +52,19 @@ class TBalTestViewController: UIViewController {
         return questionsStackView
     }()
     
-    private let backButton: UIButton = {
-        let backButton = UIButton(type: .custom)
+    // prev
+    private let prevButton: UIButton = {
+        let prevButton = UIButton(type: .custom)
         var config = UIButton.Configuration.filled()
         config.title = "이전 질문"
         config.baseBackgroundColor = .black
         config.baseForegroundColor = .white
         
-        backButton.configuration = config
-        backButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .semibold)
-        backButton.translatesAutoresizingMaskIntoConstraints = false
+        prevButton.configuration = config
+        prevButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .semibold)
+        prevButton.translatesAutoresizingMaskIntoConstraints = false
         
-        return backButton
+        return prevButton
     }()
     
     
@@ -75,9 +79,9 @@ class TBalTestViewController: UIViewController {
         handlerPrevBtn()
     }
     
-    // BackButton
+    // PrevButton
     private func handlerPrevBtn() {
-        backButton.addAction(UIAction { [weak self] _ in
+        prevButton.addAction(UIAction { [weak self] _ in
             self?.tTestViewModel.prevQuestion()
         }, for: .touchUpInside)
     }
@@ -88,7 +92,7 @@ class TBalTestViewController: UIViewController {
         self.view.addSubview(tTestProgressCount)
         self.view.addSubview(tTestLabel)
         self.view.addSubview(questionsStackView)
-        self.view.addSubview(backButton)
+        self.view.addSubview(prevButton)
         
         let safeArea = self.view.safeAreaLayoutGuide
         
@@ -98,8 +102,8 @@ class TBalTestViewController: UIViewController {
             tTestProgressView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
             tTestProgressView.heightAnchor.constraint(equalToConstant: 20),
             
-            backButton.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 20),
-            backButton.topAnchor.constraint(equalTo: tTestProgressView.bottomAnchor, constant: 50),
+            prevButton.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 20),
+            prevButton.topAnchor.constraint(equalTo: tTestProgressView.bottomAnchor, constant: 50),
             
             tTestProgressCount.bottomAnchor.constraint(equalTo: tTestLabel.topAnchor, constant: -20),
             tTestProgressCount.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),

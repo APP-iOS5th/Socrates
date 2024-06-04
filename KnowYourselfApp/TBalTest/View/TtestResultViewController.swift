@@ -5,6 +5,9 @@ class TtestResultViewController: UIViewController {
     // ViewModel
     private let viewModel: TtestViewModel
     
+    // ImageSaver
+    private let imageSaver = ImageSaver()
+    
     // ScrollView
     private let resultScrollView: UIScrollView = {
         let resultScrollView = UIScrollView()
@@ -60,6 +63,7 @@ class TtestResultViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
+        handlerMoveMain()
     }
     
     // UI SetUp
@@ -71,7 +75,7 @@ class TtestResultViewController: UIViewController {
         
         self.view.addSubview(resultScrollView)
         resultScrollView.addSubview(contentView)
-
+        
         let safeArea = self.view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
             resultScrollView.topAnchor.constraint(equalTo: safeArea.topAnchor),
@@ -86,6 +90,7 @@ class TtestResultViewController: UIViewController {
             contentView.widthAnchor.constraint(equalTo: resultScrollView.widthAnchor),
         ])
         imageSetUp()
+        handlerSaveImage()
         stackSetUp()
     }
     
@@ -141,6 +146,27 @@ class TtestResultViewController: UIViewController {
         default:
             print("Error: Score error!")
         }
+    }
+    
+    // 이미지 저장
+    private func handlerSaveImage() {
+        saveBtn.addAction(UIAction { [weak self] _ in
+            guard let image = self?.resultImageView.image else { return }
+            self?.imageSaver.saveImage(image, target: self, handler: {
+                let alert = UIAlertController(title: "이미지 저장 완료", message: "이미지가 사진 앨범에 저장되었습니다.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+                self?.present(alert, animated: true, completion: nil)
+            })
+        }, for: .touchUpInside)
+    }
+    
+    // 공유하기
+    
+    // 다른 테스트 Main으로 뷰 이동
+    private func handlerMoveMain() {
+        reTestBtn.addAction(UIAction { [weak self] _ in
+            self?.navigationController?.popToRootViewController(animated: true)
+        }, for: .touchUpInside)
     }
 }
 

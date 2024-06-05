@@ -9,6 +9,13 @@ import UIKit
 
 class FourthTestViewController: UIViewController {
     
+    private let progressBar: UIProgressView = {
+        let progressBar = UIProgressView(progressViewStyle: .bar)
+        progressBar.progress = 0.33
+        progressBar.translatesAutoresizingMaskIntoConstraints = false
+        return progressBar
+    }()
+    
     private let questionLabel: UILabel = {
         let label = UILabel()
         label.text = "오늘 저녁은 술과 함께 한다"
@@ -43,6 +50,7 @@ class FourthTestViewController: UIViewController {
         self.title = "저녁메뉴추천 테스트"
         view.backgroundColor = .white
         
+        view.addSubview(progressBar)
         view.addSubview(questionLabel)
         view.addSubview(yesButton)
         view.addSubview(noButton)
@@ -56,6 +64,11 @@ class FourthTestViewController: UIViewController {
     
     private func dinnerGenieQuestion() {
         NSLayoutConstraint.activate([
+            progressBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 34.5),
+            progressBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 45),
+            progressBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -45),
+            progressBar.heightAnchor.constraint(equalToConstant: 20),
+            
             questionLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 200),
             questionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             questionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
@@ -83,6 +96,13 @@ class FourthTestViewController: UIViewController {
     class SecondGameViewController: UIViewController {
         
         var isDrinking = false
+        
+        private let progressBar: UIProgressView = {
+            let progressBar = UIProgressView(progressViewStyle: .bar)
+            progressBar.progress = 0.66
+            progressBar.translatesAutoresizingMaskIntoConstraints = false
+            return progressBar
+        }()
         
         private let spicyLabel: UILabel = {
             let label = UILabel()
@@ -119,7 +139,8 @@ class FourthTestViewController: UIViewController {
             super.viewDidLoad()
             self.title = "저녁메뉴추천 테스트"
             view.backgroundColor = .white
-
+            
+            view.addSubview(progressBar)
             view.addSubview(spicyLabel)
             view.addSubview(yesButton)
             view.addSubview(noButton)
@@ -133,6 +154,11 @@ class FourthTestViewController: UIViewController {
         
         private func dinnerGenieQuestion() {
             NSLayoutConstraint.activate([
+                progressBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 34.5),
+                progressBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 45),
+                progressBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -45),
+                progressBar.heightAnchor.constraint(equalToConstant: 20),
+                
                 spicyLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 200),
                 spicyLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
                 spicyLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
@@ -168,6 +194,13 @@ class FourthTestViewController: UIViewController {
         
         var isDrinking = false
         var wantsSpicy = false
+        
+        private let progressBar: UIProgressView = {
+            let progressBar = UIProgressView(progressViewStyle: .bar)
+            progressBar.progress = 1
+            progressBar.translatesAutoresizingMaskIntoConstraints = false
+            return progressBar
+        }()
         
         private let soupLabel: UILabel = {
             let label = UILabel()
@@ -212,6 +245,7 @@ class FourthTestViewController: UIViewController {
                 self.title = "저녁메뉴추천 테스트"
                 view.backgroundColor = .white
                 
+                view.addSubview(progressBar)
                 view.addSubview(soupLabel)
                 view.addSubview(yesButton)
                 view.addSubview(noButton)
@@ -226,6 +260,11 @@ class FourthTestViewController: UIViewController {
             
             private func dinnerGenieQuestion() {
                 NSLayoutConstraint.activate([
+                    progressBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 34.5),
+                    progressBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 45),
+                    progressBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -45),
+                    progressBar.heightAnchor.constraint(equalToConstant: 20),
+                    
                     soupLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 200),
                     soupLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
                     soupLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),

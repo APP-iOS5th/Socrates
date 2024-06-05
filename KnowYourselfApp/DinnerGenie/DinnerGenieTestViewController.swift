@@ -189,7 +189,7 @@ class FourthTestViewController: UIViewController {
             navigationController?.pushViewController(nextViewController, animated: true)
         }
     }
-
+    
     class ThirdGameViewController: UIViewController {
         
         var isDrinking = false
@@ -218,6 +218,7 @@ class FourthTestViewController: UIViewController {
             button.layer.borderWidth = 2
             button.layer.cornerRadius = 8
             button.translatesAutoresizingMaskIntoConstraints = false
+            button.addTarget(self, action: #selector(yesButtonTapped), for: .touchUpInside)
             return button
         }()
         
@@ -228,60 +229,61 @@ class FourthTestViewController: UIViewController {
             button.layer.borderWidth = 2
             button.layer.cornerRadius = 8
             button.translatesAutoresizingMaskIntoConstraints = false
+            button.addTarget(self, action: #selector(noButtonTapped), for: .touchUpInside)
             return button
         }()
         
         private let resultLabel: UILabel = {
-                let label = UILabel()
-                label.text = ""
-                label.numberOfLines = 0
-                label.textAlignment = .center
-                label.translatesAutoresizingMaskIntoConstraints = false
-                return label
-            }()
+            let label = UILabel()
+            label.text = ""
+            label.numberOfLines = 0
+            label.textAlignment = .center
+            label.translatesAutoresizingMaskIntoConstraints = false
+            return label
+        }()
+        
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            self.title = "저녁메뉴추천 테스트"
+            view.backgroundColor = .white
             
-            override func viewDidLoad() {
-                super.viewDidLoad()
-                self.title = "저녁메뉴추천 테스트"
-                view.backgroundColor = .white
-                
-                view.addSubview(progressBar)
-                view.addSubview(soupLabel)
-                view.addSubview(yesButton)
-                view.addSubview(noButton)
-                view.addSubview(resultLabel)
-                
-                dinnerGenieQuestion()
-                
-                soupLabel.translatesAutoresizingMaskIntoConstraints = false
-                yesButton.translatesAutoresizingMaskIntoConstraints = false
-                noButton.translatesAutoresizingMaskIntoConstraints = false
-            }
+            view.addSubview(progressBar)
+            view.addSubview(soupLabel)
+            view.addSubview(yesButton)
+            view.addSubview(noButton)
+            view.addSubview(resultLabel)
             
-            private func dinnerGenieQuestion() {
-                NSLayoutConstraint.activate([
-                    progressBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 34.5),
-                    progressBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 45),
-                    progressBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -45),
-                    progressBar.heightAnchor.constraint(equalToConstant: 20),
-                    
-                    soupLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 200),
-                    soupLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-                    soupLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-                    
-                    yesButton.topAnchor.constraint(equalTo: soupLabel.bottomAnchor, constant: 76),
-                    yesButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                    yesButton.widthAnchor.constraint(equalToConstant: 80),
-                    yesButton.heightAnchor.constraint(equalToConstant: 45),
-                    
-                    noButton.topAnchor.constraint(equalTo: yesButton.bottomAnchor, constant: 20),
-                    noButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                    noButton.widthAnchor.constraint(equalToConstant: 80),
-                    noButton.heightAnchor.constraint(equalToConstant: 45),
-                    
-                    resultLabel.topAnchor.constraint(equalTo: yesButton.bottomAnchor, constant: 50)
-                    ])
-            }
+            dinnerGenieQuestion()
+            
+            soupLabel.translatesAutoresizingMaskIntoConstraints = false
+            yesButton.translatesAutoresizingMaskIntoConstraints = false
+            noButton.translatesAutoresizingMaskIntoConstraints = false
+        }
+        
+        private func dinnerGenieQuestion() {
+            NSLayoutConstraint.activate([
+                progressBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 34.5),
+                progressBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 45),
+                progressBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -45),
+                progressBar.heightAnchor.constraint(equalToConstant: 20),
+                
+                soupLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 200),
+                soupLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+                soupLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+                
+                yesButton.topAnchor.constraint(equalTo: soupLabel.bottomAnchor, constant: 76),
+                yesButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                yesButton.widthAnchor.constraint(equalToConstant: 80),
+                yesButton.heightAnchor.constraint(equalToConstant: 45),
+                
+                noButton.topAnchor.constraint(equalTo: yesButton.bottomAnchor, constant: 20),
+                noButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                noButton.widthAnchor.constraint(equalToConstant: 80),
+                noButton.heightAnchor.constraint(equalToConstant: 45),
+                
+                resultLabel.topAnchor.constraint(equalTo: yesButton.bottomAnchor, constant: 50)
+            ])
+        }
         
         @objc private func yesButtonTapped() {
             let nextViewController = GameResultViewController()
@@ -290,7 +292,7 @@ class FourthTestViewController: UIViewController {
             nextViewController.wantsSoup = true
             navigationController?.pushViewController(nextViewController, animated: true)
         }
-
+        
         @objc private func noButtonTapped() {
             let nextViewController = GameResultViewController()
             nextViewController.isDrinking = isDrinking
@@ -299,15 +301,109 @@ class FourthTestViewController: UIViewController {
             navigationController?.pushViewController(nextViewController, animated: true)
         }
     }
-
+    
     class GameResultViewController: UIViewController {
         
         var isDrinking = false
         var wantsSpicy = false
         var wantsSoup = false
         
+        private let titleLabel: UILabel = {
+            let label = UILabel()
+            label.text = "오늘의 저녁 추천 메뉴는?"
+            label.font = UIFont.systemFont(ofSize: 20)
+            label.textAlignment = .center
+            label.translatesAutoresizingMaskIntoConstraints = false
+            return label
+        }()
+        private let resultImageView: UIImageView = {
+            let imageView = UIImageView()
+            imageView.contentMode = .scaleAspectFit
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            return imageView
+        }()
+        private let resultLabel: UILabel = {
+            let label = UILabel()
+            label.text = "추천메뉴: 나가사키짬뽕"
+            label.font = UIFont.systemFont(ofSize: 20)
+            label.textAlignment = .center
+            label.translatesAutoresizingMaskIntoConstraints = false
+            return label
+        }()
+        private let shareButton: UIButton = {
+            let button = UIButton(type: .system)
+            button.setTitle("공유", for: .normal)
+            button.setTitleColor(.black, for: .normal)
+            button.layer.borderWidth = 2
+            button.layer.cornerRadius = 8
+            button.translatesAutoresizingMaskIntoConstraints = false
+            return button
+        }()
+        private let saveButton: UIButton = {
+            let button = UIButton(type: .system)
+            button.setTitle("저장", for: .normal)
+            button.setTitleColor(.black, for: .normal)
+            button.layer.borderWidth = 2
+            button.layer.cornerRadius = 8
+            button.translatesAutoresizingMaskIntoConstraints = false
+            return button
+        }()
+        private let homeButton: UIButton = {
+            let button = UIButton(type: .system)
+            button.setTitle("다른 테스트 하러가기", for: .normal)
+            button.setTitleColor(.black, for: .normal)
+            button.layer.borderWidth = 2
+            button.layer.cornerRadius = 8
+            button.translatesAutoresizingMaskIntoConstraints = false
+            return button
+        }()
+        
         override func viewDidLoad() {
             super.viewDidLoad()
+            view.backgroundColor = .white
+            
+            view.addSubview(titleLabel)
+            view.addSubview(resultImageView)
+            view.addSubview(resultLabel)
+            view.addSubview(shareButton)
+            view.addSubview(saveButton)
+            view.addSubview(homeButton)
+            setupConstraints()
+        }
+        
+        private func setupConstraints() {
+            NSLayoutConstraint.activate([
+                
+                titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+                titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                
+                resultImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+                resultImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+                resultImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+                resultImageView.heightAnchor.constraint(equalToConstant: 200),
+                
+                resultLabel.topAnchor.constraint(equalTo: resultImageView.bottomAnchor, constant: 20),
+                resultLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                
+                shareButton.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 40),
+                shareButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+                shareButton.widthAnchor.constraint(equalToConstant: 130),
+                shareButton.heightAnchor.constraint(equalToConstant: 45),
+                
+                saveButton.topAnchor.constraint(equalTo: shareButton.topAnchor),
+                saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+                saveButton.widthAnchor.constraint(equalToConstant: 130),
+                saveButton.heightAnchor.constraint(equalToConstant: 45),
+                
+                homeButton.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 130),
+                homeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                homeButton.widthAnchor.constraint(equalToConstant: 150),
+                homeButton.heightAnchor.constraint(equalToConstant: 45)
+            ])
+        }
+        
+        private func updateResult() {
+            
         }
     }
 }

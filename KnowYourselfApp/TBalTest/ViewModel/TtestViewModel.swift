@@ -18,13 +18,6 @@ class TtestViewModel: ObservableObject {
     
     // Load
     func loadCurrentQuiz() {
-        print("-----------------------------------")
-        print("Totoal Score: \(totalScore)")
-        print("isQuizCompleted: \(isQuizCompleted)")
-        print("currentQuestionIndex: \(currentQuestionIndex)")
-        print("count: \(count)")
-        print("quizListStore Count: \(quizStore.quizListStore.count)")
-        
         guard count < quizStore.quizListStore.count else {
             // 모든 퀴즈를 완료했을 때의 처리 추가
             isQuizCompleted = true

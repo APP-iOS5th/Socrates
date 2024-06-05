@@ -2,9 +2,11 @@ import Combine
 
 class TtestViewModel: ObservableObject {
     @Published var currentQuiz: Ttest?
-    @Published var currentQuestionIndex: Int = 0
-    @Published var totalScore: Int = 0
     @Published var isQuizCompleted: Bool = false
+    
+    var currentQuestionIndex: Int = 0
+    var totalScore: Int = 0
+
     
     private var quizStore = TtestStore()
     private var count = 0
@@ -16,12 +18,19 @@ class TtestViewModel: ObservableObject {
     
     // Load
     func loadCurrentQuiz() {
+        print("-----------------------------------")
+        print("Totoal Score: \(totalScore)")
+        print("isQuizCompleted: \(isQuizCompleted)")
+        print("currentQuestionIndex: \(currentQuestionIndex)")
+        print("count: \(count)")
+        print("quizListStore Count: \(quizStore.quizListStore.count)")
+        
         guard count < quizStore.quizListStore.count else {
             // 모든 퀴즈를 완료했을 때의 처리 추가
             isQuizCompleted = true
             return
         }
-        currentQuiz = quizStore.quizListStore[count] as? Ttest
+        currentQuiz = quizStore.quizListStore[count] as Ttest
   
     }
     
@@ -42,6 +51,16 @@ class TtestViewModel: ObservableObject {
         if let lastScore = prevScore.popLast() {
             totalScore -= lastScore
         }
+        loadCurrentQuiz()
+    }
+    
+    // ViewModel 초기화
+    func reset() {
+        currentQuestionIndex = 0
+        totalScore = 0
+        count = 0
+        prevScore.removeAll()
+        isQuizCompleted = false
         loadCurrentQuiz()
     }
 }

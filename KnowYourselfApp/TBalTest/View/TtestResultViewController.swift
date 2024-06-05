@@ -68,6 +68,19 @@ class TtestResultViewController: UIViewController {
         handlerSaveImage()
     }
     
+    // 결과창에서 뒤로가기 시 중첩되는 오류 발생 - 해결: ViewController가 뒤로가기버튼으로 사라질때 reset()함수 실행
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        /*
+         isMovingFromParent -  뷰 컨트롤러가 네비게이션 스택이나 부모 컨테이너에서 제거되고 있는지 확인
+         isBeingDismissed - 뷰 컨트롤러가 현재 모달로 표시된 상태에서 해제되고 있는지 확인
+         */
+        if self.isMovingFromParent || self.isBeingDismissed {
+            viewModel.reset()
+        }
+    }
+    
     // UI SetUp
     func setupUI() {
         self.title = "Result"

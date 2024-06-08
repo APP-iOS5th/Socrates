@@ -11,14 +11,13 @@ class FourthTestViewController: UIViewController {
     
     private let progressBar: UIProgressView = {
         let progressBar = UIProgressView(progressViewStyle: .bar)
-        progressBar.progress = 0.33
+        progressBar.progress = 0.0
         progressBar.translatesAutoresizingMaskIntoConstraints = false
         return progressBar
     }()
     
     private let questionLabel: UILabel = {
         let label = UILabel()
-        label.text = "오늘 저녁은 술과 함께 한다"
         label.font = UIFont.systemFont(ofSize: 20)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -45,6 +44,13 @@ class FourthTestViewController: UIViewController {
         return button
     }()
     
+    private let questions = ["오늘은 저녁은 술과 함께 한다","자극적인게 땡긴다", "국물 있는 음식이 먹고싶다"]
+    private var currentQuestionIndex = 0
+    private var answers = [Bool]()
+    private var isDrinking = false
+    private var wantsSpicy = false
+    private var wantsSoup = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "저녁메뉴추천 테스트"
@@ -56,6 +62,7 @@ class FourthTestViewController: UIViewController {
         view.addSubview(noButton)
         
         dinnerGenieQuestion()
+        NextdinnerGenieQuestion()
         
         questionLabel.translatesAutoresizingMaskIntoConstraints = false
         yesButton.translatesAutoresizingMaskIntoConstraints = false
@@ -83,225 +90,53 @@ class FourthTestViewController: UIViewController {
             noButton.widthAnchor.constraint(equalToConstant: 80),
             noButton.heightAnchor.constraint(equalToConstant: 45)
         ])
-        
     }
+    
+    private func NextdinnerGenieQuestion() {
+        if currentQuestionIndex < questions.count {
+            questionLabel.text = questions[currentQuestionIndex]
+            progressBar.progress = Float(currentQuestionIndex) / Float(questions.count)
+        } else {
+            showResult()
+        }
+    }
+    
     @objc private func yesButtonTapped() {
-        let nextViewController = SecondGameViewController()
-        navigationController?.pushViewController(nextViewController, animated: true)
+        answers.append(true)
+        updateUserPreferences()
+        currentQuestionIndex += 1
+        NextdinnerGenieQuestion()
     }
+    
     @objc private func noButtonTapped() {
-        let nextViewController = SecondGameViewController()
-        navigationController?.pushViewController(nextViewController, animated: true)
-    }
-    class SecondGameViewController: UIViewController {
-        
-        var isDrinking = false
-        
-        private let progressBar: UIProgressView = {
-            let progressBar = UIProgressView(progressViewStyle: .bar)
-            progressBar.progress = 0.66
-            progressBar.translatesAutoresizingMaskIntoConstraints = false
-            return progressBar
-        }()
-        
-        private let spicyLabel: UILabel = {
-            let label = UILabel()
-            label.text = "자극적인게 땡긴다"
-            label.font = UIFont.systemFont(ofSize: 20)
-            label.textAlignment = .center
-            label.translatesAutoresizingMaskIntoConstraints = false
-            return label
-        }()
-        
-        private let yesButton: UIButton = {
-            let button = UIButton(type: .system)
-            button.setTitle("O", for: .normal)
-            button.setTitleColor(.black, for: .normal)
-            button.layer.borderWidth = 2
-            button.layer.cornerRadius = 8
-            button.translatesAutoresizingMaskIntoConstraints = false
-            button.addTarget(self, action: #selector(yesButtonTapped), for: .touchUpInside)
-            return button
-        }()
-        
-        private let noButton: UIButton = {
-            let button = UIButton(type: .system)
-            button.setTitle("X", for: .normal)
-            button.setTitleColor(.black, for: .normal)
-            button.layer.borderWidth = 2
-            button.layer.cornerRadius = 8
-            button.translatesAutoresizingMaskIntoConstraints = false
-            button.addTarget(self, action: #selector(noButtonTapped), for: .touchUpInside)
-            return button
-        }()
-        
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            self.title = "저녁메뉴추천 테스트"
-            view.backgroundColor = .white
-            
-            view.addSubview(progressBar)
-            view.addSubview(spicyLabel)
-            view.addSubview(yesButton)
-            view.addSubview(noButton)
-            
-            dinnerGenieQuestion()
-            
-            spicyLabel.translatesAutoresizingMaskIntoConstraints = false
-            yesButton.translatesAutoresizingMaskIntoConstraints = false
-            noButton.translatesAutoresizingMaskIntoConstraints = false
-        }
-        
-        private func dinnerGenieQuestion() {
-            NSLayoutConstraint.activate([
-                progressBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 34.5),
-                progressBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 45),
-                progressBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -45),
-                progressBar.heightAnchor.constraint(equalToConstant: 20),
-                
-                spicyLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 200),
-                spicyLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-                spicyLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-                
-                yesButton.topAnchor.constraint(equalTo: spicyLabel.bottomAnchor, constant: 76),
-                yesButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                yesButton.widthAnchor.constraint(equalToConstant: 80),
-                yesButton.heightAnchor.constraint(equalToConstant: 45),
-                
-                noButton.topAnchor.constraint(equalTo: yesButton.bottomAnchor, constant: 20),
-                noButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                noButton.widthAnchor.constraint(equalToConstant: 80),
-                noButton.heightAnchor.constraint(equalToConstant: 45)
-            ])
-        }
-        
-        @objc private func yesButtonTapped() {
-            let nextViewController = ThirdGameViewController()
-            nextViewController.isDrinking = isDrinking
-            nextViewController.wantsSpicy = true
-            navigationController?.pushViewController(nextViewController, animated: true)
-        }
-        
-        @objc private func noButtonTapped() {
-            let nextViewController = ThirdGameViewController()
-            nextViewController.isDrinking = isDrinking
-            nextViewController.wantsSpicy = false
-            navigationController?.pushViewController(nextViewController, animated: true)
-        }
+        answers.append(false)
+        updateUserPreferences()
+        currentQuestionIndex += 1
+        NextdinnerGenieQuestion()
     }
     
-    class ThirdGameViewController: UIViewController {
-        
-        var isDrinking = false
-        var wantsSpicy = false
-        
-        private let progressBar: UIProgressView = {
-            let progressBar = UIProgressView(progressViewStyle: .bar)
-            progressBar.progress = 1
-            progressBar.translatesAutoresizingMaskIntoConstraints = false
-            return progressBar
-        }()
-        
-        private let soupLabel: UILabel = {
-            let label = UILabel()
-            label.text = "국물 있는 음식이 먹고싶다"
-            label.font = UIFont.systemFont(ofSize: 20)
-            label.textAlignment = .center
-            label.translatesAutoresizingMaskIntoConstraints = false
-            return label
-        }()
-        
-        private let yesButton: UIButton = {
-            let button = UIButton(type: .system)
-            button.setTitle("O", for: .normal)
-            button.setTitleColor(.black, for: .normal)
-            button.layer.borderWidth = 2
-            button.layer.cornerRadius = 8
-            button.translatesAutoresizingMaskIntoConstraints = false
-            button.addTarget(self, action: #selector(yesButtonTapped), for: .touchUpInside)
-            return button
-        }()
-        
-        private let noButton: UIButton = {
-            let button = UIButton(type: .system)
-            button.setTitle("X", for: .normal)
-            button.setTitleColor(.black, for: .normal)
-            button.layer.borderWidth = 2
-            button.layer.cornerRadius = 8
-            button.translatesAutoresizingMaskIntoConstraints = false
-            button.addTarget(self, action: #selector(noButtonTapped), for: .touchUpInside)
-            return button
-        }()
-        
-        private let resultLabel: UILabel = {
-            let label = UILabel()
-            label.text = ""
-            label.numberOfLines = 0
-            label.textAlignment = .center
-            label.translatesAutoresizingMaskIntoConstraints = false
-            return label
-        }()
-        
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            self.title = "저녁메뉴추천 테스트"
-            view.backgroundColor = .white
-            
-            view.addSubview(progressBar)
-            view.addSubview(soupLabel)
-            view.addSubview(yesButton)
-            view.addSubview(noButton)
-            view.addSubview(resultLabel)
-            
-            dinnerGenieQuestion()
-            
-            soupLabel.translatesAutoresizingMaskIntoConstraints = false
-            yesButton.translatesAutoresizingMaskIntoConstraints = false
-            noButton.translatesAutoresizingMaskIntoConstraints = false
-        }
-        
-        private func dinnerGenieQuestion() {
-            NSLayoutConstraint.activate([
-                progressBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 34.5),
-                progressBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 45),
-                progressBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -45),
-                progressBar.heightAnchor.constraint(equalToConstant: 20),
-                
-                soupLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 200),
-                soupLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-                soupLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-                
-                yesButton.topAnchor.constraint(equalTo: soupLabel.bottomAnchor, constant: 76),
-                yesButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                yesButton.widthAnchor.constraint(equalToConstant: 80),
-                yesButton.heightAnchor.constraint(equalToConstant: 45),
-                
-                noButton.topAnchor.constraint(equalTo: yesButton.bottomAnchor, constant: 20),
-                noButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                noButton.widthAnchor.constraint(equalToConstant: 80),
-                noButton.heightAnchor.constraint(equalToConstant: 45),
-                
-                resultLabel.topAnchor.constraint(equalTo: yesButton.bottomAnchor, constant: 50)
-            ])
-        }
-        
-        @objc private func yesButtonTapped() {
-            let nextViewController = GameResultViewController()
-            nextViewController.isDrinking = isDrinking
-            nextViewController.wantsSpicy = wantsSpicy
-            nextViewController.wantsSoup = true
-            navigationController?.pushViewController(nextViewController, animated: true)
-        }
-        
-        @objc private func noButtonTapped() {
-            let nextViewController = GameResultViewController()
-            nextViewController.isDrinking = isDrinking
-            nextViewController.wantsSpicy = wantsSpicy
-            nextViewController.wantsSoup = false
-            navigationController?.pushViewController(nextViewController, animated: true)
+    private func updateUserPreferences() {
+           switch currentQuestionIndex {
+           case 0:
+               isDrinking = answers[currentQuestionIndex]
+           case 1:
+               wantsSpicy = answers[currentQuestionIndex]
+           case 2:
+               wantsSoup = answers[currentQuestionIndex]
+           default:
+               break
+           }
+       }
+    
+    private func showResult() {
+            let resultViewController = GameResultViewController()
+            resultViewController.isDrinking = isDrinking
+            resultViewController.wantsSpicy = wantsSpicy
+            resultViewController.wantsSoup = wantsSoup
+            navigationController?.pushViewController(resultViewController, animated: true)
         }
     }
-    
+
     class GameResultViewController: UIViewController {
         
         var isDrinking = false
@@ -425,4 +260,4 @@ class FourthTestViewController: UIViewController {
             
         }
     }
-}
+

@@ -17,7 +17,6 @@ class FourthTestViewController: UIViewController {
         progressBar.translatesAutoresizingMaskIntoConstraints = false
         return progressBar
     }()
-    
     private let questionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20)
@@ -46,7 +45,7 @@ class FourthTestViewController: UIViewController {
         return button
     }()
     
-    private let questions = ["오늘은 저녁은 술과 함께 한다","자극적인게 땡긴다", "국물 있는 음식이 먹고싶다"]
+    private let questions = ["오늘은 저녁은 술과 함께 한다","자극적인게 땡긴다","국물 있는 음식이 먹고싶다"]
     private var currentQuestionIndex = 0
     private var answers = [Bool]()
     private var isDrinking = false
@@ -94,15 +93,6 @@ class FourthTestViewController: UIViewController {
         ])
     }
     
-    private func NextdinnerGenieQuestion() {
-        if currentQuestionIndex < questions.count {
-            questionLabel.text = questions[currentQuestionIndex]
-            progressBar.progress = Float(currentQuestionIndex) / Float(questions.count)
-        } else {
-            showResult()
-        }
-    }
-    
     @objc private func yesButtonTapped() {
         answers.append(true)
         updateUserPreferences()
@@ -126,6 +116,15 @@ class FourthTestViewController: UIViewController {
             let progress = Float(currentQuestionIndex + 1) / Float(questions.count)
             progressBar.setProgress(progress, animated: true)
         }
+    
+    private func NextdinnerGenieQuestion() {
+        if currentQuestionIndex < questions.count {
+            questionLabel.text = questions[currentQuestionIndex]
+            progressBar.progress = Float(currentQuestionIndex) / Float(questions.count)
+        } else {
+            showResult()
+        }
+    }
     
     private func updateUserPreferences() {
            switch currentQuestionIndex {

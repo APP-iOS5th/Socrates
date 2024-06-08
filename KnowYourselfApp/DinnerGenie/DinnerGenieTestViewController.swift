@@ -12,6 +12,8 @@ class FourthTestViewController: UIViewController {
     private let progressBar: UIProgressView = {
         let progressBar = UIProgressView(progressViewStyle: .bar)
         progressBar.progress = 0.0
+        progressBar.trackTintColor = .lightGray
+        progressBar.progressTintColor = .blue
         progressBar.translatesAutoresizingMaskIntoConstraints = false
         return progressBar
     }()
@@ -104,16 +106,26 @@ class FourthTestViewController: UIViewController {
     @objc private func yesButtonTapped() {
         answers.append(true)
         updateUserPreferences()
-        currentQuestionIndex += 1
-        NextdinnerGenieQuestion()
+        updateProgressBar()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+            self.currentQuestionIndex += 1
+            self.NextdinnerGenieQuestion()
+        }
     }
     
     @objc private func noButtonTapped() {
         answers.append(false)
-        updateUserPreferences()
-        currentQuestionIndex += 1
-        NextdinnerGenieQuestion()
+        updateProgressBar()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+            self.currentQuestionIndex += 1
+            self.NextdinnerGenieQuestion()
+        }
     }
+    
+    private func updateProgressBar() {
+            let progress = Float(currentQuestionIndex + 1) / Float(questions.count)
+            progressBar.setProgress(progress, animated: true)
+        }
     
     private func updateUserPreferences() {
            switch currentQuestionIndex {

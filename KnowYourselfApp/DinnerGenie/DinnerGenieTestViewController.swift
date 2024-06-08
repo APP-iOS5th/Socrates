@@ -330,6 +330,15 @@ class FourthTestViewController: UIViewController {
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
         }()
+        private let reRecommendButton: UIButton = {
+            let button = UIButton(type: .system)
+            button.setTitle("재추천", for: .normal)
+            button.translatesAutoresizingMaskIntoConstraints = false
+            button.layer.borderWidth = 2
+            button.layer.cornerRadius = 8
+            button.addTarget(self, action: #selector(reRecommendButtonTapped), for: .touchUpInside)
+            return button
+        }()
         private let shareButton: UIButton = {
             let button = UIButton(type: .system)
             button.setTitle("공유", for: .normal)
@@ -365,6 +374,7 @@ class FourthTestViewController: UIViewController {
             view.addSubview(titleLabel)
             view.addSubview(resultImageView)
             view.addSubview(resultLabel)
+            view.addSubview(reRecommendButton)
             view.addSubview(shareButton)
             view.addSubview(saveButton)
             view.addSubview(homeButton)
@@ -380,12 +390,17 @@ class FourthTestViewController: UIViewController {
                 resultImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
                 resultImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
                 resultImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-                resultImageView.heightAnchor.constraint(equalToConstant: 200),
+                resultImageView.heightAnchor.constraint(equalToConstant: 300),
                 
                 resultLabel.topAnchor.constraint(equalTo: resultImageView.bottomAnchor, constant: 20),
                 resultLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 
-                shareButton.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 40),
+                reRecommendButton.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 40),
+                reRecommendButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                reRecommendButton.widthAnchor.constraint(equalToConstant: 150),
+                reRecommendButton.heightAnchor.constraint(equalToConstant: 45),
+                
+                shareButton.topAnchor.constraint(equalTo: reRecommendButton.bottomAnchor, constant: 20),
                 shareButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
                 shareButton.widthAnchor.constraint(equalToConstant: 130),
                 shareButton.heightAnchor.constraint(equalToConstant: 45),
@@ -395,11 +410,15 @@ class FourthTestViewController: UIViewController {
                 saveButton.widthAnchor.constraint(equalToConstant: 130),
                 saveButton.heightAnchor.constraint(equalToConstant: 45),
                 
-                homeButton.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 130),
+                homeButton.topAnchor.constraint(equalTo: reRecommendButton.bottomAnchor, constant: 130),
                 homeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 homeButton.widthAnchor.constraint(equalToConstant: 150),
                 homeButton.heightAnchor.constraint(equalToConstant: 45)
             ])
+        }
+        
+        @objc private func reRecommendButtonTapped() {
+            updateResult()
         }
         
         private func updateResult() {

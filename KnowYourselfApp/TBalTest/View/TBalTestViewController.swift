@@ -148,6 +148,13 @@ class TBalTestViewController: UIViewController {
         // 기존의 하위뷰를 삭제
         questionsStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         
+        // 이전버튼 활성화
+        if tTestViewModel.currentQuestionIndex == 0 {
+            prevButton.isHidden = true
+        } else {
+            prevButton.isHidden = false
+        }
+        
         // questions버튼 생성
         for question in quiz.questions {
             var config = UIButton.Configuration.plain()

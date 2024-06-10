@@ -231,6 +231,9 @@ class FourthTestViewController: UIViewController {
             saveButtonTapped()
             homeButtonTapped()
             
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped(_:)))
+            resultImageView.isUserInteractionEnabled = true
+            resultImageView.addGestureRecognizer(tapGestureRecognizer)
         }
         
         private func setupConstraints() {
@@ -269,6 +272,16 @@ class FourthTestViewController: UIViewController {
             ])
         }
         
+        @objc private func imageViewTapped(_ sender: UITapGestureRecognizer) {
+            if let url = URL(string: "baemin://"), UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                if let appStoreURL = URL(string: "https://www.baemin.com/") {
+                UIApplication.shared.open(appStoreURL, options: [:], completionHandler: nil)
+                }
+            }
+        }
+        
         @objc private func reRecommendButtonTapped() {
             updateResult()
         }
@@ -283,11 +296,11 @@ class FourthTestViewController: UIViewController {
         
         @objc private func saveButtonTapped() {
             saveButton.addAction(UIAction { [weak self] _ in
-                guard let self = self else { return }
-                self.checkPhotosPermission { granted in
-                guard granted else {
-                self.presentPhotosPermissionAlert()
-                return
+            guard let self = self else { return }
+            self.checkPhotosPermission { granted in
+            guard granted else {
+            self.presentPhotosPermissionAlert()
+            return
                     }
                     
                 let imageSize = CGSize(width: 393, height: 852)

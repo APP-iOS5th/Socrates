@@ -238,12 +238,12 @@ class FourthTestViewController: UIViewController {
                 resultImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
                 resultImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
                 resultImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-                resultImageView.heightAnchor.constraint(equalToConstant: 300),
+                resultImageView.heightAnchor.constraint(equalToConstant: 370),
                 
                 resultLabel.topAnchor.constraint(equalTo: resultImageView.bottomAnchor, constant: 20),
                 resultLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 
-                reRecommendButton.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 40),
+                reRecommendButton.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 30),
                 reRecommendButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 reRecommendButton.widthAnchor.constraint(equalToConstant: 150),
                 reRecommendButton.heightAnchor.constraint(equalToConstant: 45),
@@ -258,7 +258,7 @@ class FourthTestViewController: UIViewController {
                 saveButton.widthAnchor.constraint(equalToConstant: 130),
                 saveButton.heightAnchor.constraint(equalToConstant: 45),
                 
-                homeButton.topAnchor.constraint(equalTo: reRecommendButton.bottomAnchor, constant: 130),
+                homeButton.topAnchor.constraint(equalTo: reRecommendButton.bottomAnchor, constant: 100),
                 homeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 homeButton.widthAnchor.constraint(equalToConstant: 150),
                 homeButton.heightAnchor.constraint(equalToConstant: 45)
@@ -276,8 +276,8 @@ class FourthTestViewController: UIViewController {
             resultLabel.text = "추천 메뉴: \(recommendedMenu)"
             
         func getRecommendedMenu() -> String {
-            let drinkOptions = ["치킨", "짬뽕", "마라탕", "피자", "회/초밥", "족발/보쌈", "김치찌개", "삼겹살", "떡볶이", "팔보채", "곱창/막창", "파전", "양꼬치", "닭발", "해물탕", "감자탕", "홍합탕", "나가사끼짬뽕", "제육볶음", "아구찜", "불닭볶음면", "라면", "쭈꾸미볶음", "부대찌개", "국밥", "설렁탕", "알탕", "순대볶음", "매운족발"]
-            let nonDrinkOptions = ["치킨", "짜장면", "짬뽕", "햄버거", "마라탕", "피자", "회/초밥", "족발/보쌈",  "김치찌개", "된장찌개", "불고기", "비빔밥", "삼겹살", "갈비찜", "떡볶이", "팔보채", "곱창/막창", "파스타", "양꼬치", "닭발", "해물탕", "감자탕", "홍합탕", "나가사끼짬뽕", "제육볶음", "아구찜", "순두부찌개", "김밥", "김치볶음밥", "냉면", "불닭볶음면", "라면", "돈가스", "쭈꾸미볶음", "부대찌개", "국밥", "설렁탕", "알탕", "순대볶음", "매운족발", "쌀국수"]
+            let drinkOptions = ["치킨", "짬뽕", "마라탕", "피자", "회,초밥", "족발,보쌈", "김치찌개", "삼겹살", "떡볶이", "팔보채", "곱창,막창", "파전", "양꼬치", "닭발", "해물탕", "감자탕", "홍합탕", "나가사끼짬뽕", "제육볶음", "아구찜", "불닭볶음면", "라면", "쭈꾸미볶음", "부대찌개", "국밥", "설렁탕", "알탕", "순대볶음", "매운족발"]
+            let nonDrinkOptions = ["치킨", "짜장면", "짬뽕", "햄버거", "마라탕", "피자", "회,초밥", "족발,보쌈",  "김치찌개", "된장찌개", "불고기", "비빔밥", "삼겹살", "갈비찜", "떡볶이", "팔보채", "곱창,막창", "파스타", "양꼬치", "닭발", "해물탕", "감자탕", "홍합탕", "나가사끼짬뽕", "제육볶음", "아구찜", "순두부찌개", "김밥", "김치볶음밥", "냉면", "불닭볶음면", "라면", "돈가스", "쭈꾸미볶음", "부대찌개", "국밥", "설렁탕", "알탕", "순대볶음", "매운족발", "쌀국수"]
             var options: [String]
             
             if isDrinking {
@@ -288,7 +288,7 @@ class FourthTestViewController: UIViewController {
                 } else if !wantsSpicy && wantsSoup {
                     options = ["홍합탕", "나가사끼짬뽕", "국밥", "설렁탕"]
                 } else {
-                    options = ["치킨", "피자", "회/초밥", "족발/보쌈", "삼겹살", "팔보채", "곱창/막창", "파전"]
+                    options = ["치킨", "피자", "회,초밥", "족발,보쌈", "삼겹살", "팔보채", "곱창,막창", "파전"]
                 }
             } else {
                 if wantsSpicy && wantsSoup {
@@ -298,7 +298,7 @@ class FourthTestViewController: UIViewController {
                 } else if !wantsSpicy && wantsSoup {
                     options = ["홍합탕", "나가사끼짬뽕", "국밥", "설렁탕", "된장찌개", "냉면", "쌀국수"]
                 } else {
-                    options = ["치킨", "피자", "회/초밥", "족발/보쌈", "삼겹살", "팔보채", "곱창/막창",  "짜장면", "햄버거", "불고기", "비빔밥", "갈비찜", "파스타", "김밥", "돈가스"]
+                    options = ["치킨", "피자", "회,초밥", "족발,보쌈", "삼겹살", "팔보채", "곱창,막창",  "짜장면", "햄버거", "불고기", "비빔밥", "갈비찜", "파스타", "김밥", "돈가스"]
                 }
             }
                 

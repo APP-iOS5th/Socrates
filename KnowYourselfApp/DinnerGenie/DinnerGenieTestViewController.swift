@@ -226,6 +226,8 @@ class FourthTestViewController: UIViewController {
             view.addSubview(homeButton)
             setupConstraints()
             updateResult()
+            shareButtonTapped()
+            homeButtonTapped()
             
         }
         
@@ -269,6 +271,20 @@ class FourthTestViewController: UIViewController {
             updateResult()
         }
         
+        @objc private func shareButtonTapped() {
+            shareButton.addAction(UIAction { [weak self] _ in
+            guard let image = self?.resultImageView.image else { return }
+            let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+            self?.present(activityViewController, animated: true, completion: nil)
+            }, for: .touchUpInside)
+        }
+        
+        @objc private func homeButtonTapped() {
+            homeButton.addAction(UIAction { [weak self] _ in
+                self?.navigationController?.popToRootViewController(animated: true)
+            }, for: .touchUpInside)
+        }
+        
         private func updateResult() {
             
             let recommendedMenu = getRecommendedMenu()
@@ -284,21 +300,21 @@ class FourthTestViewController: UIViewController {
                 if wantsSpicy && wantsSoup {
                     options = ["마라탕", "김치찌개", "해물탕", "부대찌개", "알탕", "감자탕", "라면", "짬뽕"]
                 } else if wantsSpicy && !wantsSoup {
-                    options = ["닭발", "떡볶이", "제육볶음", "아구찜", "불닭볶음면", "쭈꾸미볶음", "양꼬치", "순대볶음", "매운족발"]
+                    options = ["닭발", "떡볶이", "제육볶음", "아구찜", "불닭볶음면", "쭈꾸미볶음", "순대볶음", "매운족발"]
                 } else if !wantsSpicy && wantsSoup {
                     options = ["홍합탕", "나가사끼짬뽕", "국밥", "설렁탕"]
                 } else {
-                    options = ["치킨", "피자", "회,초밥", "족발,보쌈", "삼겹살", "팔보채", "곱창,막창", "파전"]
+                    options = ["치킨", "피자", "회,초밥", "족발,보쌈", "삼겹살", "팔보채", "곱창,막창", "파전", "양꼬치"]
                 }
             } else {
                 if wantsSpicy && wantsSoup {
                     options = ["마라탕", "김치찌개", "해물탕", "부대찌개", "알탕", "감자탕", "라면", "짬뽕"]
                 } else if wantsSpicy && !wantsSoup {
-                    options = ["닭발", "떡볶이", "제육볶음", "아구찜", "불닭볶음면", "쭈꾸미볶음", "양꼬치", "순대볶음", "김치볶음밥", "매운족발"]
+                    options = ["닭발", "떡볶이", "제육볶음", "아구찜", "불닭볶음면", "쭈꾸미볶음", "순대볶음", "김치볶음밥", "매운족발"]
                 } else if !wantsSpicy && wantsSoup {
                     options = ["홍합탕", "나가사끼짬뽕", "국밥", "설렁탕", "된장찌개", "냉면", "쌀국수"]
                 } else {
-                    options = ["치킨", "피자", "회,초밥", "족발,보쌈", "삼겹살", "팔보채", "곱창,막창",  "짜장면", "햄버거", "불고기", "비빔밥", "갈비찜", "파스타", "김밥", "돈가스"]
+                    options = ["치킨", "피자", "회,초밥", "족발,보쌈", "삼겹살", "팔보채", "곱창,막창",  "짜장면", "햄버거", "불고기", "비빔밥", "갈비찜", "파스타", "김밥", "돈가스", "양꼬치"]
                 }
             }
                 

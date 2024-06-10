@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Photos
 
 class FourthTestViewController: UIViewController {
     
@@ -227,6 +228,7 @@ class FourthTestViewController: UIViewController {
             setupConstraints()
             updateResult()
             shareButtonTapped()
+            saveButtonTapped()
             homeButtonTapped()
             
         }
@@ -277,6 +279,73 @@ class FourthTestViewController: UIViewController {
             let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
             self?.present(activityViewController, animated: true, completion: nil)
             }, for: .touchUpInside)
+        }
+        
+        @objc private func saveButtonTapped() {
+            saveButton.addAction(UIAction { [weak self] _ in
+                guard let self = self else { return }
+                self.checkPhotosPermission { granted in
+                guard granted else {
+                self.presentPhotosPermissionAlert()
+                return
+                    }
+                    
+                let imageSize = CGSize(width: 393, height: 852)
+                    guard let image = self.renderViewToImage(size: imageSize) else { return }
+                UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
+                }
+            }, for: .touchUpInside)
+        }
+        
+            private func checkPhotosPermission(completion: @escaping (Bool) -> Void) {
+                let photoAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
+                
+                switch photoAuthorizationStatus {
+                case .authorized:
+                    completion(true)
+                case .notDetermined:
+                    PHPhotoLibrary.requestAuthorization { status in
+                        completion(status == .authorized)
+                    }
+                case .restricted, .denied:
+                    completion(false)
+                default:
+                    break
+                }
+            }
+            
+            private func presentPhotosPermissionAlert() {
+                let alertController = UIAlertController(title: "사진첩 접근 권한 필요", message: "사진첩에 이미지를 저장하려면 사진첩 접근 권한이 필요합니다. 설정에서 권한을 허용해주세요.", preferredStyle: .alert)
+                let settingsAction = UIAlertAction(title: "설정", style: .default) { _ in
+                    if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
+                        UIApplication.shared.open(settingsURL)
+                    }
+                }
+                let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+                alertController.addAction(settingsAction)
+                alertController.addAction(cancelAction)
+                present(alertController, animated: true, completion: nil)
+            }
+        
+        private func renderViewToImage(size: CGSize) -> UIImage? {
+            let renderer = UIGraphicsImageRenderer(size: size)
+            return renderer.image { _ in
+                   view.drawHierarchy(in: CGRect(origin: .zero, size: size), afterScreenUpdates: true)
+               }
+           }
+        
+        @objc private func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+            DispatchQueue.main.async {
+                if let error = error {
+                    let imageAlert = UIAlertController(title: "저장 에러", message: error.localizedDescription, preferredStyle: .alert)
+                    imageAlert.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(imageAlert, animated: true)
+                } else {
+                    let imageAlert = UIAlertController(title: "저장", message: "이미지가 사진첩에 저장되었습니다.", preferredStyle: .alert)
+                    imageAlert.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(imageAlert, animated: true)
+                }
+            }
         }
         
         @objc private func homeButtonTapped() {

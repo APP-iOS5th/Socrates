@@ -25,6 +25,7 @@ func createButton(title: String, tag: Int, target: Any?, action: Selector) -> UI
     button.setTitleColor(.orange, for: .normal)
     button.titleLabel?.numberOfLines = 0
     button.titleLabel?.lineBreakMode = .byWordWrapping
+    button.titleLabel?.font = .systemFont(ofSize: 15, weight: UIFont.Weight.semibold)
     button.contentHorizontalAlignment = .center
     button.contentVerticalAlignment = .center
     button.tag = tag
@@ -59,6 +60,7 @@ class FirstTestViewController: UIViewController {
         
     }
     
+
     private func setupView() {
         
         QLabel = createLabel(title: questions[currentKeyNow]!.question)
@@ -130,15 +132,45 @@ class FirstTestViewController: UIViewController {
         
         NSLayoutConstraint.activate(constraints)
     }
-    //    private func loadPositionQuestion() {
-    //        let questionKey = questionsKeys[currentQIndex]
-    //        if let questionData = questions[questionKey] {
-    //            QLabel.text = questionData.question
-    //            firstButton.setTitle(questionData.anwser1, for: .normal)
-    //            secondButton.setTitle(questionData.anwser2, for: .normal)
-    //            thirdButton.setTitle(questionData.anwser3, for: .normal)
-    //        }
-    //    }
+    private func resultView(_ heroNumber: String) {
+        view.subviews.forEach { $0.removeFromSuperview() }
+        view.backgroundColor = .white
+
+        // 이미지 뷰 생성 및 설정
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: "\(heroNumber).jpg")
+                // 에셋에 추가한 이미지 이름
+
+        // 텍스트 레이블 생성 및 설정
+        let resultLabel = UILabel()
+        resultLabel.translatesAutoresizingMaskIntoConstraints = false
+        resultLabel.text = heroNumber
+        resultLabel.font = .systemFont(ofSize: 18, weight: .regular)
+        resultLabel.textColor = .black
+        resultLabel.textAlignment = .center
+        resultLabel.numberOfLines = 0
+
+        // 뷰에 이미지 뷰 및 레이블 추가
+        view.addSubview(imageView)
+        view.addSubview(resultLabel)
+
+        // 오토레이아웃 설정
+        NSLayoutConstraint.activate([
+            // 이미지 뷰 제약 조건
+            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
+            imageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8), // 이미지 비율 유지
+
+            // 레이블 제약 조건
+            resultLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
+            resultLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            resultLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+        ])
+    }
+
     private func loadDetailQuestion(_ key: String) {
         currentKeyNow = key
         if let questionData = questions[key] {
@@ -166,47 +198,89 @@ class FirstTestViewController: UIViewController {
         if currentQIndex > 3 {
             let key = currentKeyNow + String(sender.tag)
             switch key {
-            case "tanker00": print("시그마")
+            case "tanker00":
+                print("시그마")
+                resultView(key)
             case "tanker01": print("라인")
+                resultView(key)
             case "tanker02": print("자랴")
+                resultView(key)
             case "tanker030": print("시그마")
+                resultView(key)
             case "tanker031": print("라인")
+                resultView(key)
             case "tanker032": print("자랴")
+                resultView(key)
             case "tanker10": print("퀸")
+                resultView(key)
             case "tanker11": print("오리사")
+                resultView(key)
             case "tanker12": print("로드호그")
+                resultView(key)
             case "tanker20": print("래킹")
+                resultView(key)
             case "tanker21": print("둠")
+                resultView(key)
             case "tanker22": print("윈스")
+                resultView(key)
             case "tanker23": print("디바")
+                resultView(key)
             case "dps000": print("시메")
+                resultView(key)
             case "dps001": print("파라")
+                resultView(key)
             case "dps010": print("겐지")
+                resultView(key)
             case "dps011": print("트레")
+                resultView(key)
             case "dps012": print("솜")
+                resultView(key)
             case "dps020": print("메이")
+                resultView(key)
             case "dps021": print("벤쳐")
+                resultView(key)
             case "dps100": print("솔져")
+                resultView(key)
             case "dps101": print("소전")
+                resultView(key)
             case "dps102": print("바스")
+                resultView(key)
             case "dps110": print("바스")
+                resultView(key)
             case "dps111": print("톨비")
+                resultView(key)
             case "dps120": print("리퍼")
+                resultView(key)
             case "dps121": print("정크")
+                resultView(key)
             case "dps200": print("캐서디")
+                resultView(key)
             case "dps201": print("한조")
+                resultView(key)
             case "dps210": print("위도우")
+                resultView(key)
             case "dps211": print("애쉬")
+                resultView(key)
             case "healer00": print("루시우")
+                resultView(key)
             case "healer01": print("키리")
+                resultView(key)
             case "healer10": print("멜시")
+                resultView(key)
             case "healer11": print("위버")
+                resultView(key)
             case "healer12": print("브리")
+                resultView(key)
             case "healer20": print("모이라")
+                resultView(key)
             case "healer21": print("바티")
+                resultView(key)
             case "healer22": print("일리")
+                resultView(key)
             case "healer30": print("아나")
+                resultView(key)
             case "healer31": print("젠야타")
+                resultView(key)
             default:
                 loadDetailQuestion(key)
             }

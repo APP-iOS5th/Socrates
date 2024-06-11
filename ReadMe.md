@@ -6,9 +6,9 @@
 
 <!--프로젝트 대문 이미지-->
 
-<div align="center">
-    <img src="https://storage.googleapis.com/socrates-image/Splash.png" alt="Img" style="width: 200"/>
-</div>
+<p align="center">
+  <img src="https://storage.googleapis.com/socrates-image/Splash.png" alt="Img" width="200">
+</p>
 
 ## 기능
 
@@ -38,11 +38,9 @@
 
 <br>
 
-<div align="center">
-        <video controls width="200" muted autoplay loop>
-            <source src="https://storage.googleapis.com/socrates-image/Entertainment.mov" type="video/mp4">
-        </video>
-</div>
+<p align="center">
+  <img src="https://storage.googleapis.com/socrates-image/Splash.png" alt="Img" width="200">
+</p>
 
 <br>
 
@@ -79,11 +77,9 @@ Test
 
 <br>
 
-<div align="center">
-        <video controls width="200" muted autoplay loop>
-            <source src="https://storage.googleapis.com/socrates-image/TtestVideo.mov" type="video/mp4">
-        </video>
-</div>
+<p align="center">
+  <img src="https://storage.googleapis.com/socrates-image/TTest.png" alt="Img" width="200">
+</p>
 
 <br>
 
@@ -125,11 +121,9 @@ T Test는 현대 사회에서 T에 대한 부정적인 인식을 유머러스하
 
 <br>
 
-<div align="center">
-        <video controls width="200" muted autoplay loop>
-            <source src="https://storage.googleapis.com/socrates-image/Entertainment.mov" type="video/mp4">
-        </video>
-</div>
+<p align="center">
+  <img src="https://storage.googleapis.com/socrates-image/Splash.png" alt="Img" width="200">
+</p>
 
 <br>
 
@@ -166,11 +160,9 @@ Test
 
 <br>
 
-<div align="center">
-        <video controls width="200" muted autoplay loop>
-            <source src="https://storage.googleapis.com/socrates-image/Entertainment.mov" type="video/mp4">
-        </video>
-</div>
+<p align="center">
+  <img src="https://storage.googleapis.com/socrates-image/Splash.png" alt="Img" width="200">
+</p>
 
 <br>
 
@@ -207,11 +199,9 @@ Test
 
 <br>
 
-<div align="center">
-        <video controls width="200" muted autoplay loop>
-            <source src="https://storage.googleapis.com/socrates-image/Entertainment.mov" type="video/mp4">
-        </video>
-</div>
+<p align="center">
+  <img src="https://storage.googleapis.com/socrates-image/Entertainment.png" alt="Img" width="200">
+</p>
 
 <br>
 

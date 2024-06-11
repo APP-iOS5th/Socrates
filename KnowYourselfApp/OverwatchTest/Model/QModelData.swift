@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct QModelData {
     var question: String
@@ -22,6 +23,18 @@ struct QModelData {
         self.anwser4 = anwser4
     }
 }
+
+struct Hero {
+    var name: String
+    var story: String
+    var heroImage: UIImage?
+    init(name: String, story: String, heroImage: UIImage? = nil) {
+        self.name = name
+        self.story = story
+        self.heroImage = heroImage
+    }
+}
+
 
 var questions: [String :QModelData] = [
         "main" : QModelData(question: """
@@ -61,7 +74,7 @@ var questions: [String :QModelData] = [
                                anwser1: "체계적이고 논리적인 접근을 통해 문제를 해결합니다. 팀원들에게 지적인 자극을 줍니다",//(시그마),
                                anwser2: "팀을 보호하고 이끌며, 필요한 경우 적극적으로 문제를 해결합니다",//라인
                                anwser3: "강한 체력과 결단력으로 팀을 이끕니다. 팀원들에게 힘을 북돋아 주고, 어려운 작업을 도맡습니다", //자랴
-                               anwser4: "마지막질문입니다. 패스하고 다음 질문지로 넘어갈 수 있습니다"),//패스
+                               anwser4: "패스하고 다음 질문지로 넘어가기"),//패스
         "tanker03" : QModelData(question: """
                                여가 시간에 가장 즐기는 활동은 무엇인가요?
                                """,
@@ -203,5 +216,48 @@ var questions: [String :QModelData] = [
                                anwser3: nil,
                                anwser4: nil)
     ]
-    
 
+
+var heroes: [String: Hero] = [
+    "tanker00": Hero(name: "시그마\nSigma", story: "", heroImage: UIImage(named: "tanker00.jpg")),
+    "tanker01": Hero(name: "라인하르트\nReinhardt", story: "", heroImage: UIImage(named: "tanker01.jpg")),
+    "tanker02": Hero(name: "자리야\nZarya", story: "", heroImage: UIImage(named: "tanker02.jpg")),
+    "tanker030": Hero(name: "시그마\nSigma", story: "", heroImage: UIImage(named: "tanker030.jpg")),
+    "tanker031": Hero(name: "라인하르트\nReinhardt", story: "", heroImage: UIImage(named: "tanker031.jpg")),
+    "tanker032": Hero(name: "자리야\nZarya", story: "", heroImage: UIImage(named: "tanker032.jpg")),
+    "tanker10": Hero(name: "정커퀸\nJunker Queen", story: "", heroImage: UIImage(named: "tanker10.jpg")),
+    "tanker11": Hero(name: "오리사\nOrisa", story: "", heroImage: UIImage(named: "tanker11.jpg")),
+    "tanker12": Hero(name: "로드호그\nRoadhog", story: "", heroImage: UIImage(named: "tanker12.jpg")),
+    "tanker20": Hero(name: "레킹볼\nWrecking Ball", story: "", heroImage: UIImage(named: "tanker20.jpg")),
+    "tanker21": Hero(name: "둠피스트\nDoomfist", story: "", heroImage: UIImage(named: "tanker21.jpg")),
+    "tanker22": Hero(name: "윈스턴\nWinston", story: "", heroImage: UIImage(named: "tanker22.jpg")),
+    "tanker23": Hero(name: "D.va(송하나)", story: "", heroImage: UIImage(named: "tanker23.jpg")),
+    "dps000": Hero(name: "시메트라\nSymmetra", story: "", heroImage: UIImage(named: "dps000.jpg")),
+    "dps001": Hero(name: "파라\nPharah", story: "", heroImage: UIImage(named: "dps001.jpg")),
+    "dps010": Hero(name: "겐지\nGenji", story: "", heroImage: UIImage(named: "dps010.jpg")),
+    "dps011": Hero(name: "트레이서\nTracer", story: "", heroImage: UIImage(named: "dps011.jpg")),
+    "dps012": Hero(name: "솜브라\nSombra", story: "", heroImage: UIImage(named: "dps012.jpg")),
+    "dps020": Hero(name: "메이\nMei", story: "", heroImage: UIImage(named: "dps020.jpg")),
+    "dps021": Hero(name: "벤쳐\nVenture", story: "", heroImage: UIImage(named: "dps021.jpg")),
+    "dps100": Hero(name: "솔져: 76\nSoldier: 76", story: "", heroImage: UIImage(named: "dps100.jpg")),
+    "dps101": Hero(name: "소전\nSojourn", story: "", heroImage: UIImage(named: "dps101.jpg")),
+    "dps102": Hero(name: "바스티온\nBastion", story: "", heroImage: UIImage(named: "dps102.jpg")),
+    "dps110": Hero(name: "바스티온\nBastion", story: "", heroImage: UIImage(named: "dps110.jpg")),
+    "dps111": Hero(name: "토르비욘\nTorbjorn", story: "", heroImage: UIImage(named: "dps111.jpg")),
+    "dps120": Hero(name: "리퍼\nReaper", story: "", heroImage: UIImage(named: "dps120.jpg")),
+    "dps121": Hero(name: "정크랫\nJunkrat", story: "", heroImage: UIImage(named: "dps121.jpg")),
+    "dps200": Hero(name: "캐서디\nCassidy", story: "", heroImage: UIImage(named: "dps200.jpg")),
+    "dps201": Hero(name: "한조\nHanzo", story: "", heroImage: UIImage(named: "dps201.jpg")),
+    "dps210": Hero(name: "위도우메이커\nWidowmaker", story: "", heroImage: UIImage(named: "dps210.jpg")),
+    "dps211": Hero(name: "애쉬\nAshe", story: "", heroImage: UIImage(named: "dps211.jpg")),
+    "healer00": Hero(name: "루시우\nLucio", story: "", heroImage: UIImage(named: "healer00.jpg")),
+    "healer01": Hero(name: "키리코Kiriko\n", story: "", heroImage: UIImage(named: "healer01.jpg")),
+    "healer10": Hero(name: "메르시\nMercy", story: "", heroImage: UIImage(named: "healer10.jpg")),
+    "healer11": Hero(name: "라이프위버\nLifeweaver", story: "", heroImage: UIImage(named: "healer11.jpg")),
+    "healer12": Hero(name: "브리기테\nBrigitte", story: "", heroImage: UIImage(named: "healer12.jpg")),
+    "healer20": Hero(name: "모이라\nMoira", story: "", heroImage: UIImage(named: "healer20.jpg")),
+    "healer21": Hero(name: "바티스트\nBaptiste", story: "", heroImage: UIImage(named: "healer21.jpg")),
+    "healer22": Hero(name: "일리아리\nIllari", story: "", heroImage: UIImage(named: "healer22.jpg")),
+    "healer30": Hero(name: "아나\nAna", story: "", heroImage: UIImage(named: "healer30.jpg")),
+    "healer31": Hero(name: "젠야타\nZenyatta", story: "", heroImage: UIImage(named: "healer31.jpg"))
+]

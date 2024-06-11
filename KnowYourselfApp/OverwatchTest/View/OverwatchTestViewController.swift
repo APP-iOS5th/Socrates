@@ -11,6 +11,7 @@ func createLabel(title: String) -> UILabel {
     let label = UILabel()
     label.text = title
     label.font = .systemFont(ofSize: 22, weight: .semibold)
+    label.textColor = .black
     label.textAlignment = .center
     label.numberOfLines = 0
     label.lineBreakMode = .byWordWrapping
@@ -30,9 +31,10 @@ func createButton(title: String, tag: Int, target: Any?, action: Selector) -> UI
     button.contentVerticalAlignment = .center
     button.tag = tag
     button.addTarget(target, action: action, for: .touchUpInside)
+    button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     button.translatesAutoresizingMaskIntoConstraints = false
-    button.heightAnchor.constraint(greaterThanOrEqualToConstant: 60).isActive = true
-    
+    button.heightAnchor.constraint(greaterThanOrEqualToConstant: 70).isActive = true
+    button.layer.cornerRadius = 20
     return button
 }
 
@@ -51,18 +53,91 @@ class FirstTestViewController: UIViewController {
     private var fourthButton: UIButton!
     private var currentKeyNow: String! = "main"
     
+    
+    private lazy var backgroundImageView: UIImageView = {
+           let imageView = UIImageView(frame: view.bounds)
+           imageView.contentMode = .scaleAspectFit // 이미지 비율 유지 및 화면에 맞춤
+           imageView.image = UIImage(named: "backgroundImage") // 배경 이미지 설정
+        imageView.alpha = 1.0
+           return imageView
+       }()
+       
+    
+       
+    private lazy var button: UIButton = {
+        let button = UIButton(type: .custom)
+        button.backgroundColor = .blue
+        button.setTitle("버튼", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 45
+        button.clipsToBounds = true // 버튼의 모서리에서 이미지가 잘리지 않도록 함
+
+        // 이미지 설정
+        if let buttonImage = UIImage(named: "buttonImage") { // 이미지 이름을 yourImageName으로 변경
+            button.setImage(buttonImage, for: .normal)
+        }
+
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "오버워치 영웅 테스트"
         view.backgroundColor = .white
         
-        setupView()
         
+        StartView()
     }
     
-
-    private func setupView() {
+    private func StartView() {
+        view.backgroundColor = .black
+        view.addSubview(backgroundImageView)
+                
+                // 배경 이미지 뷰 위에 다른 요소들을 추가합니다.
+               
+                view.addSubview(button)
+                
+                // AutoLayout을 이용하여 요소들을 배치합니다.
+                backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+                NSLayoutConstraint.activate([
+                    backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
+                    backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                    backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                    backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+                ])
+                
+//                label.translatesAutoresizingMaskIntoConstraints = false
+//                NSLayoutConstraint.activate([
+//                    label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//                    label.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+//                ])
+                
+                button.translatesAutoresizingMaskIntoConstraints = false
+                NSLayoutConstraint.activate([
+                    button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                    button.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -10),
+                    button.widthAnchor.constraint(equalToConstant: 90),
+                    button.heightAnchor.constraint(equalToConstant: 90)
+                ])
+            }
+            
+          
         
+    
+    private func setupView() {
+        view.subviews.forEach { $0.removeFromSuperview() }
+        backgroundImageView.image = UIImage(named: "backgroundImage2")
+        backgroundImageView.alpha = 0.7
+        backgroundImageView.contentMode = .scaleAspectFit
+        view.addSubview(backgroundImageView)
+        view.backgroundColor = .white
+
         QLabel = createLabel(title: questions[currentKeyNow]!.question)
         
         // 버튼 생성
@@ -111,7 +186,7 @@ class FirstTestViewController: UIViewController {
             QLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100),
             QLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
             firstButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            firstButton.topAnchor.constraint(equalTo: QLabel.bottomAnchor, constant: 20),
+            firstButton.topAnchor.constraint(equalTo: QLabel.bottomAnchor, constant: 100),
             firstButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
             secondButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             secondButton.topAnchor.constraint(equalTo: firstButton.bottomAnchor, constant: 20),
@@ -134,6 +209,10 @@ class FirstTestViewController: UIViewController {
     }
     private func resultView(_ heroNumber: String) {
         view.subviews.forEach { $0.removeFromSuperview() }
+        backgroundImageView.image = UIImage(named: "background3")
+        backgroundImageView.alpha = 0.6
+        backgroundImageView.contentMode = .scaleAspectFill
+        view.addSubview(backgroundImageView)
         view.backgroundColor = .white
 
         // 이미지 뷰 생성 및 설정
@@ -141,12 +220,11 @@ class FirstTestViewController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: "\(heroNumber).jpg")
-                // 에셋에 추가한 이미지 이름
-
+                
         // 텍스트 레이블 생성 및 설정
         let resultLabel = UILabel()
         resultLabel.translatesAutoresizingMaskIntoConstraints = false
-        resultLabel.text = heroNumber
+        resultLabel.text = heroes[heroNumber]?.name
         resultLabel.font = .systemFont(ofSize: 18, weight: .regular)
         resultLabel.textColor = .black
         resultLabel.textAlignment = .center
@@ -309,6 +387,8 @@ class FirstTestViewController: UIViewController {
         }
     }
     
-    
+    @objc private func buttonTapped() {
+        setupView()
+    }
     
 }

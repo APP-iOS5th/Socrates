@@ -51,6 +51,9 @@ func createButton(title: String, tag: Int, target: Any?, action: Selector) -> UI
 
 
 class FirstTestViewController: UIViewController {
+  
+    //탭바 숨기기
+   
     
     private var heroScore = 0
     //0~1 딜러, 2~3탱커, 4~6 힐러
@@ -105,8 +108,14 @@ class FirstTestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "오버워치 영웅 테스트"
-        view.backgroundColor = .white
-        
+        view.backgroundColor = .white 
+        var tabBarController: UITabBarController? {
+            return self.presentingViewController as? UITabBarController
+        }
+        if let tabBarController = self.tabBarController {
+                // 탭바 숨기기
+                tabBarController.tabBar.isHidden = true
+            }
         
         StartView()
     }

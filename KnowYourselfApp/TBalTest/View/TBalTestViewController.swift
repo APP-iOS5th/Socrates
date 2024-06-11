@@ -2,10 +2,7 @@
 import UIKit
 import Combine
 
-<<<<<<< HEAD
-class SecondTestViewController: UIViewController {
 
-=======
 class TBalTestViewController: UIViewController {
     
     // ViewModel
@@ -72,7 +69,6 @@ class TBalTestViewController: UIViewController {
     }()
     
     
->>>>>>> 49ae7d300db4417c45e30545e55f0eadd397304a
     override func viewDidLoad() {
         super.viewDidLoad()
         

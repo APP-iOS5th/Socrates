@@ -24,7 +24,7 @@ struct QModelData {
 }
 
 var questions: [String :QModelData] = [
-        "main1" : QModelData(question: """
+        "main" : QModelData(question: """
                                당신은 소중한 사람과 길을 걷고있다. 그런데 갑자기 나와 비슷한 체력의 괴한이 당신의 일행에게 발길질을 하는데!
                                이때 당신은 어떻게 할 것인가
                                """,
@@ -32,7 +32,7 @@ var questions: [String :QModelData] = [
                                anwser2: "안돼! 발을 막으려고 한다",
                                anwser3: "뭐하시는거에요! 일행을 살피며 말로 따진다",
                                anwser4: "답변4"),
-        "main2" : QModelData(question: """
+        "main1" : QModelData(question: """
                                바로 경찰에 신고했지만 그 사람은 도망갔습니다.
                                가장 먼저 드는 생각은?
                                """,
@@ -40,7 +40,7 @@ var questions: [String :QModelData] = [
                                anwser2: "아 막았어야 하는데",
                                anwser3: "일행이 어디 안다쳤나 걱정된다",
                                anwser4: ""),
-        "main3" : QModelData(question: """
+        "main2" : QModelData(question: """
                                같은 날 당신은 그 괴한을 다시 만나게 됩니다.
                                어떻게 하시겠습니까?
                                """,
@@ -62,7 +62,7 @@ var questions: [String :QModelData] = [
                                anwser2: "팀을 앞장서서 이끌며, 필요한 경우 적극적으로 문제를 해결합니다. 팀원들을 보호하고 지원하며, 공감하고 이끌어가는 따뜻한 리더입니다.",//라인
                                anwser3: "강한 체력과 결단력으로 팀을 이끕니다. 팀원들에게 힘을 북돋아 주고, 어려운 작업을 적극적으로 맡아 수행합니다.", //자랴
                                anwser4: "마지막질문입니다. 패스하고 다음 질문지로 넘어갈 수 있습니다."),//패스
-        "tanker3" : QModelData(question: """
+        "tanker03" : QModelData(question: """
                                여가 시간에 가장 즐기는 활동은 무엇인가요?
                                """,
                                anwser1: "새로운 것을 탐구하거나 과학적인 지식을 넓힌다.",//시그마
@@ -97,21 +97,21 @@ var questions: [String :QModelData] = [
                                anwser2: "자신의 능력을 단련하여 최고의 결과물을 만들고자 합니다.", // (겐지, 트레, 솜브라 그룹)",
                                anwser3: "과학과 학문적 탐구를 중요하게 생각합니다.", // (메이, 벤쳐 그룹)",
                                anwser4: ""),
-        "dps0-0" : QModelData(question: """
+        "dps00" : QModelData(question: """
                                다음 중 어떤 체험을 하고 싶습니까?
                                """,
                                anwser1: "가상현실 증강현실 체험", //(시메)",
                                anwser2: "아이언맨 같은 강화슈트 체험", //(파라)",
                                anwser3: "",
                                anwser4: ""),
-        "dps0-1" : QModelData(question: """
+        "dps01" : QModelData(question: """
                                당신은 어떤 상상을 자주 하십니까?
                                """,
                                anwser1: "알고보니 엄청 난 신체능력을 지닌 상상", //(겐지)",
                                anwser2: "시간을 조종하는 상상", //(트레)",
                                anwser3: "남들의 비밀 다 알게되는 상상", //(솜브라)",
                                anwser4: ""),
-        "dps0-2" : QModelData(question: """
+        "dps02" : QModelData(question: """
                                다음중 당신을 설레게 하는것은?
                                """,
                                anwser1: "새로운 발명", //(메이)",
@@ -125,21 +125,21 @@ var questions: [String :QModelData] = [
                                anwser2: "쉽게 꿀빨면서 이기고싶다", //(바스, 톨비)",
                                anwser3: "상대팀을 괴롭혀서 이기고싶다", //(리퍼, 정크)",
                                anwser4: ""),
-        "dps1-0" : QModelData(question: """
+        "dps10" : QModelData(question: """
                                당신의 성별은 무엇인가요?
                                """,
                                anwser1: "남성", //(솔져)",
                                anwser2: "여성", //(소전)",
                                anwser3: "그 외", //(바스)",
                                anwser4: ""),
-        "dps1-1" : QModelData(question: """
+        "dps11" : QModelData(question: """
                                당신에게 가까운 키워드는?
                                """,
                                anwser1: "반려동물, 자연, 평화", //(바스)",
                                anwser2: "공대생, 기술자, 가정적", //(톨비)",
                                anwser3: "",
                                anwser4: ""),
-        "dps1-2" : QModelData(question: """
+        "dps12" : QModelData(question: """
                                피곤할때 당신의 모습은 어떤가요?
                                """,
                                anwser1: "죽은사람같이 움직인다.", // (리퍼)",
@@ -153,14 +153,14 @@ var questions: [String :QModelData] = [
                                anwser2: "다소 건방진 실력자.", //(위도우, 애쉬)",
                                anwser3: "",
                                anwser4: ""),
-        "dps2-0" : QModelData(question: """
+        "dps20" : QModelData(question: """
                                당신은 어떤 스타일에 가깝습니까?
                                """,
                                anwser1: "독고다이", // (캐서디)",
                                anwser2: "든든한 집안", // (한조)",
                                anwser3: "",
                                anwser4: ""),
-        "dps2-1" : QModelData(question: """
+        "dps21" : QModelData(question: """
                                다음중 갖고싶은 물건은?
                                """,
                                anwser1: "뭐든 투시하는 안경", // (위도우)",

@@ -42,15 +42,14 @@ var questions: [String :QModelData] = [
                                이때 당신은 어떻게 할 것인가
                                """,
                                anwser1: "눈에는 눈, 이에는 이! 순간적으로 나도 발로 차버린다",
-                               anwser2: "안돼! 발을 막으려고 한다",
+                               anwser2: "안돼! 몸으로 막는다",
                                anwser3: "뭐하시는거에요! 일행을 살피며 말로 따진다",
                                anwser4: "dd"),
         "main1" : QModelData(question: """
-                               바로 경찰에 신고했지만 그 사람은 도망갔습니다.
-                               가장 먼저 드는 생각은?
+                               괴한이 사라진 뒤, 가장 먼저 드는 생각은?
                                """,
                                anwser1: "그 사람에 대한 분노가 끓어오른다",
-                               anwser2: "아 막았어야 하는데",
+                               anwser2: "발을 막았다면 좋았을텐데",
                                anwser3: "일행이 어디 안다쳤나 걱정된다",
                                anwser4: nil),
         "main2" : QModelData(question: """
@@ -132,9 +131,9 @@ var questions: [String :QModelData] = [
                                anwser3: nil,
                                anwser4: nil),
         "dps1" : QModelData(question: """
-                               게임의 승리를 위해서 어떻게 플레이하고 싶으신가요?
+                               경쟁에서 승리를 위해서 어떻게 플레이하고 싶으신가요?
                                """,
-                               anwser1: "중간은 가게 플레이한다", //(솔져, 소전, 바스)",
+                               anwser1: "무난하게 꾸준히 해서 이긴다", //(솔져, 소전, 바스)",
                                anwser2: "쉽게 꿀빨면서 이기고싶다", //(바스, 톨비)",
                                anwser3: "상대팀을 괴롭혀서 이기고싶다", //(리퍼, 정크)",
                                anwser4: nil),
@@ -204,8 +203,8 @@ var questions: [String :QModelData] = [
         "healer2" : QModelData(question: """
                                다음 중 잘한 사람은?
                                """,
-                               anwser1: "많은 무고한 생체 실험을 감행했지만 인류를 진화를 목전에 둔 사람", //(모이라)",
-                               anwser2: "전쟁에 나가서 많은 적을 죽였지만 아군도 많이 살린 사람", //(바티)",
+                               anwser1: "많은 무고한 생체 실험을 감행했지만, 인류의 진화를 목전에 둔 사람", //(모이라)",
+                               anwser2: "전쟁에 나가서 많은 사람을 죽였지만, 아군도 많이 살린 사람", //(바티)",
                                anwser3: "나라를 구한 가문의 자제. 그러나 실수로 동네 사람을 전부 죽인 사람", //(일리아리)",
                                anwser4: nil),
         "healer3" : QModelData(question: """

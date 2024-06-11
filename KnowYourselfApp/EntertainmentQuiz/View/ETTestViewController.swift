@@ -8,6 +8,16 @@ class ETTestViewController: UIViewController {
     private var viewModel: ETQuizViewModel
     private var cancellables = Set<AnyCancellable>()
     
+    // Progress Bar
+    private let entertainmentProgressView: UIProgressView = {
+        let progressView = UIProgressView(progressViewStyle: .bar)
+        progressView.trackTintColor = .lightGray
+        progressView.progressTintColor = .black
+        progressView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return progressView
+    }()
+    
     private let titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.font = UIFont.systemFont(ofSize: 25, weight: .bold)
@@ -103,6 +113,7 @@ class ETTestViewController: UIViewController {
         
         setupUI()
         bindingData()
+        bindProgress()
     }
     
     // Memory TapGestures
@@ -130,6 +141,7 @@ class ETTestViewController: UIViewController {
         // Tap Gesture
         self.view.addGestureRecognizer(tapGesture)
         
+        self.view.addSubview(entertainmentProgressView)
         self.view.addSubview(titleLabel)
         self.view.addSubview(actorImage)
         self.view.addSubview(audioPlayer)
@@ -140,7 +152,14 @@ class ETTestViewController: UIViewController {
         
         nextButton.isHidden = true
         
+        let safeArea = self.view.safeAreaLayoutGuide
+        
         NSLayoutConstraint.activate([
+            entertainmentProgressView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 0),
+            entertainmentProgressView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            entertainmentProgressView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            entertainmentProgressView.heightAnchor.constraint(equalToConstant: 20),
+            
             titleLabel.bottomAnchor.constraint(equalTo: actorImage.topAnchor, constant: -40),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
@@ -170,6 +189,8 @@ class ETTestViewController: UIViewController {
         
         // UIActions
         setupActions()
+        
+        
     }
     
     private func setupActions() {
@@ -247,6 +268,16 @@ class ETTestViewController: UIViewController {
     private func resetAudio() {
         audioPlayer.setImage(UIImage(systemName: "play.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 60)), for: .normal)
         audioPlayer.tintColor = .black
+    }
+    
+    // 퀴즈 진행도 ProgressBar
+    private func bindProgress() {
+        viewModel.progressBinding
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] progress in
+                self?.entertainmentProgressView.setProgress(progress, animated: true)
+            }
+            .store(in: &cancellables)
     }
     
     // Tap Hanlder

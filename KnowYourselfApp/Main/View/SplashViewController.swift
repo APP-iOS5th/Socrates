@@ -64,11 +64,11 @@ class SplashViewController: UIViewController {
         if let items = tabBarController.tabBar.items {
             items[0].selectedImage = UIImage(systemName: "brain.fill")
             items[0].image = UIImage(systemName: "brain")
-            items[0].title = "심리테스트"
+            items[0].title = "KNOW YOURSELF"
             
             items[1].selectedImage = UIImage(systemName: "brain.head.profile.fill")
             items[1].image = UIImage(systemName: "brain.head.profile")
-            items[1].title = "배우 맞추기"
+            items[1].title = "ENTERTAINMENT"
         }
         
         window.rootViewController = tabBarController

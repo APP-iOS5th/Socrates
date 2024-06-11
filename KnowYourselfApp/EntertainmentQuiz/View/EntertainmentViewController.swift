@@ -58,7 +58,7 @@ class EntertainmentViewController: UIViewController {
     }
     
     func setUp() {
-        self.title = "Entertainment"
+        self.title = "ENTERTAINMENT"
         self.view.backgroundColor = .white
         
         actorGameStartBtn.addAction(UIAction { [weak self] _ in

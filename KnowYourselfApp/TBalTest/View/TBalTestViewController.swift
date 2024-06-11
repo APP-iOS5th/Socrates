@@ -71,28 +71,25 @@ class TBalTestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "T Test"
-        self.view.backgroundColor = .white
-        
+
         setupUI()
         setupBindings()
         handlerPrevBtn()
     }
     
-    // PrevButton
-    private func handlerPrevBtn() {
-        prevButton.addAction(UIAction { [weak self] _ in
-            self?.tTestViewModel.prevQuestion()
-        }, for: .touchUpInside)
-    }
     
     // UI
     private func setupUI() {
+        self.title = "T Test"
+        self.view.backgroundColor = .white
+        
         self.view.addSubview(tTestProgressView)
         self.view.addSubview(tTestProgressCount)
         self.view.addSubview(tTestLabel)
         self.view.addSubview(questionsStackView)
         self.view.addSubview(prevButton)
+        
+
         
         let safeArea = self.view.safeAreaLayoutGuide
         
@@ -174,6 +171,13 @@ class TBalTestViewController: UIViewController {
             
             questionsStackView.addArrangedSubview(button)
         }
+    }
+    
+    // PrevButton
+    private func handlerPrevBtn() {
+        prevButton.addAction(UIAction { [weak self] _ in
+            self?.tTestViewModel.prevQuestion()
+        }, for: .touchUpInside)
     }
     
     

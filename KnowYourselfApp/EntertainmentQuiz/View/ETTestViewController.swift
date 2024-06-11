@@ -111,6 +111,7 @@ class ETTestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpNavigationBar()
         setupUI()
         bindingData()
         bindProgress()
@@ -131,6 +132,17 @@ class ETTestViewController: UIViewController {
         self.view.removeGestureRecognizer(tapGesture)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    // NavigationBar
+    private func setUpNavigationBar() {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .white
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
     }
     
     // setupUI

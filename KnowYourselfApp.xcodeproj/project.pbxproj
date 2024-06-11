@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F6658382C182F5500E48716 /* QModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6658372C182F5500E48716 /* QModelData.swift */; };
 		8FB618A62C09D123005E856B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618A52C09D123005E856B /* SceneDelegate.swift */; };
 		8FB618AD2C09D124005E856B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FB618AC2C09D124005E856B /* Assets.xcassets */; };
 		8FB618C82C09D1E3005E856B /* FirstTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618B72C09D1E2005E856B /* FirstTestModel.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F6658372C182F5500E48716 /* QModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QModelData.swift; sourceTree = "<group>"; };
 		8FB618A02C09D123005E856B /* KnowYourselfApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnowYourselfApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FB618A52C09D123005E856B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8FB618AC2C09D124005E856B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		8FB618DA2C0D782E005E856B /* OverwatchTest */ = {
 			isa = PBXGroup;
 			children = (
+				8FB618DF2C168320005E856B /* Model */,
 				8FB618C52C09D1E3005E856B /* OverwatchTestViewController.swift */,
 			);
 			path = OverwatchTest;
@@ -182,6 +185,14 @@
 				8FB618C62C09D1E3005E856B /* GuessWhoTestViewController.swift */,
 			);
 			path = GuessWho;
+			sourceTree = "<group>";
+		};
+		8FB618DF2C168320005E856B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8F6658372C182F5500E48716 /* QModelData.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +267,7 @@
 				8FB618DE2C0D7C51005E856B /* AppDelegate.swift in Sources */,
 				8FB618D12C09D1E3005E856B /* TBalTestViewController.swift in Sources */,
 				8FB618CB2C09D1E3005E856B /* ThirdTestModel.swift in Sources */,
+				8F6658382C182F5500E48716 /* QModelData.swift in Sources */,
 				8FB618D22C09D1E3005E856B /* DinnerGenieTestViewController.swift in Sources */,
 				8FB618C82C09D1E3005E856B /* FirstTestModel.swift in Sources */,
 				8FB618D52C09D1E3005E856B /* GuessWhoTestViewController.swift in Sources */,

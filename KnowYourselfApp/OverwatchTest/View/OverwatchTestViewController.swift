@@ -6,27 +6,37 @@
 //
 
 import UIKit
+import Foundation
 
 func createLabel(title: String) -> UILabel {
     let label = UILabel()
-    label.text = title
-    label.font = .systemFont(ofSize: 22, weight: .semibold)
+    label.font = .systemFont(ofSize: 22, weight: .bold)
     label.textColor = .black
     label.textAlignment = .center
     label.numberOfLines = 0
     label.lineBreakMode = .byWordWrapping
+    
+    let strokeTextAttributes: [NSAttributedString.Key: Any] = [
+        .strokeColor: UIColor.orange,
+           .foregroundColor: UIColor.black, // 텍스트 색상
+        .strokeWidth: -0.5 // 음수 값은 외곽선을 그려줌
+       ]
+
+       let attributedText = NSAttributedString(string: title, attributes: strokeTextAttributes)
+       label.attributedText = attributedText
+
+       
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
 }
 func createButton(title: String, tag: Int, target: Any?, action: Selector) -> UIButton {
     let button = UIButton(type: .system)
     button.setTitle(title, for: .normal)
-    button.tintColor = .black
     button.backgroundColor = .darkGray
     button.setTitleColor(.orange, for: .normal)
     button.titleLabel?.numberOfLines = 0
     button.titleLabel?.lineBreakMode = .byWordWrapping
-    button.titleLabel?.font = .systemFont(ofSize: 15, weight: UIFont.Weight.semibold)
+    button.titleLabel?.font = .systemFont(ofSize: 17, weight: UIFont.Weight.semibold)
     button.contentHorizontalAlignment = .center
     button.contentVerticalAlignment = .center
     button.tag = tag
@@ -82,7 +92,13 @@ class FirstTestViewController: UIViewController {
     }()
     
     
-    
+    private var startLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.textColor = .white
+        label.text = "오버워치 영웅 테스트 시작하기"
+        return label
+    }()
     
     
     
@@ -96,34 +112,31 @@ class FirstTestViewController: UIViewController {
     }
     
     private func StartView() {
+        self.title = ""
         view.backgroundColor = .black
         view.addSubview(backgroundImageView)
-                
-                // 배경 이미지 뷰 위에 다른 요소들을 추가합니다.
-               
-                view.addSubview(button)
-                
-                // AutoLayout을 이용하여 요소들을 배치합니다.
-                backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
-                NSLayoutConstraint.activate([
-                    backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
+        view.addSubview(button)
+        view.addSubview(startLabel)
+        
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+                    backgroundImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
                     backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                     backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                    backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+                    backgroundImageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
                 ])
                 
-//                label.translatesAutoresizingMaskIntoConstraints = false
-//                NSLayoutConstraint.activate([
-//                    label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//                    label.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-//                ])
+
                 
-                button.translatesAutoresizingMaskIntoConstraints = false
-                NSLayoutConstraint.activate([
+        button.translatesAutoresizingMaskIntoConstraints = false
+        startLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
                     button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                    button.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -10),
+                    button.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: -10),
                     button.widthAnchor.constraint(equalToConstant: 90),
-                    button.heightAnchor.constraint(equalToConstant: 90)
+                    button.heightAnchor.constraint(equalToConstant: 90),
+                    startLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                    startLabel.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 35)
                 ])
             }
             
@@ -132,8 +145,9 @@ class FirstTestViewController: UIViewController {
     
     private func setupView() {
         view.subviews.forEach { $0.removeFromSuperview() }
+        self.title = "오버워치 영웅 테스트"
         backgroundImageView.image = UIImage(named: "backgroundImage2")
-        backgroundImageView.alpha = 0.7
+        backgroundImageView.alpha = 0.6
         backgroundImageView.contentMode = .scaleAspectFit
         view.addSubview(backgroundImageView)
         view.backgroundColor = .white
@@ -225,28 +239,48 @@ class FirstTestViewController: UIViewController {
         let resultLabel = UILabel()
         resultLabel.translatesAutoresizingMaskIntoConstraints = false
         resultLabel.text = heroes[heroNumber]?.name
-        resultLabel.font = .systemFont(ofSize: 18, weight: .regular)
+        resultLabel.font = .systemFont(ofSize: 20, weight: .bold)
         resultLabel.textColor = .black
         resultLabel.textAlignment = .center
         resultLabel.numberOfLines = 0
-
+        
+        let resultText = UILabel()
+        resultText.translatesAutoresizingMaskIntoConstraints = false
+        resultText.font = .systemFont(ofSize: 18, weight: .semibold)
+        resultText.text = heroes[heroNumber]?.story
+        resultText.textColor = .black
+        resultText.textAlignment = .natural
+        resultText.numberOfLines = 0
+        
         // 뷰에 이미지 뷰 및 레이블 추가
         view.addSubview(imageView)
         view.addSubview(resultLabel)
-
+        view.addSubview(resultText)
         // 오토레이아웃 설정
         NSLayoutConstraint.activate([
             // 이미지 뷰 제약 조건
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
             imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
             imageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8), // 이미지 비율 유지
 
             // 레이블 제약 조건
             resultLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
             resultLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            resultLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+            resultLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            
+            resultText.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 30),
+            resultText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            resultText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30)
         ])
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
     }
 
     private func loadDetailQuestion(_ key: String) {

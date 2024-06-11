@@ -52,25 +52,25 @@ class FirstTestViewController: UIViewController {
         
         
         
-        QLabel = createLabel(title: questions["tanker1"]!.question)
+        QLabel = createLabel(title: questions["main1"]!.question)
         
         // 버튼 생성
         firstButton = createButton(
-            title: questions["tanker1"]!.anwser1,
+            title: questions["main1"]!.anwser1,
             tag: 0,
             target: self,
             action: #selector(heroScoreChanger(_:))
         )
         
         secondButton = createButton(
-            title: questions["tanker1"]!.anwser2,
+            title: questions["main1"]!.anwser2,
             tag: 1,
             target: self,
             action: #selector(heroScoreChanger(_:))
         )
         
         thirdButton = createButton(
-            title: questions["tanker1"]!.anwser3,
+            title: questions["main1"]!.anwser3,
             tag: 2,
             target: self,
             action: #selector(heroScoreChanger(_:))

@@ -85,9 +85,9 @@ var questions: [String :QModelData] = [
         "tanker1" : QModelData(question: """
                                인생을 바라보는 당신의 시각은 무엇인가요?
                                """,
-                               anwser1: "인생은 강한 자가 살아남는 곳이며, 실력을 키우고 경쟁에서 승리하는 것이 중요하다.",//퀸
-                               anwser2: "인생은 조화와 평화가 중요하며, 서로 도우며 살아가는 것이 중요하다.",//오리사
-                               anwser3: "인생은 맛있는 음식을 먹고, 즐기는 것이 가장 중요하며, 생존과 만족이 최우선이다.",//로드호그
+                               anwser1: "인생은 강한 자가 살아남는 곳이며, 실력을 키우고 경쟁에서 승리하는 것이 중요하다",//퀸
+                               anwser2: "인생은 조화와 평화가 중요하며, 서로 도우며 살아가는 것이 중요하다",//오리사
+                               anwser3: "인생은 맛있는 음식을 먹고, 즐기는 것이 가장 중요하며, 생존과 만족이 최우선이다",//로드호그
                                anwser4: nil),
         "tanker2" : QModelData(question: """
                                다음중 한가지 활동을 해야합니다. 어떤 활동을 하시겠습니까?
@@ -99,16 +99,16 @@ var questions: [String :QModelData] = [
         "dps" : QModelData(question: """
                                당신은 작업할 때, 어떤 작업 스타일이 가장 잘 맞는 것 같나요?
                                """,
-                               anwser1: "새로운 아이디어를 시도하고 창의적 도전하는 것이 좋아요. ",//dps0
-                               anwser2: "안정적으로 꾸준히 일하는 것을 선호합니다.",//dps1
-                               anwser3: "집중력을 발휘하여 강력한 한 방이 중요합니다. ",//dps2
+                               anwser1: "새로운 아이디어를 시도하고 창의적 도전하는 것이 좋아요 ",//dps0
+                               anwser2: "안정적으로 꾸준히 일하는 것을 선호합니다",//dps1
+                               anwser3: "집중력을 발휘하여 강력한 한 방이 중요합니다",//dps2
                                anwser4: nil),
         "dps0" : QModelData(question: """
                                당신이 가장 중요하게 생각하는 가치는 무엇인가요?
                                """,
-                               anwser1: "이상적인 사회적 정의와 평등이 가장 중요합니다.", // (시메, 파라 그룹)",
-                               anwser2: "자신의 능력을 단련하여 최고의 결과물을 만들고자 합니다.", // (겐지, 트레, 솜브라 그룹)",
-                               anwser3: "과학과 학문적 탐구를 중요하게 생각합니다.", // (메이, 벤쳐 그룹)",
+                               anwser1: "이상적인 사회적 정의와 평등이 가장 중요합니다", // (시메, 파라 그룹)",
+                               anwser2: "자신의 능력을 단련하여 최고의 결과물을 만들고자 합니다", // (겐지, 트레, 솜브라 그룹)",
+                               anwser3: "과학과 학문적 탐구를 중요하게 생각합니다", // (메이, 벤쳐 그룹)",
                                anwser4: nil),
         "dps00" : QModelData(question: """
                                다음 중 어떤 체험을 하고 싶습니까?
@@ -125,14 +125,14 @@ var questions: [String :QModelData] = [
                                anwser3: "남들의 비밀 다 알게되는 상상", //(솜브라)",
                                anwser4: nil),
         "dps02" : QModelData(question: """
-                               다음중 당신을 설레게 하는것은?
+                               다음 중 당신을 설레게 하는것은?
                                """,
                                anwser1: "새로운 발명", //(메이)",
                                anwser2: "새로운 발견", //(벤쳐)",
                                anwser3: nil,
                                anwser4: nil),
         "dps1" : QModelData(question: """
-                               게임의 승리를 위해서 어떻게 플레이하고싶으신가요?
+                               게임의 승리를 위해서 어떻게 플레이하고 싶으신가요?
                                """,
                                anwser1: "중간은 가게 플레이한다", //(솔져, 소전, 바스)",
                                anwser2: "쉽게 꿀빨면서 이기고싶다", //(바스, 톨비)",
@@ -153,17 +153,17 @@ var questions: [String :QModelData] = [
                                anwser3: nil,
                                anwser4: nil),
         "dps12" : QModelData(question: """
-                               피곤할때 당신의 모습은 어떤가요?
+                               피곤할 때 당신의 모습은 어떤가요?
                                """,
                                anwser1: "죽은사람같이 움직인다.", // (리퍼)",
-                               anwser2: "반쯤 정신이 미친다.", //(정크렛)",
+                               anwser2: "반쯤 정신이 미친다", //(정크렛)",
                                anwser3: nil,
                                anwser4: nil),
         "dps2" : QModelData(question: """
-                               당신에게 가까운 모습
+                               당신에게 가까운 모습은 무엇인가요?
                                """,
                                anwser1: "멋과 여유 그리고 정진!", // (캐서디, 한조)",
-                               anwser2: "다소 건방진 실력자.", //(위도우, 애쉬)",
+                               anwser2: "다소 건방진 실력자", //(위도우, 애쉬)",
                                anwser3: nil,
                                anwser4: nil),
         "dps20" : QModelData(question: """
@@ -174,7 +174,7 @@ var questions: [String :QModelData] = [
                                anwser3: nil,
                                anwser4: nil),
         "dps21" : QModelData(question: """
-                               다음중 갖고싶은 물건은?
+                               다음 중 갖고 싶은 물건은?
                                """,
                                anwser1: "뭐든 투시하는 안경", // (위도우)",
                                anwser2: "휴머노이드 로봇", //(애쉬)",
@@ -195,7 +195,7 @@ var questions: [String :QModelData] = [
                                anwser3: nil,
                                anwser4: nil),
         "healer1" : QModelData(question: """
-                               수강신청에 망한 당신 다음중 한가지를 꼭 수강해야한다. 그리고 A이상 받지않으면 졸업이 불가능하다. 어떤 과목을 선택하겠는가?
+                               수강신청에 망한 당신! 다음 중 한 가지를 꼭 수강해야한다. A를 받아야 졸업이 가능한 상황이라면 어떤 과목을 선택하겠는가?
                                """,
                                anwser1: "의학", //(메르시)",
                                anwser2: "생화학", //(라이프위버)",
@@ -209,10 +209,10 @@ var questions: [String :QModelData] = [
                                anwser3: "나라를 구한 가문의 자제. 그러나 실수로 동네 사람을 전부 죽인 사람", //(일리아리)",
                                anwser4: nil),
         "healer3" : QModelData(question: """
-                               물론 당신은 대인배이다. 그러나 진짜 너무 싫은 사람을 보면 드는 생각은?
+                               당신이 진짜 싫은 사람을 보면 드는 생각은?
                                """,
-                               anwser1: "마취총 쏴버리고싶다.", //(아나)",
-                               anwser2: "발로 차버리고싶다.", //(젠야타)",
+                               anwser1: "마취총 쏴버리고싶다", //(아나)",
+                               anwser2: "발로 차버리고싶다", //(젠야타)",
                                anwser3: nil,
                                anwser4: nil)
     ]

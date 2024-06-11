@@ -17,17 +17,21 @@ func createLabel(title: String) -> UILabel {
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
 }
-
 func createButton(title: String, tag: Int, target: Any?, action: Selector) -> UIButton {
-    let button = UIButton()
+    let button = UIButton(type: .system)
     button.setTitle(title, for: .normal)
     button.tintColor = .black
     button.backgroundColor = .darkGray
     button.setTitleColor(.orange, for: .normal)
+    button.titleLabel?.numberOfLines = 0
+    button.titleLabel?.lineBreakMode = .byWordWrapping
+    button.contentHorizontalAlignment = .center
+    button.contentVerticalAlignment = .center
     button.tag = tag
     button.addTarget(target, action: action, for: .touchUpInside)
     button.translatesAutoresizingMaskIntoConstraints = false
-    button.isHidden = false
+    button.heightAnchor.constraint(greaterThanOrEqualToConstant: 60).isActive = true
+    
     return button
 }
 
@@ -44,75 +48,115 @@ class FirstTestViewController: UIViewController {
     private var secondButton: UIButton!
     private var thirdButton: UIButton!
     private var fourthButton: UIButton!
-    private var currentKeyNow: String! = "none"
+    private var currentKeyNow: String! = "main"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "오버워치 영웅 테스트"
         view.backgroundColor = .white
         
+        setupView()
         
+    }
+    
+    private func setupView() {
         
-        QLabel = createLabel(title: questions["main"]!.question)
+        QLabel = createLabel(title: questions[currentKeyNow]!.question)
         
         // 버튼 생성
         firstButton = createButton(
-            title: questions["main"]!.anwser1,
+            title: questions[currentKeyNow]!.anwser1,
             tag: 0,
             target: self,
             action: #selector(heroScoreChanger(_:))
         )
         
         secondButton = createButton(
-            title: questions["main"]!.anwser2,
+            title: questions[currentKeyNow]!.anwser2,
             tag: 1,
             target: self,
             action: #selector(heroScoreChanger(_:))
         )
+        if let anwser3 = questions[currentKeyNow]!.anwser3 {
+            thirdButton = createButton(
+                title: anwser3,
+                tag: 2,
+                target: self,
+                action: #selector(heroScoreChanger(_:))
+            )
+        }
+        if let anwser4 = questions[currentKeyNow]!.anwser4 {
+            fourthButton = createButton(
+                title: anwser4,
+                tag: 3,
+                target: self,
+                action: #selector(heroScoreChanger(_:))
+            )
+        }
         
-        thirdButton = createButton(
-            title: questions["main"]!.anwser3,
-            tag: 2,
-            target: self,
-            action: #selector(heroScoreChanger(_:))
-        )
         
         
         view.addSubview(QLabel)
         view.addSubview(firstButton)
         view.addSubview(secondButton)
         view.addSubview(thirdButton)
+        view.addSubview(fourthButton)
+        fourthButton.isHidden = true
         
         
-        NSLayoutConstraint.activate([
+        var constraints = [
             QLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            QLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50),
-            QLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
+            QLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100),
+            QLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
             firstButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            firstButton.centerYAnchor.constraint(equalTo: QLabel.bottomAnchor, constant: 160),
+            firstButton.topAnchor.constraint(equalTo: QLabel.bottomAnchor, constant: 20),
+            firstButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
             secondButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            secondButton.topAnchor.constraint(equalTo: firstButton.bottomAnchor, constant: 10),
-            thirdButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            thirdButton.topAnchor.constraint(equalTo: secondButton.bottomAnchor, constant: 10)
+            secondButton.topAnchor.constraint(equalTo: firstButton.bottomAnchor, constant: 20),
+            secondButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
             
-        ])
-    }
-    private func loadPositionQuestion() {
-        let questionKey = questionsKeys[currentQIndex]
-        if let questionData = questions[questionKey] {
-            QLabel.text = questionData.question
-            firstButton.setTitle(questionData.anwser1, for: .normal)
-            secondButton.setTitle(questionData.anwser2, for: .normal)
-            thirdButton.setTitle(questionData.anwser3, for: .normal)
+        ]
+        
+        if let thirdButton = thirdButton {
+            constraints.append(contentsOf: [
+                thirdButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                thirdButton.topAnchor.constraint(equalTo: secondButton.bottomAnchor, constant: 20),
+                thirdButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
+                fourthButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                fourthButton.topAnchor.constraint(equalTo: thirdButton.bottomAnchor, constant: 20),
+                fourthButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7)
+            ])
         }
+        
+        NSLayoutConstraint.activate(constraints)
     }
+    //    private func loadPositionQuestion() {
+    //        let questionKey = questionsKeys[currentQIndex]
+    //        if let questionData = questions[questionKey] {
+    //            QLabel.text = questionData.question
+    //            firstButton.setTitle(questionData.anwser1, for: .normal)
+    //            secondButton.setTitle(questionData.anwser2, for: .normal)
+    //            thirdButton.setTitle(questionData.anwser3, for: .normal)
+    //        }
+    //    }
     private func loadDetailQuestion(_ key: String) {
         currentKeyNow = key
         if let questionData = questions[key] {
             QLabel.text = questionData.question
             firstButton.setTitle(questionData.anwser1, for: .normal)
             secondButton.setTitle(questionData.anwser2, for: .normal)
-            thirdButton.setTitle(questionData.anwser3, for: .normal)
+            if let anwser3 = questionData.anwser3 {
+                thirdButton.isHidden = false
+                thirdButton.setTitle(anwser3, for: .normal)
+            } else {
+                thirdButton.isHidden = true
+            }
+            if let anwser4 = questionData.anwser4 {
+                fourthButton.isHidden = false
+                fourthButton.setTitle(anwser4, for: .normal)
+            } else {
+                fourthButton.isHidden = true
+            }
         }
     }
     
@@ -172,22 +216,22 @@ class FirstTestViewController: UIViewController {
             case 0...1:
                 let positionKey = "dps"
                 loadDetailQuestion(positionKey)
-            
+                
             case 2...3:
                 let positionKey = "tanker"
                 loadDetailQuestion(positionKey)
-            
-            case 4...6: 
+                
+            case 4...6:
                 let positionKey = "healer"
                 loadDetailQuestion(positionKey)
                 
             default: break
             }
         }//포지션이 정해지는순간-> 각포지션에 맞는 질문지 [포지션]
-            if currentQIndex < 3 {
-                let positionKey = "main" + String(currentQIndex)
-                loadDetailQuestion(positionKey)
-             //포지션 정하기전까지
+        if currentQIndex < 3 {
+            let positionKey = "main" + String(currentQIndex)
+            loadDetailQuestion(positionKey)
+            //포지션 정하기전까지
         }
     }
     

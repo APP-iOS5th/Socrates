@@ -180,7 +180,7 @@ var questions: [String :QModelData] = [
                                anwser3: nil,
                                anwser4: nil),
         "healer" : QModelData(question: """
-                               당신은 어떤 스타일에 사람입니까?
+                               당신은 어떤 스타일의 사람입니까?
                                """,
                                anwser1: "흥이 많은 타입", // (키리코, 루시우)",
                                anwser2: "다정한 스타일", // (메르시, 위버, 브리기테)",

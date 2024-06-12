@@ -30,8 +30,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // 각 인덱스별 이미지 이름 배열
 
-    let prevImages: [String] = ["main", "Ttest", "GuessWho1", "aaa"]
-    let nextImages: [String] = ["main2", "Ttest_CH_main", "GuessWho2", "bbb"]
+    let prevImages: [String] = ["main", "Ttest", "GuessWho1", "menumain"]
+    let nextImages: [String] = ["main2", "Ttest_CH_main", "GuessWho2", "menumain2"]
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CustomTableViewCell else {
@@ -82,8 +82,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let first = FirstTestViewController()
         let second = TBalTestViewController()
-        let third = GuessWhoViewController(quizList: quizList)
-        let fourth = FourthTestViewController()
+        let third = ThirdTestViewController(quizList: quizList)
+        let fourth = DinnerGenieTestViewController()
         let TestViewGroup = [first, second, third, fourth]
 
         navigationController?.pushViewController(TestViewGroup[indexPath.row], animated: true)

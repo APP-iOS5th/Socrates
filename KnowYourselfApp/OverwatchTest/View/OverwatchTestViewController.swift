@@ -52,7 +52,27 @@ func createButton(title: String, tag: Int, target: Any?, action: Selector) -> UI
 
 class FirstTestViewController: UIViewController {
   
-    //탭바 숨기기
+    //탭바 다시보이기
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // 네비게이션 컨트롤러의 뷰 컨트롤러가 self인 경우 (루트 뷰 컨트롤러)
+        if self.navigationController?.viewControllers.last == self {
+            // 탭바 숨기기
+            tabBarController?.tabBar.isHidden = true
+            
+        }
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // 네비게이션 스택에서 팝될 때 (뒤로 가기)
+        if isMovingFromParent {
+            // 탭바 표시하기
+            tabBarController?.tabBar.isHidden = false
+            self.navigationController?.navigationBar.backItem?.title = "KNOW YOURSELF"
+            self.navigationController?.navigationBar.tintColor = .systemBlue
+        }
+    }
    
     
     private var heroScore = 0
@@ -108,14 +128,14 @@ class FirstTestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "오버워치 영웅 테스트"
-        view.backgroundColor = .white 
-        var tabBarController: UITabBarController? {
-            return self.presentingViewController as? UITabBarController
-        }
-        if let tabBarController = self.tabBarController {
-                // 탭바 숨기기
-                tabBarController.tabBar.isHidden = true
-            }
+        view.backgroundColor = .white
+//        var tabBarController: UITabBarController? {
+//            return self.presentingViewController as? UITabBarController
+//        }
+//        if let tabBarController = self.tabBarController {
+//                // 탭바 숨기기
+//                tabBarController.tabBar.isHidden = true
+//            }
         
         StartView()
     }
@@ -155,6 +175,8 @@ class FirstTestViewController: UIViewController {
     private func setupView() {
         view.subviews.forEach { $0.removeFromSuperview() }
         self.title = "오버워치 영웅 테스트"
+        self.navigationController?.navigationBar.backItem?.title = "Test List"
+        self.navigationController?.navigationBar.tintColor = .black
         backgroundImageView.image = UIImage(named: "backgroundImage2")
         backgroundImageView.alpha = 0.6
         backgroundImageView.contentMode = .scaleAspectFit

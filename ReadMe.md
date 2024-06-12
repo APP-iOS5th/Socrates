@@ -39,7 +39,7 @@
 <br>
 
 <p align="center">
-  <img src="https://storage.googleapis.com/socrates-image/Splash.png" alt="Img" width="200">
+  <img src="https://storage.googleapis.com/socrates-image/overwatch.png" alt="Img" width="200">
 </p>
 
 <br>

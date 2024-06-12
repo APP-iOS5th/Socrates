@@ -20,12 +20,16 @@
 		04F0A74B2C1818F100F668FD /* ETQuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F0A74A2C1818F100F668FD /* ETQuizViewModel.swift */; };
 		04F0A74D2C18199000F668FD /* ETTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F0A74C2C18199000F668FD /* ETTestViewController.swift */; };
 		04F0A74F2C1819FC00F668FD /* ETResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F0A74E2C1819FC00F668FD /* ETResultViewController.swift */; };
-		8D1022272C19653B0071EE94 /* DinnerGenieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1022252C19653B0071EE94 /* DinnerGenieModel.swift */; };
-		8D10222A2C196A7C0071EE94 /* MangoByeolbyeol.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D1022292C196A7C0071EE94 /* MangoByeolbyeol.otf */; };
-		8D10222C2C196A8D0071EE94 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D10222B2C196A8D0071EE94 /* Pretendard-SemiBold.otf */; };
-		8DB96AE42C189DD000D1AE0C /* DinnerGenieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB96AE32C189DD000D1AE0C /* DinnerGenieViewModel.swift */; };
-		8DB96AE82C189E0B00D1AE0C /* DinnerGenieTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB96AE72C189E0B00D1AE0C /* DinnerGenieTestViewController.swift */; };
-		8DB96AEA2C189E2300D1AE0C /* DinnerGenieResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB96AE92C189E2300D1AE0C /* DinnerGenieResultViewController.swift */; };
+		75BE85262C0EFD3F00CFB813 /* QuizModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE85252C0EFD3F00CFB813 /* QuizModel.swift */; };
+		75BE85282C0EFD7B00CFB813 /* GuessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE85272C0EFD7B00CFB813 /* GuessViewModel.swift */; };
+		75BE852A2C0EFDA200CFB813 /* GuessWhoResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE85292C0EFDA200CFB813 /* GuessWhoResultViewController.swift */; };
+		75DF685F2C1880D9005A3C83 /* GuessWhoProgessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DF685E2C1880D9005A3C83 /* GuessWhoProgessView.swift */; };
+		8D1022342C196CCC0071EE94 /* DinnerGenieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D10222D2C196CCC0071EE94 /* DinnerGenieModel.swift */; };
+		8D1022352C196CCC0071EE94 /* DinnerGenieResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D10222F2C196CCC0071EE94 /* DinnerGenieResultViewController.swift */; };
+		8D1022362C196CCC0071EE94 /* DinnerGenieTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1022302C196CCC0071EE94 /* DinnerGenieTestViewController.swift */; };
+		8D1022372C196CCC0071EE94 /* DinnerGenieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1022322C196CCC0071EE94 /* DinnerGenieViewModel.swift */; };
+		8D10223C2C196E7C0071EE94 /* MangoByeolbyeol.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D1022392C196E7C0071EE94 /* MangoByeolbyeol.otf */; };
+		8D10223D2C196E7C0071EE94 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D10223A2C196E7C0071EE94 /* Pretendard-SemiBold.otf */; };
 		8F6658382C182F5500E48716 /* QModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6658372C182F5500E48716 /* QModelData.swift */; };
 		8FB618A62C09D123005E856B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618A52C09D123005E856B /* SceneDelegate.swift */; };
 		8FB618AD2C09D124005E856B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FB618AC2C09D124005E856B /* Assets.xcassets */; };
@@ -55,14 +59,18 @@
 		04F0A74A2C1818F100F668FD /* ETQuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETQuizViewModel.swift; sourceTree = "<group>"; };
 		04F0A74C2C18199000F668FD /* ETTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETTestViewController.swift; sourceTree = "<group>"; };
 		04F0A74E2C1819FC00F668FD /* ETResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETResultViewController.swift; sourceTree = "<group>"; };
-		8D1022252C19653B0071EE94 /* DinnerGenieModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DinnerGenieModel.swift; sourceTree = "<group>"; };
-		8D1022292C196A7C0071EE94 /* MangoByeolbyeol.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MangoByeolbyeol.otf; sourceTree = "<group>"; };
-		8D10222B2C196A8D0071EE94 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
-		8DB96AE32C189DD000D1AE0C /* DinnerGenieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerGenieViewModel.swift; sourceTree = "<group>"; };
-		8DB96AE72C189E0B00D1AE0C /* DinnerGenieTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerGenieTestViewController.swift; sourceTree = "<group>"; };
-		8DB96AE92C189E2300D1AE0C /* DinnerGenieResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerGenieResultViewController.swift; sourceTree = "<group>"; };
+		75BE85252C0EFD3F00CFB813 /* QuizModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizModel.swift; sourceTree = "<group>"; };
+		75BE85272C0EFD7B00CFB813 /* GuessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessViewModel.swift; sourceTree = "<group>"; };
+		75BE85292C0EFDA200CFB813 /* GuessWhoResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessWhoResultViewController.swift; sourceTree = "<group>"; };
+		75DF685E2C1880D9005A3C83 /* GuessWhoProgessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessWhoProgessView.swift; sourceTree = "<group>"; };
+		8D10222D2C196CCC0071EE94 /* DinnerGenieModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DinnerGenieModel.swift; sourceTree = "<group>"; };
+		8D10222F2C196CCC0071EE94 /* DinnerGenieResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DinnerGenieResultViewController.swift; sourceTree = "<group>"; };
+		8D1022302C196CCC0071EE94 /* DinnerGenieTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DinnerGenieTestViewController.swift; sourceTree = "<group>"; };
+		8D1022322C196CCC0071EE94 /* DinnerGenieViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DinnerGenieViewModel.swift; sourceTree = "<group>"; };
+		8D1022392C196E7C0071EE94 /* MangoByeolbyeol.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MangoByeolbyeol.otf; sourceTree = "<group>"; };
+		8D10223A2C196E7C0071EE94 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		8F6658372C182F5500E48716 /* QModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QModelData.swift; sourceTree = "<group>"; };
-		8FB618A02C09D123005E856B /* KnowYourselfApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = KnowYourselfApp.app; path = "/Users/sohee/appschool5th/Project02/Socrates/build/Debug-iphoneos/KnowYourselfApp.app"; sourceTree = "<absolute>"; };
+		8FB618A02C09D123005E856B /* KnowYourselfApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnowYourselfApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FB618A52C09D123005E856B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8FB618AC2C09D124005E856B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8FB618B12C09D124005E856B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -168,39 +176,64 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		8D1022262C19653B0071EE94 /* Model */ = {
+		75BE85222C0EFCFD00CFB813 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8D1022252C19653B0071EE94 /* DinnerGenieModel.swift */,
-			);
-			name = Model;
-			path = KnowYourselfApp/DinnerGenie/Model;
-			sourceTree = SOURCE_ROOT;
-		};
-		8D1022282C196A5D0071EE94 /* Font */ = {
-			isa = PBXGroup;
-			children = (
-				8D10222B2C196A8D0071EE94 /* Pretendard-SemiBold.otf */,
-				8D1022292C196A7C0071EE94 /* MangoByeolbyeol.otf */,
-			);
-			path = Font;
-			sourceTree = "<group>";
-		};
-		8DB96ADE2C189D7D00D1AE0C /* View */ = {
-			isa = PBXGroup;
-			children = (
-				8DB96AE72C189E0B00D1AE0C /* DinnerGenieTestViewController.swift */,
-				8DB96AE92C189E2300D1AE0C /* DinnerGenieResultViewController.swift */,
+				8FB618C62C09D1E3005E856B /* GuessWhoTestViewController.swift */,
+				75BE85292C0EFDA200CFB813 /* GuessWhoResultViewController.swift */,
+				75DF685E2C1880D9005A3C83 /* GuessWhoProgessView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		8DB96ADF2C189D8700D1AE0C /* ViewModel */ = {
+		75BE85232C0EFD0400CFB813 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				8DB96AE32C189DD000D1AE0C /* DinnerGenieViewModel.swift */,
+				75BE85272C0EFD7B00CFB813 /* GuessViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		75BE85242C0EFD0A00CFB813 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				75BE85252C0EFD3F00CFB813 /* QuizModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8D10222E2C196CCC0071EE94 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8D10222D2C196CCC0071EE94 /* DinnerGenieModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8D1022312C196CCC0071EE94 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8D10222F2C196CCC0071EE94 /* DinnerGenieResultViewController.swift */,
+				8D1022302C196CCC0071EE94 /* DinnerGenieTestViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8D1022332C196CCC0071EE94 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8D1022322C196CCC0071EE94 /* DinnerGenieViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8D10223B2C196E7C0071EE94 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				8D1022392C196E7C0071EE94 /* MangoByeolbyeol.otf */,
+				8D10223A2C196E7C0071EE94 /* Pretendard-SemiBold.otf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		8F6658392C1876EB00E48716 /* View */ = {
@@ -215,7 +248,16 @@
 			isa = PBXGroup;
 			children = (
 				8FB618A22C09D123005E856B /* KnowYourselfApp */,
+				8FB618A12C09D123005E856B /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		8FB618A12C09D123005E856B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8FB618A02C09D123005E856B /* KnowYourselfApp.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		8FB618A22C09D123005E856B /* KnowYourselfApp */ = {
@@ -228,7 +270,7 @@
 				8FB618DA2C0D782E005E856B /* OverwatchTest */,
 				8FB618DC2C0D7834005E856B /* GuessWho */,
 				8FB618DB2C0D7831005E856B /* DinnerGenie */,
-				8D1022282C196A5D0071EE94 /* Font */,
+				8D10223B2C196E7C0071EE94 /* Font */,
 				8FB618AC2C09D124005E856B /* Assets.xcassets */,
 				8FB618B12C09D124005E856B /* Info.plist */,
 			);
@@ -306,9 +348,9 @@
 		8FB618DB2C0D7831005E856B /* DinnerGenie */ = {
 			isa = PBXGroup;
 			children = (
-				8D1022262C19653B0071EE94 /* Model */,
-				8DB96ADE2C189D7D00D1AE0C /* View */,
-				8DB96ADF2C189D8700D1AE0C /* ViewModel */,
+				8D10222E2C196CCC0071EE94 /* Model */,
+				8D1022312C196CCC0071EE94 /* View */,
+				8D1022332C196CCC0071EE94 /* ViewModel */,
 			);
 			path = DinnerGenie;
 			sourceTree = "<group>";
@@ -316,7 +358,9 @@
 		8FB618DC2C0D7834005E856B /* GuessWho */ = {
 			isa = PBXGroup;
 			children = (
-				8FB618C62C09D1E3005E856B /* GuessWhoTestViewController.swift */,
+				75BE85242C0EFD0A00CFB813 /* Model */,
+				75BE85222C0EFCFD00CFB813 /* View */,
+				75BE85232C0EFD0400CFB813 /* ViewModel */,
 			);
 			path = GuessWho;
 			sourceTree = "<group>";
@@ -373,7 +417,7 @@
 				Base,
 			);
 			mainGroup = 8FB618972C09D123005E856B;
-			productRefGroup = 8FB618972C09D123005E856B;
+			productRefGroup = 8FB618A12C09D123005E856B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -387,8 +431,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D10222C2C196A8D0071EE94 /* Pretendard-SemiBold.otf in Resources */,
-				8D10222A2C196A7C0071EE94 /* MangoByeolbyeol.otf in Resources */,
+				8D10223D2C196E7C0071EE94 /* Pretendard-SemiBold.otf in Resources */,
+				8D10223C2C196E7C0071EE94 /* MangoByeolbyeol.otf in Resources */,
 				8FB618AD2C09D124005E856B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,32 +444,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DB96AE82C189E0B00D1AE0C /* DinnerGenieTestViewController.swift in Sources */,
 				8FB618DE2C0D7C51005E856B /* AppDelegate.swift in Sources */,
+				8D1022362C196CCC0071EE94 /* DinnerGenieTestViewController.swift in Sources */,
+				8D1022342C196CCC0071EE94 /* DinnerGenieModel.swift in Sources */,
 				04F0A7492C1818A500F668FD /* EntertainmentViewModel.swift in Sources */,
 				040292822C0DA333009F1102 /* TtestViewModel.swift in Sources */,
+				8D1022372C196CCC0071EE94 /* DinnerGenieViewModel.swift in Sources */,
 				04C6B1F02C0FE3B2009C5E23 /* TtestStore.swift in Sources */,
-				8D1022272C19653B0071EE94 /* DinnerGenieModel.swift in Sources */,
 				04F0A7432C1817F400F668FD /* EntertainmentViewController.swift in Sources */,
+				8D1022352C196CCC0071EE94 /* DinnerGenieResultViewController.swift in Sources */,
 				04F0A73E2C18178C00F668FD /* SplashViewController.swift in Sources */,
 				8FB618D12C09D1E3005E856B /* TBalTestViewController.swift in Sources */,
 				8FB618CB2C09D1E3005E856B /* ThirdTestModel.swift in Sources */,
-				8DB96AEA2C189E2300D1AE0C /* DinnerGenieResultViewController.swift in Sources */,
 				8F6658382C182F5500E48716 /* QModelData.swift in Sources */,
 				8FB618C82C09D1E3005E856B /* FirstTestModel.swift in Sources */,
 				8FB618D52C09D1E3005E856B /* GuessWhoTestViewController.swift in Sources */,
 				04F0A7472C18187000F668FD /* EntertainmentModel.swift in Sources */,
 				8FB618D42C09D1E3005E856B /* OverwatchTestViewController.swift in Sources */,
+				75DF685F2C1880D9005A3C83 /* GuessWhoProgessView.swift in Sources */,
+				75BE85262C0EFD3F00CFB813 /* QuizModel.swift in Sources */,
 				04F0A74D2C18199000F668FD /* ETTestViewController.swift in Sources */,
 				8FB618C92C09D1E3005E856B /* FourthTestModel.swift in Sources */,
 				8FB618CA2C09D1E3005E856B /* secondTestModel.swift in Sources */,
 				04F0A74B2C1818F100F668FD /* ETQuizViewModel.swift in Sources */,
 				8FB618D02C09D1E3005E856B /* MainTableViewCell.swift in Sources */,
-				8DB96AE42C189DD000D1AE0C /* DinnerGenieViewModel.swift in Sources */,
 				04F0A74F2C1819FC00F668FD /* ETResultViewController.swift in Sources */,
 				040292802C0DA275009F1102 /* TtestModel.swift in Sources */,
 				04D7D58E2C0EE16200DED21E /* SaveImage.swift in Sources */,
 				8FB618D32C09D1E3005E856B /* MainViewController.swift in Sources */,
+				75BE85282C0EFD7B00CFB813 /* GuessViewModel.swift in Sources */,
+				75BE852A2C0EFDA200CFB813 /* GuessWhoResultViewController.swift in Sources */,
 				04F0A7452C18183C00F668FD /* EntertainmentServer.swift in Sources */,
 				8FB618A62C09D123005E856B /* SceneDelegate.swift in Sources */,
 				040292842C0DA374009F1102 /* TtestResultViewController.swift in Sources */,
@@ -561,7 +609,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 59FP2PXRXK;
+				DEVELOPMENT_TEAM = G3FGJ8NWN2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KnowYourselfApp/Info.plist;
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "이미지를 앨범에 저장하려면 접근 권한이 필요합니다.";
@@ -589,7 +637,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 59FP2PXRXK;
+				DEVELOPMENT_TEAM = G3FGJ8NWN2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KnowYourselfApp/Info.plist;
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "이미지를 앨범에 저장하려면 접근 권한이 필요합니다.";

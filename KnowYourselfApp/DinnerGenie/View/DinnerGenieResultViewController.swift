@@ -24,7 +24,7 @@ class DinnerGenieResultViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "오늘의 저녁 추천 메뉴는?"
-        label.font = UIFont(name: "Pretendard-SemiBold", size: 20)
+        label.font = UIFont.systemFont(ofSize: 20)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -38,7 +38,7 @@ class DinnerGenieResultViewController: UIViewController {
     }()
     private let resultLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Pretendard-SemiBold", size: 20)
+        label.font = UIFont.systemFont(ofSize: 20)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -46,8 +46,6 @@ class DinnerGenieResultViewController: UIViewController {
     private let reRecommendButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("재추천", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Pretendard-SemiBold", size: 15)
-        button.setTitleColor(.black, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2
         button.layer.cornerRadius = 8
@@ -57,7 +55,6 @@ class DinnerGenieResultViewController: UIViewController {
     private let shareButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("공유", for: .normal)
-        button.titleLabel?.font = UIFont(name: "MangoByeolbyeol", size: 15)
         button.setTitleColor(.black, for: .normal)
         button.layer.borderWidth = 2
         button.layer.cornerRadius = 8
@@ -67,7 +64,6 @@ class DinnerGenieResultViewController: UIViewController {
     private let saveButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("저장", for: .normal)
-        button.titleLabel?.font = UIFont(name: "MangoByeolbyeol", size: 15)
         button.setTitleColor(.black, for: .normal)
         button.layer.borderWidth = 2
         button.layer.cornerRadius = 8
@@ -77,7 +73,6 @@ class DinnerGenieResultViewController: UIViewController {
     private let homeButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("다른 테스트 하러가기", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Pretendard-SemiBold", size: 15)
         button.setTitleColor(.black, for: .normal)
         button.layer.borderWidth = 2
         button.layer.cornerRadius = 8

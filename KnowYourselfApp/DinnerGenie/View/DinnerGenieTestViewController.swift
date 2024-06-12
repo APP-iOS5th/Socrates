@@ -22,7 +22,7 @@ class DinnerGenieTestViewController: UIViewController {
     }()
     private let questionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Pretendard-SemiBold", size: 20)
+        label.font = UIFont.systemFont(ofSize: 20)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -30,7 +30,6 @@ class DinnerGenieTestViewController: UIViewController {
     private let yesButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("O", for: .normal)
-        button.titleLabel?.font = UIFont(name: "MangoByeolbyeol", size: 20)
         button.setTitleColor(.black, for: .normal)
         button.layer.borderWidth = 2
         button.layer.cornerRadius = 8
@@ -41,7 +40,6 @@ class DinnerGenieTestViewController: UIViewController {
     private let noButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("X", for: .normal)
-        button.titleLabel?.font = UIFont(name: "MangoByeolbyeol", size: 20)
         button.setTitleColor(.black, for: .normal)
         button.layer.borderWidth = 2
         button.layer.cornerRadius = 8

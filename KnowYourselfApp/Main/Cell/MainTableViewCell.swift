@@ -18,11 +18,8 @@ class CustomTableViewCell: UITableViewCell {
     let cellImageView: UIImageView = {
         let imageview = UIImageView()
         // imageview.image = UIImage(named: "aaa")
-<<<<<<< HEAD
-         imageview.contentMode = .scaleAspectFill
-=======
+
         imageview.contentMode = .scaleAspectFill
->>>>>>> 5d8886bbbec2c5c16944fa1779edb37de4b311b9
         imageview.layer.masksToBounds = true
         imageview.layer.cornerRadius = 30
         return imageview
@@ -60,16 +57,9 @@ class CustomTableViewCell: UITableViewCell {
             cellImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
             cellImageView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.93),
             
-<<<<<<< HEAD
-            entryButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            entryButton.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.3),
-            entryButton.widthAnchor.constraint(equalToConstant: 50),
-            entryButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -7)
-=======
             entryButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             entryButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30),
             entryButton.widthAnchor.constraint(equalToConstant: contentView.frame.width * 0.4)
->>>>>>> 5d8886bbbec2c5c16944fa1779edb37de4b311b9
         ])
         
     }

@@ -42,4 +42,3 @@ struct DinnerGenieModel {
             return options.randomElement() ?? "추천할 메뉴가 없습니다."
         }
     }
-

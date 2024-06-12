@@ -82,7 +82,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let first = FirstTestViewController()
         let second = SecondTestViewController()
         let third = ThirdTestViewController()
-        let fourth = FourthTestViewController()
+        let fourth = DinnerGenieTestViewController()
         let TestViewGroup = [first, second, third, fourth]
 
         navigationController?.pushViewController(TestViewGroup[indexPath.row], animated: true)

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8DB96AE22C189DB600D1AE0C /* DinnerGenieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB96AE12C189DB600D1AE0C /* DinnerGenieModel.swift */; };
+		8DB96AE42C189DD000D1AE0C /* DinnerGenieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB96AE32C189DD000D1AE0C /* DinnerGenieViewModel.swift */; };
+		8DB96AE82C189E0B00D1AE0C /* DinnerGenieTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB96AE72C189E0B00D1AE0C /* DinnerGenieTestViewController.swift */; };
+		8DB96AEA2C189E2300D1AE0C /* DinnerGenieResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB96AE92C189E2300D1AE0C /* DinnerGenieResultViewController.swift */; };
 		8FB618A62C09D123005E856B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618A52C09D123005E856B /* SceneDelegate.swift */; };
 		8FB618AD2C09D124005E856B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FB618AC2C09D124005E856B /* Assets.xcassets */; };
 		8FB618C82C09D1E3005E856B /* FirstTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618B72C09D1E2005E856B /* FirstTestModel.swift */; };
@@ -15,7 +19,6 @@
 		8FB618CB2C09D1E3005E856B /* ThirdTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618BA2C09D1E2005E856B /* ThirdTestModel.swift */; };
 		8FB618D02C09D1E3005E856B /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618C12C09D1E3005E856B /* MainTableViewCell.swift */; };
 		8FB618D12C09D1E3005E856B /* TBalTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618C22C09D1E3005E856B /* TBalTestViewController.swift */; };
-		8FB618D22C09D1E3005E856B /* DinnerGenieTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618C32C09D1E3005E856B /* DinnerGenieTestViewController.swift */; };
 		8FB618D32C09D1E3005E856B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618C42C09D1E3005E856B /* MainViewController.swift */; };
 		8FB618D42C09D1E3005E856B /* OverwatchTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618C52C09D1E3005E856B /* OverwatchTestViewController.swift */; };
 		8FB618D52C09D1E3005E856B /* GuessWhoTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618C62C09D1E3005E856B /* GuessWhoTestViewController.swift */; };
@@ -23,6 +26,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8DB96AE12C189DB600D1AE0C /* DinnerGenieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerGenieModel.swift; sourceTree = "<group>"; };
+		8DB96AE32C189DD000D1AE0C /* DinnerGenieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerGenieViewModel.swift; sourceTree = "<group>"; };
+		8DB96AE72C189E0B00D1AE0C /* DinnerGenieTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerGenieTestViewController.swift; sourceTree = "<group>"; };
+		8DB96AE92C189E2300D1AE0C /* DinnerGenieResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerGenieResultViewController.swift; sourceTree = "<group>"; };
 		8FB618A02C09D123005E856B /* KnowYourselfApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnowYourselfApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FB618A52C09D123005E856B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8FB618AC2C09D124005E856B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -33,7 +40,6 @@
 		8FB618BA2C09D1E2005E856B /* ThirdTestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdTestModel.swift; sourceTree = "<group>"; };
 		8FB618C12C09D1E3005E856B /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		8FB618C22C09D1E3005E856B /* TBalTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TBalTestViewController.swift; sourceTree = "<group>"; };
-		8FB618C32C09D1E3005E856B /* DinnerGenieTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DinnerGenieTestViewController.swift; sourceTree = "<group>"; };
 		8FB618C42C09D1E3005E856B /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8FB618C52C09D1E3005E856B /* OverwatchTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverwatchTestViewController.swift; sourceTree = "<group>"; };
 		8FB618C62C09D1E3005E856B /* GuessWhoTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessWhoTestViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +77,31 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8DB96ADE2C189D7D00D1AE0C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8DB96AE72C189E0B00D1AE0C /* DinnerGenieTestViewController.swift */,
+				8DB96AE92C189E2300D1AE0C /* DinnerGenieResultViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8DB96ADF2C189D8700D1AE0C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8DB96AE32C189DD000D1AE0C /* DinnerGenieViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8DB96AE02C189D9300D1AE0C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8DB96AE12C189DB600D1AE0C /* DinnerGenieModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		8FB618972C09D123005E856B = {
@@ -171,7 +202,9 @@
 		8FB618DB2C0D7831005E856B /* DinnerGenie */ = {
 			isa = PBXGroup;
 			children = (
-				8FB618C32C09D1E3005E856B /* DinnerGenieTestViewController.swift */,
+				8DB96ADE2C189D7D00D1AE0C /* View */,
+				8DB96ADF2C189D8700D1AE0C /* ViewModel */,
+				8DB96AE02C189D9300D1AE0C /* Model */,
 			);
 			path = DinnerGenie;
 			sourceTree = "<group>";
@@ -253,16 +286,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DB96AE22C189DB600D1AE0C /* DinnerGenieModel.swift in Sources */,
+				8DB96AE82C189E0B00D1AE0C /* DinnerGenieTestViewController.swift in Sources */,
 				8FB618DE2C0D7C51005E856B /* AppDelegate.swift in Sources */,
 				8FB618D12C09D1E3005E856B /* TBalTestViewController.swift in Sources */,
 				8FB618CB2C09D1E3005E856B /* ThirdTestModel.swift in Sources */,
-				8FB618D22C09D1E3005E856B /* DinnerGenieTestViewController.swift in Sources */,
+				8DB96AEA2C189E2300D1AE0C /* DinnerGenieResultViewController.swift in Sources */,
 				8FB618C82C09D1E3005E856B /* FirstTestModel.swift in Sources */,
 				8FB618D52C09D1E3005E856B /* GuessWhoTestViewController.swift in Sources */,
 				8FB618D42C09D1E3005E856B /* OverwatchTestViewController.swift in Sources */,
 				8FB618C92C09D1E3005E856B /* FourthTestModel.swift in Sources */,
 				8FB618CA2C09D1E3005E856B /* secondTestModel.swift in Sources */,
 				8FB618D02C09D1E3005E856B /* MainTableViewCell.swift in Sources */,
+				8DB96AE42C189DD000D1AE0C /* DinnerGenieViewModel.swift in Sources */,
 				8FB618D32C09D1E3005E856B /* MainViewController.swift in Sources */,
 				8FB618A62C09D123005E856B /* SceneDelegate.swift in Sources */,
 			);
@@ -397,7 +433,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = G3FGJ8NWN2;
+				DEVELOPMENT_TEAM = 59FP2PXRXK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KnowYourselfApp/Info.plist;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진첩에 이미지를 저장하기 위해 사진 라이브러리 접근 권한이 필요합니다.";
@@ -425,7 +461,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = G3FGJ8NWN2;
+				DEVELOPMENT_TEAM = 59FP2PXRXK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KnowYourselfApp/Info.plist;
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진첩에 이미지를 저장하기 위해 사진 라이브러리 접근 권한이 필요합니다.";

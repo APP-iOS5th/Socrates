@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D8CF32A2C192600001F8929 /* MangoByeolbyeol.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D8CF3292C192600001F8929 /* MangoByeolbyeol.otf */; };
+		8D8CF3362C193166001F8929 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D8CF3352C193166001F8929 /* Pretendard-SemiBold.otf */; };
 		8DB96AE22C189DB600D1AE0C /* DinnerGenieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB96AE12C189DB600D1AE0C /* DinnerGenieModel.swift */; };
 		8DB96AE42C189DD000D1AE0C /* DinnerGenieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB96AE32C189DD000D1AE0C /* DinnerGenieViewModel.swift */; };
 		8DB96AE82C189E0B00D1AE0C /* DinnerGenieTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB96AE72C189E0B00D1AE0C /* DinnerGenieTestViewController.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D8CF3292C192600001F8929 /* MangoByeolbyeol.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MangoByeolbyeol.otf; sourceTree = "<group>"; };
+		8D8CF3352C193166001F8929 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		8DB96AE12C189DB600D1AE0C /* DinnerGenieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerGenieModel.swift; sourceTree = "<group>"; };
 		8DB96AE32C189DD000D1AE0C /* DinnerGenieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerGenieViewModel.swift; sourceTree = "<group>"; };
 		8DB96AE72C189E0B00D1AE0C /* DinnerGenieTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinnerGenieTestViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +83,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		8D8CF3282C192593001F8929 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				8D8CF3352C193166001F8929 /* Pretendard-SemiBold.otf */,
+				8D8CF3292C192600001F8929 /* MangoByeolbyeol.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		8DB96ADE2C189D7D00D1AE0C /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +142,7 @@
 				8FB618DA2C0D782E005E856B /* OverwatchTest */,
 				8FB618DC2C0D7834005E856B /* GuessWho */,
 				8FB618DB2C0D7831005E856B /* DinnerGenie */,
+				8D8CF3282C192593001F8929 /* Font */,
 				8FB618AC2C09D124005E856B /* Assets.xcassets */,
 				8FB618B12C09D124005E856B /* Info.plist */,
 			);
@@ -275,6 +289,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D8CF3362C193166001F8929 /* Pretendard-SemiBold.otf in Resources */,
+				8D8CF32A2C192600001F8929 /* MangoByeolbyeol.otf in Resources */,
 				8FB618AD2C09D124005E856B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

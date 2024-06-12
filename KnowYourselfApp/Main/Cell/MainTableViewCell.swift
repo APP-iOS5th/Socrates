@@ -18,6 +18,7 @@ class CustomTableViewCell: UITableViewCell {
     let cellImageView: UIImageView = {
         let imageview = UIImageView()
         // imageview.image = UIImage(named: "aaa")
+
         imageview.contentMode = .scaleAspectFill
         imageview.layer.masksToBounds = true
         imageview.layer.cornerRadius = 30

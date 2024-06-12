@@ -14,6 +14,7 @@ class GuessWhoResultViewController: UIViewController {
     var resultImageName: String?
     let retryButton = UIButton()
     let resultImageView = UIImageView()
+    let backgroundImageView = UIImageView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +22,18 @@ class GuessWhoResultViewController: UIViewController {
     }
 
     private func setupUI() {
-        urLabel.font = UIFont.systemFont(ofSize: 23, weight: .semibold)
+        backgroundImageView.image = UIImage(named: "GuessWhoBG")
+        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(backgroundImageView)
+        view.sendSubviewToBack(backgroundImageView)
+        
+        urLabel.font = UIFont(name: "HakgyoansimDoldamM", size: 23)
         urLabel.text = "당신은"
+        urLabel.textColor = .white
         resultLabel.text = resultText
-        resultLabel.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+        resultLabel.font = UIFont(name: "HakgyoansimDoldamM", size: 35)
+        resultLabel.textColor = .white
         
         resultLabel.translatesAutoresizingMaskIntoConstraints = false
         urLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -37,12 +46,12 @@ class GuessWhoResultViewController: UIViewController {
         resultImageView.contentMode = .scaleAspectFit
         view.addSubview(resultImageView)
         
-        var config = UIButton.Configuration.filled()
-        config.title = "다시하기"
-        config.baseBackgroundColor = .systemBlue
-        config.cornerStyle = .medium
-        config.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20)
-        retryButton.configuration = config
+        retryButton.setTitle("다시하기", for: .normal)
+        retryButton.setTitleColor(.white, for: .normal)
+        retryButton.backgroundColor = .black
+        retryButton.layer.cornerRadius = 8
+        retryButton.titleLabel?.font = UIFont(name: "HakgyoansimDoldamM", size: 20)
+        retryButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
         retryButton.translatesAutoresizingMaskIntoConstraints = false
         retryButton.addTarget(self, action: #selector(retryQuiz), for: .touchUpInside)
         view.addSubview(retryButton)
@@ -50,6 +59,11 @@ class GuessWhoResultViewController: UIViewController {
         view.backgroundColor = .white
 
         NSLayoutConstraint.activate([
+            backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
             urLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             urLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
             
@@ -61,9 +75,9 @@ class GuessWhoResultViewController: UIViewController {
             resultImageView.widthAnchor.constraint(equalToConstant: 300),
             resultImageView.heightAnchor.constraint(equalToConstant: 300),
             
-            retryButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -150),
+            retryButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -100),
             retryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            retryButton.widthAnchor.constraint(equalToConstant: 100),
+            retryButton.widthAnchor.constraint(equalToConstant: 120),
             retryButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
@@ -71,7 +85,7 @@ class GuessWhoResultViewController: UIViewController {
     @objc private func retryQuiz() {
         if let navigationController = navigationController {
             let mainViewController = MainViewController()
-            let newQuizViewController = ThirdTestViewController(quizList: quizList)
+            let newQuizViewController = GuessWhoViewController(quizList: quizList)
             navigationController.setViewControllers([mainViewController, newQuizViewController], animated: true)
         }
     }

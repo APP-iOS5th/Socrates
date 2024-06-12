@@ -84,7 +84,7 @@ class GuessViewModel {
         case 2:
             switch answerIndex {
             case 0: return ["김진웅", "만두쌤", "이인호","명섭쌤", "권도율"]
-            case 1: return ["황규상", "송주현", "석지혜", "정희지", "명섭쌤", "권도율"]
+            case 1: return ["황규상", "송주현", "석지혜", "정희지", "명섭쌤", "권도율", "김진웅"]
             case 2: return ["홍준범", "튜나쌤"]
             default: return []
             }

@@ -22,12 +22,15 @@ class ProgressView: UIView {
     
     private func setupView() {
         progressBar.translatesAutoresizingMaskIntoConstraints = false
+        progressBar.progressTintColor = .yellow
+        progressBar.trackTintColor = .white
         addSubview(progressBar)
         
         NSLayoutConstraint.activate([
             progressBar.leadingAnchor.constraint(equalTo: leadingAnchor),
             progressBar.trailingAnchor.constraint(equalTo: trailingAnchor),
-            progressBar.centerYAnchor.constraint(equalTo: centerYAnchor)
+            progressBar.centerYAnchor.constraint(equalTo: centerYAnchor),
+            progressBar.heightAnchor.constraint(equalToConstant: 10)
         ])
     }
     

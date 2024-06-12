@@ -312,6 +312,29 @@ class FirstTestViewController: UIViewController {
             backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
+        // 공유하기 버튼 생성 및 설정
+        let shareButton = UIButton(type: .system)
+        shareButton.translatesAutoresizingMaskIntoConstraints = false
+        shareButton.setTitle("공유하기", for: .normal)
+        shareButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
+        shareButton.backgroundColor = .darkGray
+        shareButton.tintColor = .orange
+        shareButton.layer.cornerRadius = 8
+
+        // 버튼 액션 추가
+        shareButton.addTarget(self, action: #selector(shareButtonTapped), for: .touchUpInside)
+
+        // 뷰에 버튼 추가
+        view.addSubview(shareButton)
+
+        // 오토레이아웃 설정
+        NSLayoutConstraint.activate([
+            shareButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            shareButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            shareButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            shareButton.heightAnchor.constraint(equalToConstant: 44)
+        ])
+        
     }
 
     private func loadDetailQuestion(_ key: String) {
@@ -454,6 +477,18 @@ class FirstTestViewController: UIViewController {
     
     @objc private func buttonTapped() {
         setupView()
+    }
+    @objc func shareButtonTapped() {
+        // 공유할 내용 준비
+        let renderer = UIGraphicsImageRenderer(bounds: view.bounds)
+        let snapshot = renderer.image { context in
+            view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        }
+        
+        
+        // 공유 시트 표시
+           let activityViewController = UIActivityViewController(activityItems: [snapshot], applicationActivities: nil)
+           present(activityViewController, animated: true, completion: nil)
     }
     
 }

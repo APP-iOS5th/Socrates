@@ -133,3 +133,5 @@ iOSInjectionProject/
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,swift,xcodeproject.xcworkspace
 *.xcuserstate
+project.xcworkspace
+*.xcuserstate

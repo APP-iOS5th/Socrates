@@ -101,8 +101,8 @@ class DinnerGenieResultViewController: UIViewController {
         setupActions()
         
         let recommendedMenu = viewModel.recommendedMenu
-        resultImageView.image = UIImage(named: recommendedMenu)
-        resultLabel.text = "추천 메뉴: \(recommendedMenu)"
+        resultImageView.image = UIImage(named: recommendedMenu[0])
+        resultLabel.text = "추천 메뉴: \(recommendedMenu[1])"
             
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped(_:)))
         resultImageView.isUserInteractionEnabled = true
@@ -147,8 +147,8 @@ class DinnerGenieResultViewController: UIViewController {
     
     private func updateUI() {
         let recommendedMenu = viewModel.recommendedMenu
-        resultImageView.image = UIImage(named: recommendedMenu)
-        resultLabel.text = "추천 메뉴: \(recommendedMenu)"
+        resultImageView.image = UIImage(named: recommendedMenu[0])
+        resultLabel.text = "추천 메뉴: \(recommendedMenu[1])"
     }
     
     private func setupActions() {

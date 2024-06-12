@@ -24,15 +24,15 @@
 		75BE85282C0EFD7B00CFB813 /* GuessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE85272C0EFD7B00CFB813 /* GuessViewModel.swift */; };
 		75BE852A2C0EFDA200CFB813 /* GuessWhoResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE85292C0EFDA200CFB813 /* GuessWhoResultViewController.swift */; };
 		75DF685F2C1880D9005A3C83 /* GuessWhoProgessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DF685E2C1880D9005A3C83 /* GuessWhoProgessView.swift */; };
-		8D1022342C196CCC0071EE94 /* DinnerGenieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D10222D2C196CCC0071EE94 /* DinnerGenieModel.swift */; };
 		8D1022352C196CCC0071EE94 /* DinnerGenieResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D10222F2C196CCC0071EE94 /* DinnerGenieResultViewController.swift */; };
 		8D1022362C196CCC0071EE94 /* DinnerGenieTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1022302C196CCC0071EE94 /* DinnerGenieTestViewController.swift */; };
 		8D1022372C196CCC0071EE94 /* DinnerGenieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1022322C196CCC0071EE94 /* DinnerGenieViewModel.swift */; };
 		8D10223C2C196E7C0071EE94 /* MangoByeolbyeol.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D1022392C196E7C0071EE94 /* MangoByeolbyeol.otf */; };
 		8D10223D2C196E7C0071EE94 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D10223A2C196E7C0071EE94 /* Pretendard-SemiBold.otf */; };
 		8F6658382C182F5500E48716 /* QModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6658372C182F5500E48716 /* QModelData.swift */; };
+		8F8D55A92C1979A000363859 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F8D55A82C1979A000363859 /* Assets.xcassets */; };
+		8F8D55AE2C198DD400363859 /* DinnerGenieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8D55AC2C198DD400363859 /* DinnerGenieModel.swift */; };
 		8FB618A62C09D123005E856B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618A52C09D123005E856B /* SceneDelegate.swift */; };
-		8FB618AD2C09D124005E856B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FB618AC2C09D124005E856B /* Assets.xcassets */; };
 		8FB618C82C09D1E3005E856B /* FirstTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618B72C09D1E2005E856B /* FirstTestModel.swift */; };
 		8FB618C92C09D1E3005E856B /* FourthTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618B82C09D1E2005E856B /* FourthTestModel.swift */; };
 		8FB618CA2C09D1E3005E856B /* secondTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618B92C09D1E2005E856B /* secondTestModel.swift */; };
@@ -63,16 +63,16 @@
 		75BE85272C0EFD7B00CFB813 /* GuessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessViewModel.swift; sourceTree = "<group>"; };
 		75BE85292C0EFDA200CFB813 /* GuessWhoResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessWhoResultViewController.swift; sourceTree = "<group>"; };
 		75DF685E2C1880D9005A3C83 /* GuessWhoProgessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessWhoProgessView.swift; sourceTree = "<group>"; };
-		8D10222D2C196CCC0071EE94 /* DinnerGenieModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DinnerGenieModel.swift; sourceTree = "<group>"; };
 		8D10222F2C196CCC0071EE94 /* DinnerGenieResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DinnerGenieResultViewController.swift; sourceTree = "<group>"; };
 		8D1022302C196CCC0071EE94 /* DinnerGenieTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DinnerGenieTestViewController.swift; sourceTree = "<group>"; };
 		8D1022322C196CCC0071EE94 /* DinnerGenieViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DinnerGenieViewModel.swift; sourceTree = "<group>"; };
 		8D1022392C196E7C0071EE94 /* MangoByeolbyeol.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MangoByeolbyeol.otf; sourceTree = "<group>"; };
 		8D10223A2C196E7C0071EE94 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		8F6658372C182F5500E48716 /* QModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QModelData.swift; sourceTree = "<group>"; };
+		8F8D55A82C1979A000363859 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8F8D55AC2C198DD400363859 /* DinnerGenieModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DinnerGenieModel.swift; sourceTree = "<group>"; };
 		8FB618A02C09D123005E856B /* KnowYourselfApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnowYourselfApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FB618A52C09D123005E856B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8FB618AC2C09D124005E856B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8FB618B12C09D124005E856B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FB618B72C09D1E2005E856B /* FirstTestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTestModel.swift; sourceTree = "<group>"; };
 		8FB618B82C09D1E2005E856B /* FourthTestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthTestModel.swift; sourceTree = "<group>"; };
@@ -202,14 +202,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		8D10222E2C196CCC0071EE94 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				8D10222D2C196CCC0071EE94 /* DinnerGenieModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		8D1022312C196CCC0071EE94 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +236,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		8F8D55AD2C198DD400363859 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8F8D55AC2C198DD400363859 /* DinnerGenieModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		8FB618972C09D123005E856B = {
 			isa = PBXGroup;
 			children = (
@@ -271,8 +271,8 @@
 				8FB618DC2C0D7834005E856B /* GuessWho */,
 				8FB618DB2C0D7831005E856B /* DinnerGenie */,
 				8D10223B2C196E7C0071EE94 /* Font */,
-				8FB618AC2C09D124005E856B /* Assets.xcassets */,
 				8FB618B12C09D124005E856B /* Info.plist */,
+				8F8D55A82C1979A000363859 /* Assets.xcassets */,
 			);
 			path = KnowYourselfApp;
 			sourceTree = "<group>";
@@ -348,7 +348,7 @@
 		8FB618DB2C0D7831005E856B /* DinnerGenie */ = {
 			isa = PBXGroup;
 			children = (
-				8D10222E2C196CCC0071EE94 /* Model */,
+				8F8D55AD2C198DD400363859 /* Model */,
 				8D1022312C196CCC0071EE94 /* View */,
 				8D1022332C196CCC0071EE94 /* ViewModel */,
 			);
@@ -432,8 +432,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D10223D2C196E7C0071EE94 /* Pretendard-SemiBold.otf in Resources */,
+				8F8D55A92C1979A000363859 /* Assets.xcassets in Resources */,
 				8D10223C2C196E7C0071EE94 /* MangoByeolbyeol.otf in Resources */,
-				8FB618AD2C09D124005E856B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,7 +446,6 @@
 			files = (
 				8FB618DE2C0D7C51005E856B /* AppDelegate.swift in Sources */,
 				8D1022362C196CCC0071EE94 /* DinnerGenieTestViewController.swift in Sources */,
-				8D1022342C196CCC0071EE94 /* DinnerGenieModel.swift in Sources */,
 				04F0A7492C1818A500F668FD /* EntertainmentViewModel.swift in Sources */,
 				040292822C0DA333009F1102 /* TtestViewModel.swift in Sources */,
 				8D1022372C196CCC0071EE94 /* DinnerGenieViewModel.swift in Sources */,
@@ -472,6 +471,7 @@
 				040292802C0DA275009F1102 /* TtestModel.swift in Sources */,
 				04D7D58E2C0EE16200DED21E /* SaveImage.swift in Sources */,
 				8FB618D32C09D1E3005E856B /* MainViewController.swift in Sources */,
+				8F8D55AE2C198DD400363859 /* DinnerGenieModel.swift in Sources */,
 				75BE85282C0EFD7B00CFB813 /* GuessViewModel.swift in Sources */,
 				75BE852A2C0EFDA200CFB813 /* GuessWhoResultViewController.swift in Sources */,
 				04F0A7452C18183C00F668FD /* EntertainmentServer.swift in Sources */,

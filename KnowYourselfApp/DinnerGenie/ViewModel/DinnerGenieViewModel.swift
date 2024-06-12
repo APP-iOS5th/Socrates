@@ -80,7 +80,7 @@ class DinnerGenieViewModel {
         }
     }
     
-    var recommendedMenu: String {
+    var recommendedMenu: [String] {
         return model.recommendedMenu
     }
 }

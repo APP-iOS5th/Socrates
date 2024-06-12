@@ -82,7 +82,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let first = FirstTestViewController()
         let second = TBalTestViewController()
-        let third = ThirdTestViewController(quizList: quizList)
+        let third = GuessWhoViewController(quizList: quizList)
         let fourth = DinnerGenieTestViewController()
         let TestViewGroup = [first, second, third, fourth]
 

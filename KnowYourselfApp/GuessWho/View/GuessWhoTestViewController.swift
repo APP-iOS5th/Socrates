@@ -7,17 +7,18 @@
 
 import UIKit
 
-class ThirdTestViewController: UIViewController {
+class GuessWhoViewController: UIViewController {
     private var viewModel: GuessViewModel!
     
     let questionText = UILabel()
-    let oneButton = UIButton()
-    let twoButton = UIButton()
-    let threeButton = UIButton()
-    let backButton = UIButton()
-    let nextButton = UIButton()
+    let oneButton = UIButton(type: .system)
+    let twoButton = UIButton(type: .system)
+    let threeButton = UIButton(type: .system)
+    let backButton = UIButton(type: .system)
+    let nextButton = UIButton(type: .system)
     let progressView = ProgressView()
     let backgroundImageView = UIImageView()
+    let questionBackgroundImageView = UIImageView()
     
     init(quizList: [QuizModel]) {
         super.init(nibName: nil, bundle: nil)
@@ -32,14 +33,48 @@ class ThirdTestViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         loadQuestion()
+        setupNavigationBarAppearance()
+        setupTabBarAppearance()
+    }
+    
+    private func setupNavigationBarAppearance() {
+        if let navigationController = navigationController {
+            let navigationBarAppearance = UINavigationBarAppearance()
+            navigationBarAppearance.configureWithOpaqueBackground()
+            navigationBarAppearance.backgroundColor = .white
+            navigationBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.black]
+            navigationController.navigationBar.standardAppearance = navigationBarAppearance
+            navigationController.navigationBar.scrollEdgeAppearance = navigationBarAppearance
+        }
+    }
+    
+    private func setupTabBarAppearance() {
+        if let tabBarController = tabBarController {
+            let tabBarAppearance = UITabBarAppearance()
+            tabBarAppearance.configureWithOpaqueBackground()
+            tabBarAppearance.backgroundColor = .white
+            tabBarController.tabBar.standardAppearance = tabBarAppearance
+            if #available(iOS 15.0, *) {
+                tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance
+            }
+        }
     }
     
     private func setupUI() {
-        view.backgroundColor = .white
+        questionBackgroundImageView.image = UIImage(named: "chalkboard")
+        questionBackgroundImageView.contentMode = .scaleAspectFill
+        questionBackgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        backgroundImageView.image = UIImage(named: "GuessWhoBG")
+        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(backgroundImageView)
+        view.sendSubviewToBack(backgroundImageView)
         
         questionText.numberOfLines = 2
         questionText.textAlignment = .center
-        questionText.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+        questionText.font = UIFont(name: "HakgyoansimDoldamM", size: 20)
+        questionText.textColor = .white
         
         setupButton(oneButton, title: "Option 1")
         setupButton(twoButton, title: "Option 2")
@@ -47,7 +82,7 @@ class ThirdTestViewController: UIViewController {
         
         setupNavigationButton(backButton, title: "이전")
         setupNavigationButton(nextButton, title: "다음")
-        
+        view.addSubview(questionBackgroundImageView)
         view.addSubview(progressView)
         view.addSubview(questionText)
         view.addSubview(oneButton)
@@ -59,25 +94,24 @@ class ThirdTestViewController: UIViewController {
         setupConstraints()
     }
     
-    // 이전/다음
     private func setupNavigationButton(_ button: UIButton, title: String) {
-        var config = UIButton.Configuration.filled()
-        config.cornerStyle = .medium
-        config.baseBackgroundColor = .systemGray
-        config.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20)
-        button.configuration = config
         button.setTitle(title, for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .black
+        button.layer.cornerRadius = 8
+        button.titleLabel?.font = UIFont(name: "HakgyoansimDoldamM", size: 20)
+        button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
+        button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: title == "이전" ? #selector(backButtonTap) : #selector(handleNextButtonTap), for: .touchUpInside)
     }
     
-    // 선택지
     private func setupButton(_ button: UIButton, title: String) {
-        var config = UIButton.Configuration.filled()
-        config.title = title
-        config.baseBackgroundColor = .systemBlue
-        config.cornerStyle = .medium
-        config.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20)
-        button.configuration = config
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = .white
+        button.titleLabel?.font = UIFont(name: "HakgyoansimDoldamM", size: 20)
+        button.layer.cornerRadius = 8
+        button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(answerButtonTapped(_:)), for: .touchUpInside)
     }
@@ -90,12 +124,23 @@ class ThirdTestViewController: UIViewController {
         threeButton.translatesAutoresizingMaskIntoConstraints = false
         backButton.translatesAutoresizingMaskIntoConstraints = false
         nextButton.translatesAutoresizingMaskIntoConstraints = false
+        questionBackgroundImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
+            backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
             progressView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             progressView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             progressView.widthAnchor.constraint(equalToConstant: 330),
             progressView.heightAnchor.constraint(equalToConstant: 20),
+            
+            questionBackgroundImageView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            questionBackgroundImageView.topAnchor.constraint(equalTo: progressView.bottomAnchor, constant: 100),
+            questionBackgroundImageView.widthAnchor.constraint(equalToConstant: 330),
+            questionBackgroundImageView.heightAnchor.constraint(equalToConstant: 150),
             
             questionText.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             questionText.topAnchor.constraint(equalTo: progressView.bottomAnchor, constant: 150),
@@ -103,7 +148,7 @@ class ThirdTestViewController: UIViewController {
             questionText.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             
             oneButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            oneButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 330),
+            oneButton.topAnchor.constraint(equalTo: questionBackgroundImageView.bottomAnchor, constant: 80),
             oneButton.widthAnchor.constraint(equalToConstant: 330),
             
             twoButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
@@ -116,11 +161,11 @@ class ThirdTestViewController: UIViewController {
             
             backButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 40),
             backButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
-            backButton.widthAnchor.constraint(equalToConstant: 100),
+            backButton.widthAnchor.constraint(equalToConstant: 120),
             
             nextButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -40),
             nextButton.centerYAnchor.constraint(equalTo: backButton.centerYAnchor),
-            nextButton.widthAnchor.constraint(equalToConstant: 100)
+            nextButton.widthAnchor.constraint(equalToConstant: 120)
         ])
     }
     
@@ -128,22 +173,22 @@ class ThirdTestViewController: UIViewController {
         let currentQuestion = viewModel.currentQuestion
         questionText.text = currentQuestion.question
         
-        oneButton.configuration?.title = currentQuestion.answerOne
-        twoButton.configuration?.title = currentQuestion.answerTwo
-        threeButton.configuration?.title = currentQuestion.answerThree
+        oneButton.setTitle(currentQuestion.answerOne, for: .normal)
+        twoButton.setTitle(currentQuestion.answerTwo, for: .normal)
+        threeButton.setTitle(currentQuestion.answerThree, for: .normal)
         
-        oneButton.configuration?.baseBackgroundColor = .systemBlue
-        twoButton.configuration?.baseBackgroundColor = .systemBlue
-        threeButton.configuration?.baseBackgroundColor = .systemBlue
+        oneButton.backgroundColor = .white
+        twoButton.backgroundColor = .white
+        threeButton.backgroundColor = .white
         
         if let selectedAnswerIndex = viewModel.selectedAnswerIndex {
             switch selectedAnswerIndex {
             case 0:
-                oneButton.configuration?.baseBackgroundColor = .green
+                oneButton.backgroundColor = .yellow
             case 1:
-                twoButton.configuration?.baseBackgroundColor = .green
+                twoButton.backgroundColor = .yellow
             case 2:
-                threeButton.configuration?.baseBackgroundColor = .green
+                threeButton.backgroundColor = .yellow
             default:
                 break
             }
@@ -155,11 +200,11 @@ class ThirdTestViewController: UIViewController {
     }
     
     @objc private func answerButtonTapped(_ sender: UIButton) {
-        oneButton.configuration?.baseBackgroundColor = .systemBlue
-        twoButton.configuration?.baseBackgroundColor = .systemBlue
-        threeButton.configuration?.baseBackgroundColor = .systemBlue
+        oneButton.backgroundColor = .white
+        twoButton.backgroundColor = .white
+        threeButton.backgroundColor = .white
         
-        sender.configuration?.baseBackgroundColor = .green
+        sender.backgroundColor = .yellow
         viewModel.selectedAnswerIndex = {
             switch sender {
             case oneButton:
@@ -173,7 +218,6 @@ class ThirdTestViewController: UIViewController {
             }
         }()
     }
-    
     @objc private func handleNextButtonTap() {
         if viewModel.isLastQuestion {
             showResult()

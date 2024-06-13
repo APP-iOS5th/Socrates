@@ -61,6 +61,7 @@ class GuessWhoViewController: UIViewController {
     }
     
     private func setupUI() {
+        self.title = "앱스쿨 유형 테스트"
         questionBackgroundImageView.image = UIImage(named: "chalkboard")
         questionBackgroundImageView.contentMode = .scaleAspectFill
         questionBackgroundImageView.translatesAutoresizingMaskIntoConstraints = false

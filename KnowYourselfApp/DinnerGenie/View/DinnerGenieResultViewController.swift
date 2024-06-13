@@ -46,7 +46,7 @@ class DinnerGenieResultViewController: UIViewController {
     private let reRecommendButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("재추천", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Pretendard-SemiBold", size: 15)
+        button.titleLabel?.font = UIFont(name: "MangoByeolbyeol", size: 15)
         button.setTitleColor(.black, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2
@@ -57,7 +57,7 @@ class DinnerGenieResultViewController: UIViewController {
     private let shareButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("공유", for: .normal)
-        button.titleLabel?.font = UIFont(name: "MangoByeolbyeol", size: 15)
+        button.titleLabel?.font = UIFont(name: "Pretendard-SemiBold", size: 15)
         button.setTitleColor(.black, for: .normal)
         button.layer.borderWidth = 2
         button.layer.cornerRadius = 8
@@ -67,7 +67,7 @@ class DinnerGenieResultViewController: UIViewController {
     private let saveButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("저장", for: .normal)
-        button.titleLabel?.font = UIFont(name: "MangoByeolbyeol", size: 15)
+        button.titleLabel?.font = UIFont(name: "Pretendard-SemiBold", size: 15)
         button.setTitleColor(.black, for: .normal)
         button.layer.borderWidth = 2
         button.layer.cornerRadius = 8
@@ -128,7 +128,7 @@ class DinnerGenieResultViewController: UIViewController {
             reRecommendButton.widthAnchor.constraint(equalToConstant: 150),
             reRecommendButton.heightAnchor.constraint(equalToConstant: 45),
             
-            shareButton.topAnchor.constraint(equalTo: reRecommendButton.bottomAnchor, constant: 20),
+            shareButton.topAnchor.constraint(equalTo: reRecommendButton.bottomAnchor, constant: 15),
             shareButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             shareButton.widthAnchor.constraint(equalToConstant: 130),
             shareButton.heightAnchor.constraint(equalToConstant: 45),
@@ -138,7 +138,7 @@ class DinnerGenieResultViewController: UIViewController {
             saveButton.widthAnchor.constraint(equalToConstant: 130),
             saveButton.heightAnchor.constraint(equalToConstant: 45),
             
-            homeButton.topAnchor.constraint(equalTo: reRecommendButton.bottomAnchor, constant: 100),
+            homeButton.topAnchor.constraint(equalTo: reRecommendButton.bottomAnchor, constant: 75),
             homeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             homeButton.widthAnchor.constraint(equalToConstant: 150),
             homeButton.heightAnchor.constraint(equalToConstant: 45)

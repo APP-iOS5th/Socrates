@@ -169,34 +169,31 @@ T Test는 현대 사회에서 T에 대한 부정적인 인식을 유머러스하
 <br>
 
 <p align="center">
-  <img src="https://storage.googleapis.com/socrates-image/Splash.png" alt="Img" width="200">
+  <img src="https://storage.googleapis.com/socrates-image/dinnergenie.gif" alt="Img" width="200">
 </p>
 
 <br>
 
 ```
-Test
+쉽게 저녁메뉴를 고르지 못하는 사람들을 위해 만들어졌습니다. 
 ```
 
 **특징:**
 
-- 123
+- 단 3가지의 질문으로 메뉴를 추천해줍니다. (배고프면 많은 질문지에 지칠 수 있기 때문에)
+- 추천 메뉴가 마음에 안든다면 재추천을 이용할 수 있습니다. (결국 원하는 음식을 도출)
 
 **사용 방법:**
 
-1. 2
+1. 메인 화면에서 저녁 메뉴 정하기를 선택합니다.
+2. 질문에 답변합니다.
+3. 추천메뉴결과를 확인하고 이미지를 눌러 배달의 민족으로 이동할 수 있습니다.
+4. 친구들과 공유하거나 이미지를 저장할 수 있습니다.
 
 **Tech:**
 
-- 1
+- MVVM(Model-View-ViewModel) 아키텍처를 채택하여 코드의 유지보수성과 확장성을 높였습니다.
 
-**문제:**
-
-- 키보드 클릭 시 네이게이션 타이틀로 올라가는게 다 보이는 문제
-
-**해결:**
-
-- goruf
 
 <br>
 

@@ -4,15 +4,12 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Pretendard-SemiBold.otf</string>
+		<string>HakgyoansimDoldamM.ttf</string>
 		<string>MangoByeolbyeol.otf</string>
+		<string>Pretendard-SemiBold.otf</string>
 	</array>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>앨범에 사진이 추가됩니다.</string>
-	<key>UIAppFonts</key>
-	<array>
-		<string>HakgyoansimDoldamM.ttf</string>
-	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

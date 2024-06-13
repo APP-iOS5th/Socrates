@@ -33,35 +33,12 @@ class GuessWhoViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         loadQuestion()
-        setupNavigationBarAppearance()
-        setupTabBarAppearance()
-    }
-    
-    private func setupNavigationBarAppearance() {
-        if let navigationController = navigationController {
-            let navigationBarAppearance = UINavigationBarAppearance()
-            navigationBarAppearance.configureWithOpaqueBackground()
-            navigationBarAppearance.backgroundColor = .white
-            navigationBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.black]
-            navigationController.navigationBar.standardAppearance = navigationBarAppearance
-            navigationController.navigationBar.scrollEdgeAppearance = navigationBarAppearance
-        }
-    }
-    
-    private func setupTabBarAppearance() {
-        if let tabBarController = tabBarController {
-            let tabBarAppearance = UITabBarAppearance()
-            tabBarAppearance.configureWithOpaqueBackground()
-            tabBarAppearance.backgroundColor = .white
-            tabBarController.tabBar.standardAppearance = tabBarAppearance
-            if #available(iOS 15.0, *) {
-                tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance
-            }
-        }
     }
     
     private func setupUI() {
         self.title = "앱스쿨 유형 테스트"
+        self.view.backgroundColor = .white
+        
         questionBackgroundImageView.image = UIImage(named: "chalkboard")
         questionBackgroundImageView.contentMode = .scaleAspectFill
         questionBackgroundImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -69,12 +46,10 @@ class GuessWhoViewController: UIViewController {
         backgroundImageView.image = UIImage(named: "GuessWhoBG")
         backgroundImageView.contentMode = .scaleAspectFill
         backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(backgroundImageView)
-        view.sendSubviewToBack(backgroundImageView)
         
         questionText.numberOfLines = 2
         questionText.textAlignment = .center
-        questionText.font = UIFont(name: "HakgyoansimDoldamM", size: 20)
+        questionText.font = UIFont(name: "HakgyoansimDoldamB", size: 21)
         questionText.textColor = .white
         
         setupButton(oneButton, title: "Option 1")
@@ -83,6 +58,9 @@ class GuessWhoViewController: UIViewController {
         
         setupNavigationButton(backButton, title: "이전")
         setupNavigationButton(nextButton, title: "다음")
+        
+        view.addSubview(backgroundImageView)
+        view.sendSubviewToBack(backgroundImageView)
         view.addSubview(questionBackgroundImageView)
         view.addSubview(progressView)
         view.addSubview(questionText)
@@ -100,7 +78,7 @@ class GuessWhoViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .black
         button.layer.cornerRadius = 8
-        button.titleLabel?.font = UIFont(name: "HakgyoansimDoldamM", size: 20)
+        button.titleLabel?.font = UIFont(name: "HakgyoansimDoldamB", size: 20)
         button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: title == "이전" ? #selector(backButtonTap) : #selector(handleNextButtonTap), for: .touchUpInside)
@@ -128,10 +106,10 @@ class GuessWhoViewController: UIViewController {
         questionBackgroundImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
-            backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgroundImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            backgroundImageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            backgroundImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            backgroundImageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             
             progressView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             progressView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
@@ -219,6 +197,7 @@ class GuessWhoViewController: UIViewController {
             }
         }()
     }
+    
     @objc private func handleNextButtonTap() {
         if viewModel.isLastQuestion {
             showResult()

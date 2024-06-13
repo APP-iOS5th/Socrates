@@ -109,7 +109,7 @@ class DinnerGenieTestViewController: UIViewController {
         updateUI()
         
         if viewModel.isLastQuestion && viewModel.allQuestionsAnswered {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 self.showResultViewController()
             }
         }

@@ -20,6 +20,7 @@
 		04F0A74B2C1818F100F668FD /* ETQuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F0A74A2C1818F100F668FD /* ETQuizViewModel.swift */; };
 		04F0A74D2C18199000F668FD /* ETTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F0A74C2C18199000F668FD /* ETTestViewController.swift */; };
 		04F0A74F2C1819FC00F668FD /* ETResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F0A74E2C1819FC00F668FD /* ETResultViewController.swift */; };
+		758C780A2C19877B004D853A /* HakgyoansimDoldamM.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 758C78092C19877B004D853A /* HakgyoansimDoldamM.ttf */; };
 		75BE85262C0EFD3F00CFB813 /* QuizModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE85252C0EFD3F00CFB813 /* QuizModel.swift */; };
 		75BE85282C0EFD7B00CFB813 /* GuessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE85272C0EFD7B00CFB813 /* GuessViewModel.swift */; };
 		75BE852A2C0EFDA200CFB813 /* GuessWhoResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE85292C0EFDA200CFB813 /* GuessWhoResultViewController.swift */; };
@@ -27,13 +28,7 @@
 		8D1022352C196CCC0071EE94 /* DinnerGenieResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D10222F2C196CCC0071EE94 /* DinnerGenieResultViewController.swift */; };
 		8D1022362C196CCC0071EE94 /* DinnerGenieTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1022302C196CCC0071EE94 /* DinnerGenieTestViewController.swift */; };
 		8D1022372C196CCC0071EE94 /* DinnerGenieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1022322C196CCC0071EE94 /* DinnerGenieViewModel.swift */; };
-		8D10223C2C196E7C0071EE94 /* MangoByeolbyeol.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D1022392C196E7C0071EE94 /* MangoByeolbyeol.otf */; };
 		8D10223D2C196E7C0071EE94 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D10223A2C196E7C0071EE94 /* Pretendard-SemiBold.otf */; };
-		758C780A2C19877B004D853A /* HakgyoansimDoldamM.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 758C78092C19877B004D853A /* HakgyoansimDoldamM.ttf */; };
-		75BE85262C0EFD3F00CFB813 /* QuizModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE85252C0EFD3F00CFB813 /* QuizModel.swift */; };
-		75BE85282C0EFD7B00CFB813 /* GuessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE85272C0EFD7B00CFB813 /* GuessViewModel.swift */; };
-		75BE852A2C0EFDA200CFB813 /* GuessWhoResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE85292C0EFDA200CFB813 /* GuessWhoResultViewController.swift */; };
-		75DF685F2C1880D9005A3C83 /* GuessWhoProgessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DF685E2C1880D9005A3C83 /* GuessWhoProgessView.swift */; };
 		8F6658382C182F5500E48716 /* QModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6658372C182F5500E48716 /* QModelData.swift */; };
 		8F8D55A92C1979A000363859 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F8D55A82C1979A000363859 /* Assets.xcassets */; };
 		8F8D55AE2C198DD400363859 /* DinnerGenieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8D55AC2C198DD400363859 /* DinnerGenieModel.swift */; };
@@ -64,6 +59,7 @@
 		04F0A74A2C1818F100F668FD /* ETQuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETQuizViewModel.swift; sourceTree = "<group>"; };
 		04F0A74C2C18199000F668FD /* ETTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETTestViewController.swift; sourceTree = "<group>"; };
 		04F0A74E2C1819FC00F668FD /* ETResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETResultViewController.swift; sourceTree = "<group>"; };
+		758C78092C19877B004D853A /* HakgyoansimDoldamM.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HakgyoansimDoldamM.ttf; sourceTree = "<group>"; };
 		75BE85252C0EFD3F00CFB813 /* QuizModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizModel.swift; sourceTree = "<group>"; };
 		75BE85272C0EFD7B00CFB813 /* GuessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessViewModel.swift; sourceTree = "<group>"; };
 		75BE85292C0EFDA200CFB813 /* GuessWhoResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessWhoResultViewController.swift; sourceTree = "<group>"; };
@@ -71,13 +67,7 @@
 		8D10222F2C196CCC0071EE94 /* DinnerGenieResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DinnerGenieResultViewController.swift; sourceTree = "<group>"; };
 		8D1022302C196CCC0071EE94 /* DinnerGenieTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DinnerGenieTestViewController.swift; sourceTree = "<group>"; };
 		8D1022322C196CCC0071EE94 /* DinnerGenieViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DinnerGenieViewModel.swift; sourceTree = "<group>"; };
-		8D1022392C196E7C0071EE94 /* MangoByeolbyeol.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MangoByeolbyeol.otf; sourceTree = "<group>"; };
 		8D10223A2C196E7C0071EE94 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
-		758C78092C19877B004D853A /* HakgyoansimDoldamM.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HakgyoansimDoldamM.ttf; sourceTree = "<group>"; };
-		75BE85252C0EFD3F00CFB813 /* QuizModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizModel.swift; sourceTree = "<group>"; };
-		75BE85272C0EFD7B00CFB813 /* GuessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessViewModel.swift; sourceTree = "<group>"; };
-		75BE85292C0EFDA200CFB813 /* GuessWhoResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessWhoResultViewController.swift; sourceTree = "<group>"; };
-		75DF685E2C1880D9005A3C83 /* GuessWhoProgessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessWhoProgessView.swift; sourceTree = "<group>"; };
 		8F6658372C182F5500E48716 /* QModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QModelData.swift; sourceTree = "<group>"; };
 		8F8D55A82C1979A000363859 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8F8D55AC2C198DD400363859 /* DinnerGenieModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DinnerGenieModel.swift; sourceTree = "<group>"; };
@@ -240,7 +230,6 @@
 		8D10223B2C196E7C0071EE94 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				8D1022392C196E7C0071EE94 /* MangoByeolbyeol.otf */,
 				8D10223A2C196E7C0071EE94 /* Pretendard-SemiBold.otf */,
 			);
 			path = Font;
@@ -452,8 +441,6 @@
 			files = (
 				8D10223D2C196E7C0071EE94 /* Pretendard-SemiBold.otf in Resources */,
 				8F8D55A92C1979A000363859 /* Assets.xcassets in Resources */,
-				8D10223C2C196E7C0071EE94 /* MangoByeolbyeol.otf in Resources */,
-				8FB618AD2C09D124005E856B /* Assets.xcassets in Resources */,
 				758C780A2C19877B004D853A /* HakgyoansimDoldamM.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

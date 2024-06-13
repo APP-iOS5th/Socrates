@@ -1,14 +1,10 @@
-//
-//  GuessWhoResultViewController.swift
-//  KnowYourselfApp
-//
-//  Created by seokyung on 6/4/24.
-//
+// GuessWhoResultViewController.swift
+// KnowYourselfApp
 
 import UIKit
 
 class GuessWhoResultViewController: UIViewController {
-    private let imageSaver = SavePNG()
+    private let imageSaver = ImageSaver()
     
     let resultLabel = UILabel()
     let urLabel = UILabel()
@@ -57,7 +53,6 @@ class GuessWhoResultViewController: UIViewController {
         retryButton.backgroundColor = .black
         retryButton.layer.cornerRadius = 8
         retryButton.titleLabel?.font = UIFont(name: "HakgyoansimDoldamM", size: 20)
-        retryButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
         retryButton.translatesAutoresizingMaskIntoConstraints = false
         retryButton.addTarget(self, action: #selector(retryQuiz), for: .touchUpInside)
         
@@ -66,7 +61,6 @@ class GuessWhoResultViewController: UIViewController {
         shareBtn.backgroundColor = .black
         shareBtn.layer.cornerRadius = 8
         shareBtn.titleLabel?.font = UIFont(name: "HakgyoansimDoldamM", size: 20)
-        shareBtn.contentEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
         shareBtn.translatesAutoresizingMaskIntoConstraints = false
         
         saveBtn.setTitle("저장", for: .normal)
@@ -74,7 +68,6 @@ class GuessWhoResultViewController: UIViewController {
         saveBtn.backgroundColor = .black
         saveBtn.layer.cornerRadius = 8
         saveBtn.titleLabel?.font = UIFont(name: "HakgyoansimDoldamM", size: 20)
-        saveBtn.contentEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
         saveBtn.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(retryButton)
@@ -119,22 +112,34 @@ class GuessWhoResultViewController: UIViewController {
     // 이미지 저장
     private func handlerSaveImage() {
         saveBtn.addAction(UIAction { [weak self] _ in
-            guard let image = self?.resultImageView.image else { return }
-            self?.imageSaver.saveImage(image, target: self, handler: {
-                let alert = UIAlertController(title: "이미지 저장 완료", message: "이미지가 사진 앨범에 저장되었습니다.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-                self?.present(alert, animated: true, completion: nil)
-            })
+            guard let self = self else { return }
+            if let capturedImage = self.captureView() {
+                self.imageSaver.saveImage(capturedImage, target: self, handler: {
+                    let alert = UIAlertController(title: "이미지 저장 완료", message: "이미지가 사진 앨범에 저장되었습니다.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                })
+            }
         }, for: .touchUpInside)
     }
     
     // 이미지 공유하기
     private func handlerShareImage() {
         shareBtn.addAction(UIAction { [weak self] _ in
-            guard let image = self?.resultImageView.image else { return }
-            let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-            self?.present(activityViewController, animated: true, completion: nil)
+            guard let self = self else { return }
+            if let capturedImage = self.captureView() {
+                let activityViewController = UIActivityViewController(activityItems: [capturedImage], applicationActivities: nil)
+                self.present(activityViewController, animated: true, completion: nil)
+            }
         }, for: .touchUpInside)
+    }
+
+    // 뷰 캡쳐하기
+    private func captureView() -> UIImage? {
+        let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
+        return renderer.image { ctx in
+            view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        }
     }
 
     @objc private func retryQuiz() {

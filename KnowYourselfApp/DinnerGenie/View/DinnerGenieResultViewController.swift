@@ -13,13 +13,13 @@ class DinnerGenieResultViewController: UIViewController {
     private var viewModel = DinnerGenieViewModel()
     private var imageSaver = SaveJpeg()
     init(viewModel: DinnerGenieViewModel) {
-            self.viewModel = viewModel
-            super.init(nibName: nil, bundle: nil)
-        }
-        
-        required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -29,6 +29,7 @@ class DinnerGenieResultViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
     private let resultImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -36,6 +37,7 @@ class DinnerGenieResultViewController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+    
     private let resultLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Pretendard-SemiBold", size: 20)
@@ -43,6 +45,7 @@ class DinnerGenieResultViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
     private let reRecommendButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("재추천", for: .normal)
@@ -54,6 +57,7 @@ class DinnerGenieResultViewController: UIViewController {
         button.addTarget(self, action: #selector(reRecommendButtonTapped), for: .touchUpInside)
         return button
     }()
+    
     private let shareButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("공유", for: .normal)
@@ -64,6 +68,7 @@ class DinnerGenieResultViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
     private let saveButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("저장", for: .normal)
@@ -74,6 +79,7 @@ class DinnerGenieResultViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
     private let homeButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("다른 테스트 하러가기", for: .normal)
@@ -103,7 +109,7 @@ class DinnerGenieResultViewController: UIViewController {
         let recommendedMenu = viewModel.recommendedMenu
         resultImageView.image = UIImage(named: recommendedMenu[0])
         resultLabel.text = "추천 메뉴: \(recommendedMenu[1])"
-            
+        
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped(_:)))
         resultImageView.isUserInteractionEnabled = true
         resultImageView.addGestureRecognizer(tapGestureRecognizer)
@@ -153,34 +159,45 @@ class DinnerGenieResultViewController: UIViewController {
     
     private func setupActions() {
         shareButton.addAction(UIAction { [weak self] _ in
-        guard let image = self?.resultImageView.image else { return }
-        let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-        self?.present(activityViewController, animated: true, completion: nil)
+            guard let self = self else { return }
+            if let capturedImage = self.captureView() {
+                let activityViewController = UIActivityViewController(activityItems: [capturedImage], applicationActivities: nil)
+                self.present(activityViewController, animated: true, completion: nil)
+            }
         }, for: .touchUpInside)
         
         saveButton.addAction(UIAction { [weak self] _ in
-                    guard let image = self?.resultImageView.image else { return }
-                    self?.imageSaver.saveImage(image, target: self, handler: {
-                        let alert = UIAlertController(title: "이미지 저장 완료", message: "이미지가 사진 앨범에 저장되었습니다.", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-                        self?.present(alert, animated: true, completion: nil)
-                    })
-                }, for: .touchUpInside)
+            guard let self = self else { return }
+            if let capturedImage = self.captureView() {
+                self.imageSaver.saveImage(capturedImage, target: self, handler: {
+                    let alert = UIAlertController(title: "이미지 저장 완료", message: "이미지가 사진 앨범에 저장되었습니다.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                })
+            }
+        }, for: .touchUpInside)
         
         homeButton.addAction(UIAction { [weak self] _ in
             self?.navigationController?.popToRootViewController(animated: true)
         }, for: .touchUpInside)
     }
     
+    private func captureView() -> UIImage? {
+        let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
+        return renderer.image { ctx in
+            view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        }
+    }
+    
     @objc private func imageViewTapped(_ sender: UITapGestureRecognizer) {
-            if let url = URL(string: "baemin://"), UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            } else {
-                if let appStoreURL = URL(string: "https://www.baemin.com/") {
-                    UIApplication.shared.open(appStoreURL, options: [:], completionHandler: nil)
-                }
+        if let url = URL(string: "baemin://"), UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            if let appStoreURL = URL(string: "https://www.baemin.com/") {
+                UIApplication.shared.open(appStoreURL, options: [:], completionHandler: nil)
             }
         }
+    }
     
     @objc private func reRecommendButtonTapped() {
         updateUI()
@@ -215,14 +232,14 @@ class DinnerGenieResultViewController: UIViewController {
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
     }
-
+    
     private func renderViewToImage(size: CGSize) -> UIImage? {
         let renderer = UIGraphicsImageRenderer(size: size)
         return renderer.image { _ in
-               view.drawHierarchy(in: CGRect(origin: .zero, size: size), afterScreenUpdates: true)
-           }
-       }
-
+            view.drawHierarchy(in: CGRect(origin: .zero, size: size), afterScreenUpdates: true)
+        }
+    }
+    
     @objc private func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
         DispatchQueue.main.async {
             if let error = error {

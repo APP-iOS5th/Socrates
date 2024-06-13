@@ -268,7 +268,6 @@ class FirstTestViewController: UIViewController {
                 
         // 텍스트 레이블 생성 및 설정
         let resultLabel = UILabel()
-        resultLabel.translatesAutoresizingMaskIntoConstraints = false
         resultLabel.text = heroes[heroNumber]?.name
         resultLabel.font = .systemFont(ofSize: 20, weight: .bold)
         resultLabel.textColor = .black
@@ -283,27 +282,109 @@ class FirstTestViewController: UIViewController {
         resultText.textAlignment = .natural
         resultText.numberOfLines = 0
         
-        // 뷰에 이미지 뷰 및 레이블 추가
+        let positionText = UILabel()
+        positionText.translatesAutoresizingMaskIntoConstraints = false
+        positionText.font = .systemFont(ofSize: 18, weight: .semibold)
+        positionText.text = heroes[heroNumber]?.position
+        positionText.textColor = .black
+        positionText.textAlignment = .natural
+        positionText.numberOfLines = 0
+        
+        let locationText = UILabel()
+        locationText.translatesAutoresizingMaskIntoConstraints = false
+        locationText.font = .systemFont(ofSize: 18, weight: .semibold)
+        locationText.text = heroes[heroNumber]?.location
+        locationText.textColor = .black
+        locationText.textAlignment = .natural
+        locationText.numberOfLines = 0
+        
+        let birthText = UILabel()
+        birthText.translatesAutoresizingMaskIntoConstraints = false
+        birthText.font = .systemFont(ofSize: 18, weight: .semibold)
+        birthText.text = heroes[heroNumber]?.birth
+        birthText.textColor = .black
+        birthText.textAlignment = .natural
+        birthText.numberOfLines = 0
+        
+        
+        let positionImage = UIImageView()
+        positionImage.image = UIImage(named: heroNumber.contains("dps") ? "attack.jpg" : (heroNumber.contains("tanker") ? "tank.jpg" : "healer.jpg"))
+
+        
+        let locationImage = UIImageView()
+        locationImage.image = UIImage(systemName: "location.fill")
+        locationImage.tintColor = .white
+    
+        let birthImage = UIImageView()
+        birthImage.image = UIImage(systemName: "birthday.cake.fill")
+        birthImage.tintColor = .white
+        
+        
         view.addSubview(imageView)
         view.addSubview(resultLabel)
         view.addSubview(resultText)
-        // 오토레이아웃 설정
+        view.addSubview(positionText)
+        view.addSubview(locationText)
+        view.addSubview(birthText)
+        view.addSubview(positionImage)
+        view.addSubview(locationImage)
+        view.addSubview(birthImage)
+        
+        resultLabel.translatesAutoresizingMaskIntoConstraints = false
+        resultText.translatesAutoresizingMaskIntoConstraints = false
+        positionText.translatesAutoresizingMaskIntoConstraints = false
+        positionImage.translatesAutoresizingMaskIntoConstraints = false
+        locationText.translatesAutoresizingMaskIntoConstraints = false
+        locationImage.translatesAutoresizingMaskIntoConstraints = false
+        birthText.translatesAutoresizingMaskIntoConstraints = false
+        birthImage.translatesAutoresizingMaskIntoConstraints = false
+
+
         NSLayoutConstraint.activate([
             // 이미지 뷰 제약 조건
+            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
             imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
-            imageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8), // 이미지 비율 유지
+            imageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
 
             // 레이블 제약 조건
             resultLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
             resultLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             resultLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            
-            resultText.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 30),
-            resultText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            resultText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30)
+
+            resultText.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 10),
+            resultText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            resultText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+
+            // 새로운 제약 조건
+            positionImage.topAnchor.constraint(equalTo: resultText.bottomAnchor, constant: 20),
+            positionImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            positionImage.widthAnchor.constraint(equalToConstant: 20),
+            positionImage.heightAnchor.constraint(equalToConstant: 20),
+
+            positionText.centerYAnchor.constraint(equalTo: positionImage.centerYAnchor),
+            positionText.leadingAnchor.constraint(equalTo: positionImage.trailingAnchor, constant: 10),
+            positionText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+
+            locationImage.topAnchor.constraint(equalTo: positionImage.bottomAnchor, constant: 20),
+            locationImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            locationImage.widthAnchor.constraint(equalToConstant: 20),
+            locationImage.heightAnchor.constraint(equalToConstant: 20),
+
+            locationText.centerYAnchor.constraint(equalTo: locationImage.centerYAnchor),
+            locationText.leadingAnchor.constraint(equalTo: locationImage.trailingAnchor, constant: 10),
+            locationText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+
+            birthImage.topAnchor.constraint(equalTo: locationImage.bottomAnchor, constant: 20),
+            birthImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            birthImage.widthAnchor.constraint(equalToConstant: 20),
+            birthImage.heightAnchor.constraint(equalToConstant: 20),
+
+            birthText.centerYAnchor.constraint(equalTo: birthImage.centerYAnchor),
+            birthText.leadingAnchor.constraint(equalTo: birthImage.trailingAnchor, constant: 10),
+            birthText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
+        
         backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),

@@ -45,18 +45,18 @@ struct Hero {
 
 var questions: [String :QModelData] = [
         "main" : QModelData(question: """
-                               당신은 소중한 사람과 길을 걷고있다. 그런데 갑자기 나와 비슷한 체력의 괴한이 당신의 일행에게 발길질을 하는데!
+                               당신은 소중한 사람과 길을 걷고있다. 그런데 갑자기 나와 비슷한 체격의 괴한이 당신의 일행에게 발길질을 하는데!
                                이때 당신은 어떻게 할 것인가
                                """,
                                anwser1: "눈에는 눈, 이에는 이! \n순간적으로 나도 발로 차버린다",
                                anwser2: "안돼! 몸으로 막는다",
-                               anwser3: "뭐하시는거에요! \n일행을 살피며 말로 따진다",
+                               anwser3: "뭐하시는 거예요! \n일행을 살피며 말로 따진다",
                                anwser4: "dd"),
         "main1" : QModelData(question: """
-                               괴한이 사라진 뒤, 가장 먼저 드는 생각은?
+                               괴한이 사라진 뒤,\n가장 먼저 드는 생각은?
                                """,
                                anwser1: "그 사람에 대한 분노가 끓어오른다",
-                               anwser2: "발을 막았다면 좋았을텐데",
+                               anwser2: "발을 막았다면 좋았을 텐데",
                                anwser3: "일행이 어디 안 다쳤나 걱정된다",
                                anwser4: nil),
         "main2" : QModelData(question: """
@@ -96,7 +96,7 @@ var questions: [String :QModelData] = [
                                anwser3: "인생은 먹고, 즐기는 것이 최고! \n생존과 만족이 최우선이다",//로드호그
                                anwser4: nil),
         "tanker2" : QModelData(question: """
-                               다음중 한가지 활동을 해야합니다. 어떤 활동을 하시겠습니까?
+                               다음 중 한가지 활동을 해야합니다. 어떤 활동을 하시겠습니까?
                                """,
                                anwser1: "동물 유튜브를 보거나 집에서 뒹굴거린다",//래킹
                                anwser2: "복싱 경기를 보거나 운동을 한다",//둠
@@ -105,9 +105,9 @@ var questions: [String :QModelData] = [
         "dps" : QModelData(question: """
                                당신은 작업할 때, 어떤 작업 스타일이 가장 잘 맞는 것 같나요?
                                """,
-                               anwser1: "새로운 아이디어를 시도하고 창의적 도전하는 것이 좋아요 ",//dps0
+                               anwser1: "창의적인 아이디어와 새로운 도전이 좋습니다",//dps0
                                anwser2: "안정적으로 꾸준히 일하는 것을 선호합니다",//dps1
-                               anwser3: "집중력을 발휘하여 강력한 한 방이 중요합니다",//dps2
+                               anwser3: "순간 집중력과 강력한 한 방이 중요합니다",//dps2
                                anwser4: nil),
         "dps0" : QModelData(question: """
                                당신이 가장 중요하게 생각하는 가치는 무엇인가요?

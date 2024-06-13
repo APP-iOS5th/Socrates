@@ -353,12 +353,12 @@ class FirstTestViewController: UIViewController {
             resultLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
 
             resultText.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 10),
-            resultText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            resultText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            resultText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            resultText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
 
             // 새로운 제약 조건
             positionImage.topAnchor.constraint(equalTo: resultText.bottomAnchor, constant: 20),
-            positionImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            positionImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             positionImage.widthAnchor.constraint(equalToConstant: 20),
             positionImage.heightAnchor.constraint(equalToConstant: 20),
 
@@ -367,7 +367,7 @@ class FirstTestViewController: UIViewController {
             positionText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
 
             locationImage.topAnchor.constraint(equalTo: positionImage.bottomAnchor, constant: 20),
-            locationImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            locationImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             locationImage.widthAnchor.constraint(equalToConstant: 20),
             locationImage.heightAnchor.constraint(equalToConstant: 20),
 
@@ -376,7 +376,7 @@ class FirstTestViewController: UIViewController {
             locationText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
 
             birthImage.topAnchor.constraint(equalTo: locationImage.bottomAnchor, constant: 20),
-            birthImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            birthImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             birthImage.widthAnchor.constraint(equalToConstant: 20),
             birthImage.heightAnchor.constraint(equalToConstant: 20),
 

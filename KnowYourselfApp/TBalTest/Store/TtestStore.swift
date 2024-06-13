@@ -18,12 +18,12 @@ struct TtestStore {
                                                           TtestList(content: "원인과 결과", score: 10)]),
                                          
                                           Ttest(questionAsk: "어쩌다 친구의 잘못으로 싸우게 되었다. 어떤 말에 내 기분이 풀릴 수 있을까?",
-                                              questions: [TtestList(content: "속상하게 해서 미안해.. 니 마음을 이해하지 못했어..", score: 0),
+                                              questions: [TtestList(content: "속상하게 해서 미안해.. 네 마음을 이해하지 못했어..", score: 0),
                                                           TtestList(content: "이 부분은 내가 잘못했어.. 앞으로는 그러지 않도록 노력할게", score: 10)]),
                                          
-                                          Ttest(questionAsk: "친구가 안 어울리는 색으로 염색을 하고 왔다. 이떄 나는?",
+                                          Ttest(questionAsk: "친구가 안 어울리는 색으로 염색을 하고 왔다. 이때 나는?",
                                               questions: [TtestList(content: "너는 다른 색이 더 잘 어울려라고 솔직하게 애기해 준다.", score: 10),
-                                                          TtestList(content: "안 어룰리긴 하지만.. 그래도 잘 어울린다고 말해준다.", score: 0)]),
+                                                          TtestList(content: "안 어울리긴 하지만.. 그래도 잘 어울린다고 말해준다.", score: 0)]),
                                          
                                           Ttest(questionAsk: "별로 안 친한 친구가 고민 상담을 한다. 이때 나는?",
                                               questions: [TtestList(content: "흠.. 굳이 왜 나한테 얘기하지?", score: 10),

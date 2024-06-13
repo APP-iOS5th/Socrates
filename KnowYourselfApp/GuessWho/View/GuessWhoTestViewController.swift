@@ -19,7 +19,7 @@ class GuessWhoViewController: UIViewController {
     let progressView = ProgressView()
     let backgroundImageView = UIImageView()
     let questionBackgroundImageView = UIImageView()
-    
+
     init(quizList: [QuizModel]) {
         super.init(nibName: nil, bundle: nil)
         self.viewModel = GuessViewModel(quizList: quizList)
@@ -243,7 +243,7 @@ class GuessWhoViewController: UIViewController {
             resultView.resultText =  result.name
             resultView.resultImageName = result.imageName
         } else {
-            resultView.resultText = "다시 해보시죠."
+            resultView.resultText = "독보적입니다"
         }
         show(resultView, sender: nil)
     }

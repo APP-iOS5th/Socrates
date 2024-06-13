@@ -8,7 +8,7 @@
 import UIKit
 
 class GuessWhoResultViewController: UIViewController {
-    private let imageSaver = ImageSave()
+    private let imageSaver = SavePNG()
     
     let resultLabel = UILabel()
     let urLabel = UILabel()

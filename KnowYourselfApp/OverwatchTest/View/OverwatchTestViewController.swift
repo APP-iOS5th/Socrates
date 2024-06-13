@@ -306,6 +306,21 @@ class FirstTestViewController: UIViewController {
         birthText.textAlignment = .natural
         birthText.numberOfLines = 0
         
+        let logoButton = UIButton()
+        logoButton.setImage(UIImage(named: "logo"), for: .normal)
+        if let filteredName = heroes[heroNumber]?.name {
+            let filtered = filteredName.filter { $0.isLetter && $0.unicodeScalars.allSatisfy({ scalar in
+                scalar.properties.isAlphabetic && scalar.isASCII
+            }) }
+            
+          
+            logoButton.addAction(UIAction(handler: { _ in
+                self.logoTapped(filtered.lowercased())
+            }), for: .touchUpInside)
+        }
+        
+
+        
         
         let positionImage = UIImageView()
         positionImage.image = UIImage(named: heroNumber.contains("dps") ? "attack.jpg" : (heroNumber.contains("tanker") ? "tank.jpg" : "healer.jpg"))
@@ -329,6 +344,7 @@ class FirstTestViewController: UIViewController {
         view.addSubview(positionImage)
         view.addSubview(locationImage)
         view.addSubview(birthImage)
+        view.addSubview(logoButton)
         
         resultLabel.translatesAutoresizingMaskIntoConstraints = false
         resultText.translatesAutoresizingMaskIntoConstraints = false
@@ -338,7 +354,7 @@ class FirstTestViewController: UIViewController {
         locationImage.translatesAutoresizingMaskIntoConstraints = false
         birthText.translatesAutoresizingMaskIntoConstraints = false
         birthImage.translatesAutoresizingMaskIntoConstraints = false
-
+        logoButton.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
             // 이미지 뷰 제약 조건
@@ -346,6 +362,12 @@ class FirstTestViewController: UIViewController {
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
             imageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
+//로고 버튼
+            logoButton.leadingAnchor.constraint(equalTo: resultLabel.trailingAnchor, constant: -110),
+            logoButton.centerYAnchor.constraint(equalTo: resultLabel.centerYAnchor),
+            logoButton.widthAnchor.constraint(equalToConstant: 50),
+            logoButton.heightAnchor.constraint(equalTo: logoButton.widthAnchor, multiplier: (logoButton.imageView?.image?.size.height ?? 1.0) / (logoButton.imageView?.image?.size.width ?? 1.0)),
+            // 이 부분을 추가
 
             // 레이블 제약 조건
             resultLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
@@ -570,6 +592,11 @@ class FirstTestViewController: UIViewController {
         // 공유 시트 표시
            let activityViewController = UIActivityViewController(activityItems: [snapshot], applicationActivities: nil)
            present(activityViewController, animated: true, completion: nil)
+    }
+    @objc func logoTapped(_ heroName: String) {
+    let urlString = "https://overwatch.blizzard.com/ko-kr/heroes/\(heroName)"
+        guard let url = URL(string: urlString) else { return }
+        UIApplication.shared.open(url)
     }
     
 }

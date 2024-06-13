@@ -50,7 +50,7 @@ var questions: [String :QModelData] = [
                                """,
                                anwser1: "그 사람에 대한 분노가 끓어오른다",
                                anwser2: "발을 막았다면 좋았을텐데",
-                               anwser3: "일행이 어디 안다쳤나 걱정된다",
+                               anwser3: "일행이 어디 안 다쳤나 걱정된다",
                                anwser4: nil),
         "main2" : QModelData(question: """
                                같은 날 당신은 그 괴한을 다시 만나게 됩니다.

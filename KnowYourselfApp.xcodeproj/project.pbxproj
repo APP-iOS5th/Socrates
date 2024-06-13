@@ -21,7 +21,8 @@
 		04F0A74D2C18199000F668FD /* ETTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F0A74C2C18199000F668FD /* ETTestViewController.swift */; };
 		04F0A74F2C1819FC00F668FD /* ETResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F0A74E2C1819FC00F668FD /* ETResultViewController.swift */; };
 		758C780A2C19877B004D853A /* HakgyoansimDoldamM.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 758C78092C19877B004D853A /* HakgyoansimDoldamM.ttf */; };
-		758C780C2C1AA0CA004D853A /* ImageSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758C780B2C1AA0CA004D853A /* ImageSave.swift */; };
+		758C780C2C1AA0CA004D853A /* SavePNG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758C780B2C1AA0CA004D853A /* SavePNG.swift */; };
+		758C780E2C1AB0DD004D853A /* SaveJpeg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758C780D2C1AB0DD004D853A /* SaveJpeg.swift */; };
 		75BE85262C0EFD3F00CFB813 /* QuizModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE85252C0EFD3F00CFB813 /* QuizModel.swift */; };
 		75BE85282C0EFD7B00CFB813 /* GuessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE85272C0EFD7B00CFB813 /* GuessViewModel.swift */; };
 		75BE852A2C0EFDA200CFB813 /* GuessWhoResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BE85292C0EFDA200CFB813 /* GuessWhoResultViewController.swift */; };
@@ -62,7 +63,8 @@
 		04F0A74C2C18199000F668FD /* ETTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETTestViewController.swift; sourceTree = "<group>"; };
 		04F0A74E2C1819FC00F668FD /* ETResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETResultViewController.swift; sourceTree = "<group>"; };
 		758C78092C19877B004D853A /* HakgyoansimDoldamM.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HakgyoansimDoldamM.ttf; sourceTree = "<group>"; };
-		758C780B2C1AA0CA004D853A /* ImageSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSave.swift; sourceTree = "<group>"; };
+		758C780B2C1AA0CA004D853A /* SavePNG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePNG.swift; sourceTree = "<group>"; };
+		758C780D2C1AB0DD004D853A /* SaveJpeg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveJpeg.swift; sourceTree = "<group>"; };
 		75BE85252C0EFD3F00CFB813 /* QuizModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizModel.swift; sourceTree = "<group>"; };
 		75BE85272C0EFD7B00CFB813 /* GuessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessViewModel.swift; sourceTree = "<group>"; };
 		75BE85292C0EFDA200CFB813 /* GuessWhoResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessWhoResultViewController.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 				8F8D55AD2C198DD400363859 /* Model */,
 				8D1022312C196CCC0071EE94 /* View */,
 				8D1022332C196CCC0071EE94 /* ViewModel */,
+				758C780D2C1AB0DD004D853A /* SaveJpeg.swift */,
 			);
 			path = DinnerGenie;
 			sourceTree = "<group>";
@@ -374,7 +377,7 @@
 				758C78082C198763004D853A /* Font */,
 				75BE85222C0EFCFD00CFB813 /* View */,
 				75BE85232C0EFD0400CFB813 /* ViewModel */,
-				758C780B2C1AA0CA004D853A /* ImageSave.swift */,
+				758C780B2C1AA0CA004D853A /* SavePNG.swift */,
 			);
 			path = GuessWho;
 			sourceTree = "<group>";
@@ -468,10 +471,11 @@
 				04F0A7432C1817F400F668FD /* EntertainmentViewController.swift in Sources */,
 				8D1022352C196CCC0071EE94 /* DinnerGenieResultViewController.swift in Sources */,
 				04F0A73E2C18178C00F668FD /* SplashViewController.swift in Sources */,
+				758C780E2C1AB0DD004D853A /* SaveJpeg.swift in Sources */,
 				8FB618D12C09D1E3005E856B /* TBalTestViewController.swift in Sources */,
 				8FB618CB2C09D1E3005E856B /* ThirdTestModel.swift in Sources */,
 				8F6658382C182F5500E48716 /* QModelData.swift in Sources */,
-				758C780C2C1AA0CA004D853A /* ImageSave.swift in Sources */,
+				758C780C2C1AA0CA004D853A /* SavePNG.swift in Sources */,
 				8FB618C82C09D1E3005E856B /* FirstTestModel.swift in Sources */,
 				8FB618D52C09D1E3005E856B /* GuessWhoTestViewController.swift in Sources */,
 				04F0A7472C18187000F668FD /* EntertainmentModel.swift in Sources */,

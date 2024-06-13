@@ -11,7 +11,7 @@ import Photos
 class DinnerGenieResultViewController: UIViewController {
     
     private var viewModel = DinnerGenieViewModel()
-    
+    private var imageSaver = SaveJpeg()
     init(viewModel: DinnerGenieViewModel) {
             self.viewModel = viewModel
             super.init(nibName: nil, bundle: nil)
@@ -159,17 +159,13 @@ class DinnerGenieResultViewController: UIViewController {
         }, for: .touchUpInside)
         
         saveButton.addAction(UIAction { [weak self] _ in
-            guard let self = self else { return }
-            self.checkPhotosPermission { granted in
-            guard granted else {
-            self.presentPhotosPermissionAlert()
-            return
-            }
-            let imageSize = CGSize(width: 393, height: 852)
-                guard let image = self.renderViewToImage(size: imageSize) else { return }
-            UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
-            }
-        }, for: .touchUpInside)
+                    guard let image = self?.resultImageView.image else { return }
+                    self?.imageSaver.saveImage(image, target: self, handler: {
+                        let alert = UIAlertController(title: "이미지 저장 완료", message: "이미지가 사진 앨범에 저장되었습니다.", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+                        self?.present(alert, animated: true, completion: nil)
+                    })
+                }, for: .touchUpInside)
         
         homeButton.addAction(UIAction { [weak self] _ in
             self?.navigationController?.popToRootViewController(animated: true)

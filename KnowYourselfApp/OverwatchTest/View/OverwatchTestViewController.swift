@@ -19,7 +19,7 @@ func createLabel(title: String) -> UILabel {
     let strokeTextAttributes: [NSAttributedString.Key: Any] = [
         .strokeColor: UIColor.orange,
            .foregroundColor: UIColor.black, // 텍스트 색상
-        .strokeWidth: -0.5 // 음수 값은 외곽선을 그려줌
+        .strokeWidth: -0.5 //외곽선을 그려줌
        ]
 
        let attributedText = NSAttributedString(string: title, attributes: strokeTextAttributes)
@@ -29,6 +29,7 @@ func createLabel(title: String) -> UILabel {
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
 }
+
 func createButton(title: String, tag: Int, target: Any?, action: Selector) -> UIButton {
     let button = UIButton(type: .system)
     button.setTitle(title, for: .normal)
@@ -48,45 +49,39 @@ func createButton(title: String, tag: Int, target: Any?, action: Selector) -> UI
     return button
 }
 
-
-
 class FirstTestViewController: UIViewController {
   
-    //탭바 다시보이기
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // 네비게이션 컨트롤러의 뷰 컨트롤러가 self인 경우 (루트 뷰 컨트롤러)
+        
+        // 탭바 숨기기
         if self.navigationController?.viewControllers.last == self {
-            // 탭바 숨기기
             tabBarController?.tabBar.isHidden = true
-            
         }
     }
+    // 탭바 표시하기
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        // 네비게이션 스택에서 팝될 때 (뒤로 가기)
         if isMovingFromParent {
-            // 탭바 표시하기
             tabBarController?.tabBar.isHidden = false
             self.navigationController?.navigationBar.backItem?.title = "KNOW YOURSELF"
             self.navigationController?.navigationBar.tintColor = .systemBlue
         }
     }
    
-    
     private var heroScore = 0
     //0~1 딜러, 2~3탱커, 4~6 힐러
     private var currentQIndex = 0
     private let questionsKeys = Array(questions.keys)
+    private var currentKeyNow: String! = "main"
     private var QLabel: UILabel!
     private var firstButton: UIButton!
     private var secondButton: UIButton!
     private var thirdButton: UIButton!
     private var fourthButton: UIButton!
-    private var currentKeyNow: String! = "main"
     
     
+    //여기저기 쓰이는 배경화면
     private lazy var backgroundImageView: UIImageView = {
            let imageView = UIImageView(frame: view.bounds)
            imageView.contentMode = .scaleAspectFit // 이미지 비율 유지 및 화면에 맞춤
@@ -96,70 +91,56 @@ class FirstTestViewController: UIViewController {
        }()
        
     
-       
-    private lazy var button: UIButton = {
-        let button = UIButton(type: .custom)
-        button.backgroundColor = .blue
-        button.setTitle("버튼", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 45
-        button.clipsToBounds = true // 버튼의 모서리에서 이미지가 잘리지 않도록 함
 
-        // 이미지 설정
-        if let buttonImage = UIImage(named: "buttonImage") { // 이미지 이름을 yourImageName으로 변경
-            button.setImage(buttonImage, for: .normal)
-        }
-
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        return button
-    }()
-    
-    
-    private var startLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 20, weight: .bold)
-        label.textColor = .white
-        label.text = "오버워치 영웅 테스트 시작하기"
-        return label
-    }()
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "오버워치 영웅 테스트"
         view.backgroundColor = .white
-//        var tabBarController: UITabBarController? {
-//            return self.presentingViewController as? UITabBarController
-//        }
-//        if let tabBarController = self.tabBarController {
-//                // 탭바 숨기기
-//                tabBarController.tabBar.isHidden = true
-//            }
         
         StartView()
     }
     
+    // 첫 시작 화면
     private func StartView() {
         self.title = ""
+        
+        var button: UIButton = {
+            let button = UIButton(type: .custom)
+            button.backgroundColor = .blue
+            button.setTitle("버튼", for: .normal)
+            button.setTitleColor(.white, for: .normal)
+            button.layer.cornerRadius = 45
+            button.clipsToBounds = true
+            if let buttonImage = UIImage(named: "buttonImage") {
+                button.setImage(buttonImage, for: .normal)
+            }
+            button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+            return button
+        }()
+        
+        
+        var startLabel: UILabel = {
+            let label = UILabel()
+            label.font = .systemFont(ofSize: 20, weight: .bold)
+            label.textColor = .white
+            label.text = "오버워치 영웅 테스트 시작하기"
+            return label
+        }()
+        
         view.backgroundColor = .black
         view.addSubview(backgroundImageView)
         view.addSubview(button)
         view.addSubview(startLabel)
         
         backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+        button.translatesAutoresizingMaskIntoConstraints = false
+        startLabel.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
                     backgroundImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
                     backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                     backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                    backgroundImageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-                ])
-                
-
-                
-        button.translatesAutoresizingMaskIntoConstraints = false
-        startLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
+                    backgroundImageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
                     button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                     button.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: -10),
                     button.widthAnchor.constraint(equalToConstant: 90),
@@ -167,23 +148,26 @@ class FirstTestViewController: UIViewController {
                     startLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                     startLabel.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 35)
                 ])
-            }
+        }
             
-          
-        
-    
+    //문제 나오는 화면
     private func setupView() {
+        
         view.subviews.forEach { $0.removeFromSuperview() }
+        view.backgroundColor = .white
+        
         self.title = "오버워치 영웅 테스트"
         self.navigationController?.navigationBar.backItem?.title = "Test List"
         self.navigationController?.navigationBar.tintColor = .black
+        
+        //배경 그림
         backgroundImageView.image = UIImage(named: "backgroundImage2")
         backgroundImageView.alpha = 0.6
         backgroundImageView.contentMode = .scaleAspectFit
-        view.addSubview(backgroundImageView)
-        view.backgroundColor = .white
 
+        //질문 생성
         QLabel = createLabel(title: questions[currentKeyNow]!.question)
+        
         
         // 버튼 생성
         firstButton = createButton(
@@ -217,7 +201,7 @@ class FirstTestViewController: UIViewController {
         }
         
         
-        
+        view.addSubview(backgroundImageView)
         view.addSubview(QLabel)
         view.addSubview(firstButton)
         view.addSubview(secondButton)
@@ -225,8 +209,7 @@ class FirstTestViewController: UIViewController {
         view.addSubview(fourthButton)
         fourthButton.isHidden = true
         
-        
-        var constraints = [
+        NSLayoutConstraint.activate([
             QLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             QLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100),
             QLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
@@ -236,51 +219,65 @@ class FirstTestViewController: UIViewController {
             secondButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             secondButton.topAnchor.constraint(equalTo: firstButton.bottomAnchor, constant: 20),
             secondButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
+            thirdButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            thirdButton.topAnchor.constraint(equalTo: secondButton.bottomAnchor, constant: 20),
+            thirdButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
+            fourthButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            fourthButton.topAnchor.constraint(equalTo: thirdButton.bottomAnchor, constant: 20),
+            fourthButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7)
             
-        ]
-        
-        if let thirdButton = thirdButton {
-            constraints.append(contentsOf: [
-                thirdButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                thirdButton.topAnchor.constraint(equalTo: secondButton.bottomAnchor, constant: 20),
-                thirdButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
-                fourthButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                fourthButton.topAnchor.constraint(equalTo: thirdButton.bottomAnchor, constant: 20),
-                fourthButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7)
-            ])
+        ])
+       
+      
         }
-        
-        NSLayoutConstraint.activate(constraints)
-    }
+    
+    
+    //결과 화면
     private func resultView(_ heroNumber: String) {
         view.subviews.forEach { $0.removeFromSuperview() }
+        view.backgroundColor = .white
+        //배경 이미지
         backgroundImageView.image = UIImage(named: "background3")
         backgroundImageView.alpha = 0.6
         backgroundImageView.contentMode = .scaleAspectFill
-        view.addSubview(backgroundImageView)
-        view.backgroundColor = .white
 
-        // 이미지 뷰 생성 및 설정
+        // 영웅 이미지 뷰 생성 및 설정
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: "\(heroNumber).jpg")
                 
-        // 텍스트 레이블 생성 및 설정
-        let resultLabel = UILabel()
-        resultLabel.text = heroes[heroNumber]?.name
-        resultLabel.font = .systemFont(ofSize: 20, weight: .bold)
-        resultLabel.textColor = .black
-        resultLabel.textAlignment = .center
-        resultLabel.numberOfLines = 0
+        // 영웅 이름 생성 및 설정
+        let nameLabel = UILabel()
+        nameLabel.text = heroes[heroNumber]?.name
+        nameLabel.font = .systemFont(ofSize: 20, weight: .bold)
+        nameLabel.textColor = .black
+        nameLabel.textAlignment = .center
+        nameLabel.numberOfLines = 0
         
-        let resultText = UILabel()
-        resultText.translatesAutoresizingMaskIntoConstraints = false
-        resultText.font = .systemFont(ofSize: 18, weight: .semibold)
-        resultText.text = heroes[heroNumber]?.story
-        resultText.textColor = .black
-        resultText.textAlignment = .natural
-        resultText.numberOfLines = 0
+        //영웅 페이지 이동 로고
+        let logoButton = UIButton()
+        logoButton.setImage(UIImage(named: "logo"), for: .normal)
+        if let filteredName = heroes[heroNumber]?.name {
+            let filtered = filteredName.filter { $0.isLetter && $0.unicodeScalars.allSatisfy({ scalar in
+                scalar.properties.isAlphabetic && scalar.isASCII
+            }) || $0 == "-" }
+            
+          
+            logoButton.addAction(UIAction(handler: { _ in
+                self.logoTapped(filtered.lowercased())
+            }), for: .touchUpInside)
+        }
+        
+        
+        //영웅 정보 텍스트
+        let storyText = UILabel()
+        storyText.translatesAutoresizingMaskIntoConstraints = false
+        storyText.font = .systemFont(ofSize: 18, weight: .semibold)
+        storyText.text = heroes[heroNumber]?.story
+        storyText.textColor = .black
+        storyText.textAlignment = .natural
+        storyText.numberOfLines = 0
         
         let positionText = UILabel()
         positionText.translatesAutoresizingMaskIntoConstraints = false
@@ -306,25 +303,10 @@ class FirstTestViewController: UIViewController {
         birthText.textAlignment = .natural
         birthText.numberOfLines = 0
         
-        let logoButton = UIButton()
-        logoButton.setImage(UIImage(named: "logo"), for: .normal)
-        if let filteredName = heroes[heroNumber]?.name {
-            let filtered = filteredName.filter { $0.isLetter && $0.unicodeScalars.allSatisfy({ scalar in
-                scalar.properties.isAlphabetic && scalar.isASCII
-            }) }
-            
-          
-            logoButton.addAction(UIAction(handler: { _ in
-                self.logoTapped(filtered.lowercased())
-            }), for: .touchUpInside)
-        }
         
-
-        
-        
+        //영웅 정보 이미지
         let positionImage = UIImageView()
         positionImage.image = UIImage(named: heroNumber.contains("dps") ? "attack.jpg" : (heroNumber.contains("tanker") ? "tank.jpg" : "healer.jpg"))
-
         
         let locationImage = UIImageView()
         locationImage.image = UIImage(systemName: "location.fill")
@@ -334,10 +316,21 @@ class FirstTestViewController: UIViewController {
         birthImage.image = UIImage(systemName: "birthday.cake.fill")
         birthImage.tintColor = .white
         
+        // 공유하기 버튼 생성 및 설정
+        let shareButton = UIButton(type: .system)
+        shareButton.translatesAutoresizingMaskIntoConstraints = false
+        shareButton.setTitle("공유하기", for: .normal)
+        shareButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
+        shareButton.backgroundColor = .darkGray
+        shareButton.tintColor = .orange
+        shareButton.layer.cornerRadius = 8
+        shareButton.addTarget(self, action: #selector(shareButtonTapped), for: .touchUpInside)
         
+        //뷰에 추가
+        view.addSubview(backgroundImageView)
         view.addSubview(imageView)
-        view.addSubview(resultLabel)
-        view.addSubview(resultText)
+        view.addSubview(nameLabel)
+        view.addSubview(storyText)
         view.addSubview(positionText)
         view.addSubview(locationText)
         view.addSubview(birthText)
@@ -345,9 +338,12 @@ class FirstTestViewController: UIViewController {
         view.addSubview(locationImage)
         view.addSubview(birthImage)
         view.addSubview(logoButton)
+        view.addSubview(shareButton)
         
-        resultLabel.translatesAutoresizingMaskIntoConstraints = false
-        resultText.translatesAutoresizingMaskIntoConstraints = false
+        
+        //레이아웃 설정
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        storyText.translatesAutoresizingMaskIntoConstraints = false
         positionText.translatesAutoresizingMaskIntoConstraints = false
         positionImage.translatesAutoresizingMaskIntoConstraints = false
         locationText.translatesAutoresizingMaskIntoConstraints = false
@@ -355,31 +351,25 @@ class FirstTestViewController: UIViewController {
         birthText.translatesAutoresizingMaskIntoConstraints = false
         birthImage.translatesAutoresizingMaskIntoConstraints = false
         logoButton.translatesAutoresizingMaskIntoConstraints = false
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            // 이미지 뷰 제약 조건
             imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             imageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
             imageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
-//로고 버튼
-            logoButton.leadingAnchor.constraint(equalTo: resultLabel.trailingAnchor, constant: -110),
-            logoButton.centerYAnchor.constraint(equalTo: resultLabel.centerYAnchor),
+            logoButton.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: -110),
+            logoButton.centerYAnchor.constraint(equalTo: nameLabel.centerYAnchor),
             logoButton.widthAnchor.constraint(equalToConstant: 50),
             logoButton.heightAnchor.constraint(equalTo: logoButton.widthAnchor, multiplier: (logoButton.imageView?.image?.size.height ?? 1.0) / (logoButton.imageView?.image?.size.width ?? 1.0)),
-            // 이 부분을 추가
+            nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
+            nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
 
-            // 레이블 제약 조건
-            resultLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
-            resultLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            resultLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-
-            resultText.topAnchor.constraint(equalTo: resultLabel.bottomAnchor, constant: 10),
-            resultText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            resultText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-
-            // 새로운 제약 조건
-            positionImage.topAnchor.constraint(equalTo: resultText.bottomAnchor, constant: 20),
+            storyText.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10),
+            storyText.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
+            storyText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            positionImage.topAnchor.constraint(equalTo: storyText.bottomAnchor, constant: 20),
             positionImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             positionImage.widthAnchor.constraint(equalToConstant: 20),
             positionImage.heightAnchor.constraint(equalToConstant: 20),
@@ -404,34 +394,11 @@ class FirstTestViewController: UIViewController {
 
             birthText.centerYAnchor.constraint(equalTo: birthImage.centerYAnchor),
             birthText.leadingAnchor.constraint(equalTo: birthImage.trailingAnchor, constant: 10),
-            birthText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
-        ])
-        
-        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
+            birthText.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
             backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-        
-        // 공유하기 버튼 생성 및 설정
-        let shareButton = UIButton(type: .system)
-        shareButton.translatesAutoresizingMaskIntoConstraints = false
-        shareButton.setTitle("공유하기", for: .normal)
-        shareButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
-        shareButton.backgroundColor = .darkGray
-        shareButton.tintColor = .orange
-        shareButton.layer.cornerRadius = 8
-
-        // 버튼 액션 추가
-        shareButton.addTarget(self, action: #selector(shareButtonTapped), for: .touchUpInside)
-
-        // 뷰에 버튼 추가
-        view.addSubview(shareButton)
-
-        // 오토레이아웃 설정
-        NSLayoutConstraint.activate([
+            backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             shareButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             shareButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             shareButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
@@ -439,7 +406,9 @@ class FirstTestViewController: UIViewController {
         ])
         
     }
-
+    
+    
+   //문제 넘어갈 때, 다음 문제 선택하는 함수
     private func loadDetailQuestion(_ key: String) {
         currentKeyNow = key
         if let questionData = questions[key] {
@@ -460,10 +429,12 @@ class FirstTestViewController: UIViewController {
             }
         }
     }
-    
+    //선택지 선택할 때 함수
     @objc func heroScoreChanger(_ sender: UIButton) {
         currentQIndex += 1
         heroScore += sender.tag
+        
+        // 포지션 정해지고 나서 각 키로 돌아가는 상황[기존키 + 태그]
         if currentQIndex > 3 {
             let key = currentKeyNow + String(sender.tag)
             switch key {
@@ -553,7 +524,9 @@ class FirstTestViewController: UIViewController {
             default:
                 loadDetailQuestion(key)
             }
-        } //포지션정하고난뒤 -> 각키로 돌아가는 상황[기존키 + 태그]
+        }
+        
+        //포지션이 정해지는순간-> 각 포지션에 맞는 질문지로 점프 [포지션]
         if currentQIndex == 3 {
             switch heroScore {
             case 0...1:
@@ -570,17 +543,21 @@ class FirstTestViewController: UIViewController {
                 
             default: break
             }
-        }//포지션이 정해지는순간-> 각포지션에 맞는 질문지 [포지션]
+        }
+        //포지션 정하기전까지 점수 합산
         if currentQIndex < 3 {
             let positionKey = "main" + String(currentQIndex)
             loadDetailQuestion(positionKey)
-            //포지션 정하기전까지
+           
         }
     }
     
+    //스타트버튼
     @objc private func buttonTapped() {
         setupView()
     }
+    
+    //공유 버튼
     @objc func shareButtonTapped() {
         // 공유할 내용 준비
         let renderer = UIGraphicsImageRenderer(bounds: view.bounds)
@@ -593,6 +570,8 @@ class FirstTestViewController: UIViewController {
            let activityViewController = UIActivityViewController(activityItems: [snapshot], applicationActivities: nil)
            present(activityViewController, animated: true, completion: nil)
     }
+    
+    //영웅 페이지 이동
     @objc func logoTapped(_ heroName: String) {
     let urlString = "https://overwatch.blizzard.com/ko-kr/heroes/\(heroName)"
         guard let url = URL(string: urlString) else { return }

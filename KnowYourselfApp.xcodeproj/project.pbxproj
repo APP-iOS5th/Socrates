@@ -36,6 +36,7 @@
 		8F6658382C182F5500E48716 /* QModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6658372C182F5500E48716 /* QModelData.swift */; };
 		8F8D55A92C1979A000363859 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F8D55A82C1979A000363859 /* Assets.xcassets */; };
 		8F8D55AE2C198DD400363859 /* DinnerGenieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8D55AC2C198DD400363859 /* DinnerGenieModel.swift */; };
+		8F8D55B42C1B561900363859 /* QViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8D55B32C1B561900363859 /* QViewModel.swift */; };
 		8FB618A62C09D123005E856B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618A52C09D123005E856B /* SceneDelegate.swift */; };
 		8FB618C82C09D1E3005E856B /* FirstTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618B72C09D1E2005E856B /* FirstTestModel.swift */; };
 		8FB618C92C09D1E3005E856B /* FourthTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618B82C09D1E2005E856B /* FourthTestModel.swift */; };
@@ -79,6 +80,7 @@
 		8F6658372C182F5500E48716 /* QModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QModelData.swift; sourceTree = "<group>"; };
 		8F8D55A82C1979A000363859 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8F8D55AC2C198DD400363859 /* DinnerGenieModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DinnerGenieModel.swift; sourceTree = "<group>"; };
+		8F8D55B32C1B561900363859 /* QViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QViewModel.swift; sourceTree = "<group>"; };
 		8FB618A02C09D123005E856B /* KnowYourselfApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnowYourselfApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FB618A52C09D123005E856B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8FB618B12C09D124005E856B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -261,6 +263,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		8F8D55B22C1B55FD00363859 /* QViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8F8D55B32C1B561900363859 /* QViewModel.swift */,
+			);
+			path = QViewModel;
+			sourceTree = "<group>";
+		};
 		8FB618972C09D123005E856B = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +365,7 @@
 		8FB618DA2C0D782E005E856B /* OverwatchTest */ = {
 			isa = PBXGroup;
 			children = (
+				8F8D55B22C1B55FD00363859 /* QViewModel */,
 				8F6658392C1876EB00E48716 /* View */,
 				8FB618DF2C168320005E856B /* Model */,
 			);
@@ -490,6 +501,7 @@
 				8FB618C92C09D1E3005E856B /* FourthTestModel.swift in Sources */,
 				8FB618CA2C09D1E3005E856B /* secondTestModel.swift in Sources */,
 				04F0A74B2C1818F100F668FD /* ETQuizViewModel.swift in Sources */,
+				8F8D55B42C1B561900363859 /* QViewModel.swift in Sources */,
 				8FB618D02C09D1E3005E856B /* MainTableViewCell.swift in Sources */,
 				04F0A74F2C1819FC00F668FD /* ETResultViewController.swift in Sources */,
 				040292802C0DA275009F1102 /* TtestModel.swift in Sources */,

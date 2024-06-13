@@ -245,6 +245,9 @@ class ETTestViewController: UIViewController {
     // 정답체크
     private func checkAnswer() {
         guard let answer = answerTextField.text, !answer.isEmpty else { return }
+        
+        answerTextField.resignFirstResponder()
+        
         let isCorrect = viewModel.checkAnswer(answer)
         answerLabel.text = isCorrect ? "정답입니다!" : "틀렸습니다. 정답: \(viewModel.currentQuiz.answer)"
         answerLabel.textColor = isCorrect ? .systemGreen : .systemRed
@@ -253,6 +256,8 @@ class ETTestViewController: UIViewController {
     
     // 다음질문
     private func nextQuiz() {
+        answerTextField.resignFirstResponder()
+        
         viewModel.nextQuiz()
         if viewModel.isQuizCompleted {
             let viewControllerToPresent = ETResultViewController()

@@ -34,16 +34,16 @@
 
 - **이름**: 김형준(팀장)
   - **역할**: 오버워치 테스트
-  - **GitHub**: [github.com/honggildong](https://github.com/sven-kor)
+  - **GitHub**: [github.com/sven-kor](https://github.com/sven-kor)
 - **이름**: 김성국
   - **역할**: T발력 테스트, Entertainment Game
-  - **GitHub**: [github.com/honggildong](https://github.com/SeongKookKIM)
-- **이름**: 김형준
+  - **GitHub**: [github.com/SeongKookKIM](https://github.com/SeongKookKIM)
+- **이름**: 이서경
   - **역할**: 앱스쿨 유형 테스트
-  - **GitHub**: [github.com/honggildong](https://github.com/seokyung402)
+  - **GitHub**: [github.com/seokyung402](https://github.com/seokyung402)
 - **이름**: 김소희
   - **역할**: 저녁메뉴 추천 테스트
-  - **GitHub**: [github.com/honggildong](https://github.com/s2ee)
+  - **GitHub**: [github.com/s2ee](https://github.com/s2ee)
 
 <br>
 
@@ -179,7 +179,7 @@ T Test는 현대 사회에서 T에 대한 부정적인 인식을 유머러스하
 <hr>
 <!-- 소희님 -->
 
-### - 소희님
+### - 저녁메뉴 추천
 
 <br>
 

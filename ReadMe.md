@@ -125,7 +125,7 @@ T Test는 현대 사회에서 T에 대한 부정적인 인식을 유머러스하
 <br>
 
 <p align="center">
-  <img src="https://storage.googleapis.com/socrates-image/AppSchool.png" alt="Img" width="200">
+  <img src="https://storage.googleapis.com/socrates-image/appschool.webp" alt="Img" width="200">
 </p>
 
 <br>

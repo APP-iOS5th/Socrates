@@ -8,7 +8,7 @@
 import UIKit
 import Photos
 
-class ImageSave: NSObject {
+class SavePNG: NSObject {
 
     private var isPermissionDenied = false
     private var imageSavedHandler: (() -> Void)?

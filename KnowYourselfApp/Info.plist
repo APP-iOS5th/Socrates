@@ -5,6 +5,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>HakgyoansimDoldamM.ttf</string>
+		<string>MangoByeolbyeol.otf</string>
 		<string>Pretendard-SemiBold.otf</string>
 	</array>
 	<key>NSPhotoLibraryAddUsageDescription</key>

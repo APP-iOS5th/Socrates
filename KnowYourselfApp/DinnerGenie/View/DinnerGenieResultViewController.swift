@@ -46,7 +46,7 @@ class DinnerGenieResultViewController: UIViewController {
     private let reRecommendButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("재추천", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Pretendard-SemiBold", size: 15)
+        button.titleLabel?.font = UIFont(name: "MangoByeolbyeol", size: 15)
         button.setTitleColor(.black, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.borderWidth = 2

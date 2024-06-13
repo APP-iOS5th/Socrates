@@ -30,7 +30,7 @@ class DinnerGenieTestViewController: UIViewController {
     private let yesButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("O", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Pretendard-SemiBold", size: 20)
+        button.titleLabel?.font = UIFont(name: "MangoByeolbyeol", size: 20)
         button.setTitleColor(.black, for: .normal)
         button.layer.borderWidth = 2
         button.layer.cornerRadius = 8
@@ -41,7 +41,7 @@ class DinnerGenieTestViewController: UIViewController {
     private let noButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("X", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Pretendard-SemiBold", size: 20)
+        button.titleLabel?.font = UIFont(name: "MangoByeolbyeol", size: 20)
         button.setTitleColor(.black, for: .normal)
         button.layer.borderWidth = 2
         button.layer.cornerRadius = 8

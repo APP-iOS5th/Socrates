@@ -29,6 +29,7 @@
 		8D1022362C196CCC0071EE94 /* DinnerGenieTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1022302C196CCC0071EE94 /* DinnerGenieTestViewController.swift */; };
 		8D1022372C196CCC0071EE94 /* DinnerGenieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1022322C196CCC0071EE94 /* DinnerGenieViewModel.swift */; };
 		8D10223D2C196E7C0071EE94 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D10223A2C196E7C0071EE94 /* Pretendard-SemiBold.otf */; };
+		8D10223F2C1A7B690071EE94 /* MangoByeolbyeol.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D10223E2C1A7B690071EE94 /* MangoByeolbyeol.otf */; };
 		8F6658382C182F5500E48716 /* QModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6658372C182F5500E48716 /* QModelData.swift */; };
 		8F8D55A92C1979A000363859 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F8D55A82C1979A000363859 /* Assets.xcassets */; };
 		8F8D55AE2C198DD400363859 /* DinnerGenieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8D55AC2C198DD400363859 /* DinnerGenieModel.swift */; };
@@ -68,6 +69,7 @@
 		8D1022302C196CCC0071EE94 /* DinnerGenieTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DinnerGenieTestViewController.swift; sourceTree = "<group>"; };
 		8D1022322C196CCC0071EE94 /* DinnerGenieViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DinnerGenieViewModel.swift; sourceTree = "<group>"; };
 		8D10223A2C196E7C0071EE94 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		8D10223E2C1A7B690071EE94 /* MangoByeolbyeol.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MangoByeolbyeol.otf; sourceTree = "<group>"; };
 		8F6658372C182F5500E48716 /* QModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QModelData.swift; sourceTree = "<group>"; };
 		8F8D55A82C1979A000363859 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8F8D55AC2C198DD400363859 /* DinnerGenieModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DinnerGenieModel.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 		8D10223B2C196E7C0071EE94 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				8D10223E2C1A7B690071EE94 /* MangoByeolbyeol.otf */,
 				8D10223A2C196E7C0071EE94 /* Pretendard-SemiBold.otf */,
 			);
 			path = Font;
@@ -277,7 +280,6 @@
 				8FB618DA2C0D782E005E856B /* OverwatchTest */,
 				8FB618DC2C0D7834005E856B /* GuessWho */,
 				8FB618DB2C0D7831005E856B /* DinnerGenie */,
-				8D10223B2C196E7C0071EE94 /* Font */,
 				8FB618B12C09D124005E856B /* Info.plist */,
 				8F8D55A82C1979A000363859 /* Assets.xcassets */,
 			);
@@ -355,6 +357,7 @@
 		8FB618DB2C0D7831005E856B /* DinnerGenie */ = {
 			isa = PBXGroup;
 			children = (
+				8D10223B2C196E7C0071EE94 /* Font */,
 				8F8D55AD2C198DD400363859 /* Model */,
 				8D1022312C196CCC0071EE94 /* View */,
 				8D1022332C196CCC0071EE94 /* ViewModel */,
@@ -441,6 +444,7 @@
 			files = (
 				8D10223D2C196E7C0071EE94 /* Pretendard-SemiBold.otf in Resources */,
 				8F8D55A92C1979A000363859 /* Assets.xcassets in Resources */,
+				8D10223F2C1A7B690071EE94 /* MangoByeolbyeol.otf in Resources */,
 				758C780A2C19877B004D853A /* HakgyoansimDoldamM.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

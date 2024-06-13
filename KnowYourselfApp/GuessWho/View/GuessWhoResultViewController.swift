@@ -1,5 +1,9 @@
-// GuessWhoResultViewController.swift
-// KnowYourselfApp
+//
+//  GuessWhoResultViewController.swift
+//  KnowYourselfApp
+//
+//  Created by seokyung on 6/4/24.
+//
 
 import UIKit
 
@@ -10,19 +14,18 @@ class GuessWhoResultViewController: UIViewController {
     let urLabel = UILabel()
     var resultText: String?
     var resultImageName: String?
-    let retryButton = UIButton()
-    let shareBtn = UIButton()
-    let saveBtn = UIButton()
+    let retryButton = UIButton(type: .system)
+    let shareBtn = UIButton(type: .system)
+    let saveBtn = UIButton(type: .system)
     let resultImageView = UIImageView()
     let backgroundImageView = UIImageView()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        handlerSaveImage()
-        handlerShareImage()
+        setupActions()
     }
-
+    
     private func setupUI() {
         backgroundImageView.image = UIImage(named: "GuessWhoBG")
         backgroundImageView.contentMode = .scaleAspectFill
@@ -30,11 +33,11 @@ class GuessWhoResultViewController: UIViewController {
         view.addSubview(backgroundImageView)
         view.sendSubviewToBack(backgroundImageView)
         
-        urLabel.font = UIFont(name: "HakgyoansimDoldamM", size: 23)
+        urLabel.font = UIFont(name: "HakgyoansimDoldamB", size: 23)
         urLabel.text = "당신은"
         urLabel.textColor = .white
         resultLabel.text = resultText
-        resultLabel.font = UIFont(name: "HakgyoansimDoldamM", size: 35)
+        resultLabel.font = UIFont(name: "HakgyoansimDoldamB", size: 35)
         resultLabel.textColor = .white
         
         resultLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -48,41 +51,23 @@ class GuessWhoResultViewController: UIViewController {
         resultImageView.contentMode = .scaleAspectFit
         view.addSubview(resultImageView)
         
-        retryButton.setTitle("다시하기", for: .normal)
-        retryButton.setTitleColor(.white, for: .normal)
-        retryButton.backgroundColor = .black
-        retryButton.layer.cornerRadius = 8
-        retryButton.titleLabel?.font = UIFont(name: "HakgyoansimDoldamM", size: 20)
-        retryButton.translatesAutoresizingMaskIntoConstraints = false
-        retryButton.addTarget(self, action: #selector(retryQuiz), for: .touchUpInside)
-        
-        shareBtn.setTitle("공유", for: .normal)
-        shareBtn.setTitleColor(.white, for: .normal)
-        shareBtn.backgroundColor = .black
-        shareBtn.layer.cornerRadius = 8
-        shareBtn.titleLabel?.font = UIFont(name: "HakgyoansimDoldamM", size: 20)
-        shareBtn.translatesAutoresizingMaskIntoConstraints = false
-        
-        saveBtn.setTitle("저장", for: .normal)
-        saveBtn.setTitleColor(.white, for: .normal)
-        saveBtn.backgroundColor = .black
-        saveBtn.layer.cornerRadius = 8
-        saveBtn.titleLabel?.font = UIFont(name: "HakgyoansimDoldamM", size: 20)
-        saveBtn.translatesAutoresizingMaskIntoConstraints = false
+        setupButton(retryButton, title: "다시하기")
+        setupButton(shareBtn, title: "공유")
+        setupButton(saveBtn, title: "저장")
         
         view.addSubview(retryButton)
         view.addSubview(shareBtn)
         view.addSubview(saveBtn)
         view.backgroundColor = .white
-
+        
         NSLayoutConstraint.activate([
-            backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
-            backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgroundImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            backgroundImageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            backgroundImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            backgroundImageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             
             urLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            urLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+            urLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
             
             resultLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             resultLabel.topAnchor.constraint(equalTo: urLabel.bottomAnchor, constant: 20),
@@ -109,8 +94,18 @@ class GuessWhoResultViewController: UIViewController {
         ])
     }
     
-    // 이미지 저장
-    private func handlerSaveImage() {
+    private func setupButton(_ button: UIButton, title: String) {
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 8
+        button.titleLabel?.font = UIFont(name: "HakgyoansimDoldamB", size: 20)
+        button.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func setupActions() {
+        retryButton.addTarget(self, action: #selector(retryQuiz), for: .touchUpInside)
+        
         saveBtn.addAction(UIAction { [weak self] _ in
             guard let self = self else { return }
             if let capturedImage = self.captureView() {
@@ -121,10 +116,7 @@ class GuessWhoResultViewController: UIViewController {
                 })
             }
         }, for: .touchUpInside)
-    }
-    
-    // 이미지 공유하기
-    private func handlerShareImage() {
+        
         shareBtn.addAction(UIAction { [weak self] _ in
             guard let self = self else { return }
             if let capturedImage = self.captureView() {
@@ -133,7 +125,7 @@ class GuessWhoResultViewController: UIViewController {
             }
         }, for: .touchUpInside)
     }
-
+    
     // 뷰 캡쳐하기
     private func captureView() -> UIImage? {
         let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
@@ -141,7 +133,7 @@ class GuessWhoResultViewController: UIViewController {
             view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
         }
     }
-
+    
     @objc private func retryQuiz() {
         if let navigationController = navigationController {
             let mainViewController = MainViewController()

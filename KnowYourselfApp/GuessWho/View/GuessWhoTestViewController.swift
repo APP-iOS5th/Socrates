@@ -1,8 +1,9 @@
 //
-//  ThirdTestViewController.swift
-//  Know Yourself
+//  GuessWhoViewController.swift
+//  KnowYourselfApp
 //
 //  Created by 김형준 on 5/31/24.
+//  Created by seokyung on 6/11/24.
 //
 
 import UIKit
@@ -16,10 +17,10 @@ class GuessWhoViewController: UIViewController {
     let threeButton = UIButton(type: .system)
     let backButton = UIButton(type: .system)
     let nextButton = UIButton(type: .system)
-    let progressView = ProgressView()
+    let progressView = UIProgressView(progressViewStyle: .default)
     let backgroundImageView = UIImageView()
     let questionBackgroundImageView = UIImageView()
-
+    
     init(quizList: [QuizModel]) {
         super.init(nibName: nil, bundle: nil)
         self.viewModel = GuessViewModel(quizList: quizList)
@@ -41,11 +42,13 @@ class GuessWhoViewController: UIViewController {
         
         questionBackgroundImageView.image = UIImage(named: "chalkboard")
         questionBackgroundImageView.contentMode = .scaleAspectFill
-        questionBackgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+        
         
         backgroundImageView.image = UIImage(named: "GuessWhoBG")
         backgroundImageView.contentMode = .scaleAspectFill
-        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        progressView.progressTintColor = .yellow
+        progressView.trackTintColor = .white
         
         questionText.numberOfLines = 2
         questionText.textAlignment = .center
@@ -96,6 +99,7 @@ class GuessWhoViewController: UIViewController {
     }
     
     private func setupConstraints() {
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
         progressView.translatesAutoresizingMaskIntoConstraints = false
         questionText.translatesAutoresizingMaskIntoConstraints = false
         oneButton.translatesAutoresizingMaskIntoConstraints = false
@@ -175,7 +179,7 @@ class GuessWhoViewController: UIViewController {
         
         backButton.isHidden = viewModel.currentQuizNo == 0
         nextButton.setTitle(viewModel.isLastQuestion ? "결과보기" : "다음", for: .normal)
-        progressView.setProgress(viewModel.progress)
+        progressView.setProgress(viewModel.progress, animated: true)
     }
     
     @objc private func answerButtonTapped(_ sender: UIButton) {
@@ -205,12 +209,11 @@ class GuessWhoViewController: UIViewController {
             loadQuestion()
         } else {
             let alert = UIAlertController(title: "선택지를 골라주세요!", message: nil, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+            let okAction = UIAlertAction(title: "확인", style:.default, handler: nil)
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         }
     }
-    
     @objc private func backButtonTap() {
         viewModel.moveToPreviousQuestion()
         loadQuestion()
@@ -219,7 +222,7 @@ class GuessWhoViewController: UIViewController {
     private func showResult() {
         let resultView = GuessWhoResultViewController()
         if let result = viewModel.getResult() {
-            resultView.resultText =  result.name
+            resultView.resultText = result.name
             resultView.resultImageName = result.imageName
         } else {
             resultView.resultText = "독보적입니다"

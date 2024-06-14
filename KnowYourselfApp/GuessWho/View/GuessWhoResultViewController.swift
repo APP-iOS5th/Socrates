@@ -29,9 +29,6 @@ class GuessWhoResultViewController: UIViewController {
     private func setupUI() {
         backgroundImageView.image = UIImage(named: "GuessWhoBG")
         backgroundImageView.contentMode = .scaleAspectFill
-        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(backgroundImageView)
-        view.sendSubviewToBack(backgroundImageView)
         
         urLabel.font = UIFont(name: "HakgyoansimDoldamB", size: 23)
         urLabel.text = "당신은"
@@ -40,21 +37,23 @@ class GuessWhoResultViewController: UIViewController {
         resultLabel.font = UIFont(name: "HakgyoansimDoldamB", size: 35)
         resultLabel.textColor = .white
         
-        resultLabel.translatesAutoresizingMaskIntoConstraints = false
-        urLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addSubview(urLabel)
-        view.addSubview(resultLabel)
-        
         resultImageView.image = UIImage(named: resultImageName ?? "")
-        resultImageView.translatesAutoresizingMaskIntoConstraints = false
         resultImageView.contentMode = .scaleAspectFit
-        view.addSubview(resultImageView)
         
         setupButton(retryButton, title: "다시하기")
         setupButton(shareBtn, title: "공유")
         setupButton(saveBtn, title: "저장")
         
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+        resultLabel.translatesAutoresizingMaskIntoConstraints = false
+        urLabel.translatesAutoresizingMaskIntoConstraints = false
+        resultImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(resultImageView)
+        view.addSubview(backgroundImageView)
+        view.sendSubviewToBack(backgroundImageView)
+        view.addSubview(urLabel)
+        view.addSubview(resultLabel)
         view.addSubview(retryButton)
         view.addSubview(shareBtn)
         view.addSubview(saveBtn)

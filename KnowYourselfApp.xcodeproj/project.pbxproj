@@ -37,10 +37,6 @@
 		8F8D55A92C1979A000363859 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F8D55A82C1979A000363859 /* Assets.xcassets */; };
 		8F8D55AE2C198DD400363859 /* DinnerGenieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8D55AC2C198DD400363859 /* DinnerGenieModel.swift */; };
 		8FB618A62C09D123005E856B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618A52C09D123005E856B /* SceneDelegate.swift */; };
-		8FB618C82C09D1E3005E856B /* FirstTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618B72C09D1E2005E856B /* FirstTestModel.swift */; };
-		8FB618C92C09D1E3005E856B /* FourthTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618B82C09D1E2005E856B /* FourthTestModel.swift */; };
-		8FB618CA2C09D1E3005E856B /* secondTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618B92C09D1E2005E856B /* secondTestModel.swift */; };
-		8FB618CB2C09D1E3005E856B /* ThirdTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618BA2C09D1E2005E856B /* ThirdTestModel.swift */; };
 		8FB618D02C09D1E3005E856B /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618C12C09D1E3005E856B /* MainTableViewCell.swift */; };
 		8FB618D12C09D1E3005E856B /* TBalTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618C22C09D1E3005E856B /* TBalTestViewController.swift */; };
 		8FB618D32C09D1E3005E856B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB618C42C09D1E3005E856B /* MainViewController.swift */; };
@@ -82,10 +78,6 @@
 		8FB618A02C09D123005E856B /* KnowYourselfApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnowYourselfApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FB618A52C09D123005E856B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8FB618B12C09D124005E856B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8FB618B72C09D1E2005E856B /* FirstTestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTestModel.swift; sourceTree = "<group>"; };
-		8FB618B82C09D1E2005E856B /* FourthTestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthTestModel.swift; sourceTree = "<group>"; };
-		8FB618B92C09D1E2005E856B /* secondTestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = secondTestModel.swift; sourceTree = "<group>"; };
-		8FB618BA2C09D1E2005E856B /* ThirdTestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdTestModel.swift; sourceTree = "<group>"; };
 		8FB618C12C09D1E3005E856B /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		8FB618C22C09D1E3005E856B /* TBalTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TBalTestViewController.swift; sourceTree = "<group>"; };
 		8FB618C42C09D1E3005E856B /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -293,17 +285,6 @@
 			path = KnowYourselfApp;
 			sourceTree = "<group>";
 		};
-		8FB618BB2C09D1E2005E856B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				8FB618B72C09D1E2005E856B /* FirstTestModel.swift */,
-				8FB618B82C09D1E2005E856B /* FourthTestModel.swift */,
-				8FB618B92C09D1E2005E856B /* secondTestModel.swift */,
-				8FB618BA2C09D1E2005E856B /* ThirdTestModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		8FB618C72C09D1E3005E856B /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,7 +307,6 @@
 			isa = PBXGroup;
 			children = (
 				8FB618C72C09D1E3005E856B /* View */,
-				8FB618BB2C09D1E2005E856B /* Model */,
 				8FB618D82C0D77F1005E856B /* Cell */,
 			);
 			path = Main;
@@ -477,18 +457,14 @@
 				04F0A73E2C18178C00F668FD /* SplashViewController.swift in Sources */,
 				758C780E2C1AB0DD004D853A /* SaveJpeg.swift in Sources */,
 				8FB618D12C09D1E3005E856B /* TBalTestViewController.swift in Sources */,
-				8FB618CB2C09D1E3005E856B /* ThirdTestModel.swift in Sources */,
 				8F6658382C182F5500E48716 /* QModelData.swift in Sources */,
 				758C780C2C1AA0CA004D853A /* SavePNG.swift in Sources */,
-				8FB618C82C09D1E3005E856B /* FirstTestModel.swift in Sources */,
 				8FB618D52C09D1E3005E856B /* GuessWhoTestViewController.swift in Sources */,
 				04F0A7472C18187000F668FD /* EntertainmentModel.swift in Sources */,
 				8FB618D42C09D1E3005E856B /* OverwatchTestViewController.swift in Sources */,
 				75DF685F2C1880D9005A3C83 /* GuessWhoProgessView.swift in Sources */,
 				75BE85262C0EFD3F00CFB813 /* QuizModel.swift in Sources */,
 				04F0A74D2C18199000F668FD /* ETTestViewController.swift in Sources */,
-				8FB618C92C09D1E3005E856B /* FourthTestModel.swift in Sources */,
-				8FB618CA2C09D1E3005E856B /* secondTestModel.swift in Sources */,
 				04F0A74B2C1818F100F668FD /* ETQuizViewModel.swift in Sources */,
 				8FB618D02C09D1E3005E856B /* MainTableViewCell.swift in Sources */,
 				04F0A74F2C1819FC00F668FD /* ETResultViewController.swift in Sources */,
